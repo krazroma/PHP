@@ -5,9 +5,9 @@
     <title></title>
   </head>
   <body>
-    <form>
-    <input type="text"> <br />
-    <input type="text">  
+    <form method="get" action="">
+    <input type="text" name="first"> <br />
+    <input type="text" name="last">  
     </form>
   </body>
 </html>
