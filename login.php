@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <?php
-    $urername = $_GET['username'];
+    $username = $_GET['username'];
     $password = $_GET['password'];
   ?>
 
