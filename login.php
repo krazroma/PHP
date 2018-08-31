@@ -1,3 +1,5 @@
+<?php seeion_start() ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
