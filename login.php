@@ -7,8 +7,8 @@
     <title></title>
   </head>
   <?php
-    $username = $_GET['username'];
-    $password = $_GET['password'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
     if (isset($_POST['logout'])){
       unset($_SESSION['username']);
