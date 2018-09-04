@@ -9,6 +9,10 @@
   <?php
     $username = $_GET['username'];
     $password = $_GET['password'];
+
+    if (isset($_POST['logout'])){
+      unset($_SESSION['username']);
+    }
   ?>
 
   <body>
