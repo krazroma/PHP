@@ -34,11 +34,9 @@
       if ($username == "matthew" && $password == "password")
       {
         $_SESSION['username'] = $username;
+        echo "Logged in as: " . $_SESSION['username'];
       }
     }
-
-    echo "Logged in as: " . $_SESSION['username'];
-
     ?>
 
   </body>
