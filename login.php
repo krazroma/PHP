@@ -16,7 +16,7 @@
   ?>
 
   <body>
-    <form method="get" action="">
+    <form method="post" action="">
       <input type="text" name="username" placeholder="Enter Username"> <br />
       <input type="password" name="password">
       <br>
