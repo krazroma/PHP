@@ -17,6 +17,8 @@
       <input type="password" name="password">
       <br>
       <input type="submit" value="go">
+      <br>
+      <input type="submit" name="logout" value="logout">
     </form>
 
     <?php
