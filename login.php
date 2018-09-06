@@ -50,7 +50,7 @@ if (isset($_POST['username'])
     </form>
 
     <?php
-      echo "Logged in as: " . $_SESSION['username'];    }
+      echo "Logged in as: " . $_SESSION['username'];
 
       //if (isset($username) && isset($password))
       //{
