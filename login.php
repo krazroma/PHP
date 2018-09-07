@@ -18,10 +18,9 @@ if (isset($_POST['username']))
     if ($username == $row['username'] && $password == $row['password'])
     {
       $_SESSION['username'] = $username;
-    }
-  }
-}
-
+    } // closes if statement
+  } // closes while loop
+} // closes POST condition
 
 ?>
 
