@@ -4,9 +4,18 @@ if (!isset($_SESSION))
   session_start();
 }
 
-if (!isser($_SESSION['username']))
-// die("Don`t even think about it");
-header('login.php');
+if (!isset($_SESSION['username']))
+{
+  // die("Don`t even think about it");
+  header('login.php');
+}
+
+if (isset($_POST['upload']))
+{
+  $targer_dir = "uploads/";
+  $targer_file = $targer_dir . basename($_FILES['upload']['name']);
+  move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file);
+}
 ?>
 
 Upload your file.
