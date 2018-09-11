@@ -10,6 +10,8 @@ header('login.php');
 ?>
 
 Upload your file.
-<form action="" method="post">
+<form action="" method="post" >
   <input type="file" name="upload">
+  <br>
+  <input type="submit">
 </form>
