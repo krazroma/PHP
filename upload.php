@@ -10,9 +10,9 @@ if (!isset($_SESSION['username']))
   header('Location: login.php');
 }
 
-var_dump($_POST['upload']);
+/*var_dump($_POST['upload']);
 echo "<hr />";
-var_dump($_FILES['upload']);
+var_dump($_FILES['upload']);*/
 
 if ( isset($_FILES['upload']) )
 {
@@ -25,6 +25,6 @@ if ( isset($_FILES['upload']) )
 Upload your file.
 <form action="" method="post" enctype="multipart/form-data">
   <input type="file" name="upload">
-  <br>
+  <br />
   <input type="submit">
 </form>
