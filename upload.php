@@ -14,7 +14,7 @@ if (!isset($_SESSION['username']))
 echo "<hr />";
 var_dump($_FILES['upload']);*/
 
-if ( isset($_FILES['upload']) )
+if (isset($_FILES['upload']))
 {
   $targer_dir = "uploads/";
   $targer_file = $targer_dir . basename($_FILES['upload']['name']);
