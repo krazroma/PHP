@@ -39,6 +39,20 @@ if (isset($_POST['username']))
   ?>
 
   <body>
+
+    <a href="register.php">Register</a>
+
+  <?php
+
+    if(isset($_SESSION['username']))
+    {
+      echo "<a href=\"upload.php\"> | Upload</a>";
+    }
+  ?>
+
+    <br />
+
+
     <form method="post" action="">
       <input type="text" name="username" placeholder="Enter Username"> <br />
       <input type="password" name="password">
