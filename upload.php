@@ -27,7 +27,12 @@ if(file_exists($target_file))
   $ret = "Sorry file already exists";
 }
 
-
+if($_FILES['upload']['size']) > 2000)
+{
+  $uploadVerification = false;
+  $ret = "Sorry file is too big";
+}
+// check is file already exists
   if ($uploadVerification)
   {
     move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
