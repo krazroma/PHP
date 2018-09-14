@@ -20,6 +20,14 @@ if (isset($_FILES['upload']))
   $target_file = $target_dir . basename($_FILES['upload']['name']);
   $uploadVerification = true;
 
+// Lets check if the file already pcntl_wexitstatus
+if(file_exists($target_file))
+{
+  $uploadVerification = false;
+  $ret = "Sorry file already exists";
+}
+
+
   if ($uploadVerification)
   {
     move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
@@ -33,3 +41,7 @@ Upload your file.
   <br />
   <input type="submit">
 </form>
+
+<h5 style="color:red;">
+  <?php if ($ret) { echo $ret; } ?>
+</h5>
