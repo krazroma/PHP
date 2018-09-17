@@ -28,10 +28,34 @@ if(file_exists($target_file))
 }
 
 // check file for type
-$finfo = finfo_open(FILEINFO_MIME_TYPES);
-$file_type = finfo_file($finfo, $_FILES['upload']['tmp_file']);
-echo $file_type;
+// $finfo = finfo_open(FILEINFO_MIME_TYPES);
+// $file_type = finfo_file($finfo, $_FILES['upload']['tmp_file']);
+// echo $file_type;
 
+$file_type = $_FILES['upload']['type'];
+switch ($file_type)
+{
+  case 'image/jpeg':
+    $uploadVerification = true;
+    break;
+
+  case 'image/png':
+    $uploadVerification = true;
+    break;
+
+  case 'image/gif':
+    $uploadVerification = true;
+    break;
+
+  case 'application/pdf':
+    $uploadVerification = true;
+    break;
+
+  default:
+    $uploadVerification = false;
+    $ret = "Sorry only jpg, png, gif, and pdf files are allowed";
+    //break;
+}
 
 
 
