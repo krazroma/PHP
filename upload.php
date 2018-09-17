@@ -10,9 +10,9 @@ if (!isset($_SESSION['username']))
   header('Location: login.php');
 }
 
-var_dump($_POST['upload']);
-echo "<hr />";
-var_dump($_FILES['upload']);
+// var_dump($_POST['upload']);
+// echo "<hr />";
+// var_dump($_FILES['upload']);
 
 if (isset($_FILES['upload']))
 {
