@@ -27,7 +27,7 @@ if(file_exists($target_file))
   $ret = "Sorry file already exists";
 }
 
-if($_FILES['upload']['size']) > 200)
+if($_FILES['upload']['size']) > 1000000)
 {
   $uploadVerification = false;
   $ret = "Sorry file is too big";
