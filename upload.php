@@ -10,9 +10,9 @@ if (!isset($_SESSION['username']))
   header('Location: login.php');
 }
 
-/*var_dump($_POST['upload']);
+var_dump($_POST['upload']);
 echo "<hr />";
-var_dump($_FILES['upload']);*/
+var_dump($_FILES['upload']);
 
 if (isset($_FILES['upload']))
 {
@@ -27,7 +27,7 @@ if(file_exists($target_file))
   $ret = "Sorry file already exists";
 }
 
-if($_FILES['upload']['size']) > 2000)
+if($_FILES['upload']['size']) > 200)
 {
   $uploadVerification = false;
   $ret = "Sorry file is too big";
