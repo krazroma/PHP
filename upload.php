@@ -59,7 +59,7 @@ switch ($file_type)
 
 
 
-if($_FILES['upload']['size']) > 1000000)
+if($_FILES['upload']['size'] > 1000000)
 {
   $uploadVerification = false;
   $ret = "Sorry file is too big";
