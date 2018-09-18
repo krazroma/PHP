@@ -21,7 +21,7 @@ if (isset($_FILES['upload']))
   if(!file_exists("uploads"))
   {
     // if uploads folder does not exist create interface
-    mkdir("./uploads")
+    mkdir("./uploads");
   }
 
 
