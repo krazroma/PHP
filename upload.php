@@ -16,6 +16,15 @@ if (!isset($_SESSION['username']))
 
 if (isset($_FILES['upload']))
 {
+  // check to see if uploads folder file_exists
+  //if(file_exists("uploads") === false)
+  if(!file_exists("uploads"))
+  {
+    // if uploads folder does not exist create interface
+    mkdir("uploads/")
+  }
+
+
   $target_dir = "uploads/";
   $target_file = $target_dir . basename($_FILES['upload']['name']);
   $uploadVerification = true;
