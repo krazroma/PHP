@@ -21,7 +21,7 @@ require('dbconnection.php');
 $sql = "SELECT * from users";
 
 // execute the sql query
-$result = $conn -> query($sql);
+$result = $conn->query($sql);
 
 // close db connection
 $conn->close();
@@ -47,7 +47,7 @@ $conn->close();
 
       while($row = $result->fetch_assoc())
       {
-        echo "<tr>"
+        echo "<tr>";
           echo "<td>" . $row['userid'] . "</td>";
           echo "<td>" . $row['username'] . "</td>";
           echo "<td>" . $row['password'] . "</td>";
