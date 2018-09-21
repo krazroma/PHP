@@ -40,6 +40,8 @@ $conn->close();
         <th>User Id</th>
         <th>User Name</th>
         <th>Password Hash</th>
+        <th>Action</th>
+        </th>
       </tr>
 
       <?php
@@ -51,6 +53,7 @@ $conn->close();
           echo "<td>" . $row['userid'] . "</td>";
           echo "<td>" . $row['username'] . "</td>";
           echo "<td>" . $row['password'] . "</td>";
+          echo "<td>Delete</td>";
         echo "</tr>";
       }
 
