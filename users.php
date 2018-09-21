@@ -61,6 +61,7 @@ $conn->close();
                 </td>";
         ?>
 
+<!--Another way of doing php in html-->
         <td>
             <form action="" method="post">
               <input type="hidden" name="id" value=" <?php echo $row['userid']; ?> ">
