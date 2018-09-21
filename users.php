@@ -55,15 +55,23 @@ $conn->close();
           echo "<td>" . $row['password'] . "</td>";
           echo "<td>
                   <form action=\"\" method=\"post\">
-                    <input type=\"text\" value=\"$row[userid]\">
+                    <input name=\"id\" type=\"hidden\" value=\"" . $row['userid'] . "\">
                     <input type=\"submit\" value=\"delete\">
                   </form>
                 </td>";
-        echo "</tr>";
-      }
+        ?>
 
-       ?>
+        <td>
+            <form action="" method="post">
+              <input type="hidden" name="id" value=" <?php echo $row['userid']; ?> ">
+              <input type="submit" value="delete">
+            </form>
+        </td>
 
+        <?php
+              echo "</tr>";
+        }
+        ?>
     </table>
   </body>
 </html>
