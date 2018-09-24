@@ -78,7 +78,7 @@ $conn->close();
         <?php
               echo "</tr>";
         }
-        ?>
+        ?> -->
     </table>
   </body>
 </html>
