@@ -17,6 +17,12 @@ if (!isset($_SESSION['username']))
 // bring in database connection
 require('dbconnection.php');
 
+if (isset($_POST['id']) && isset($_POST['delete']))
+{
+  $sql = "DELETE FROM users WHERE userid = " . $_POST['userid'];
+  $result = $conn->query($sql);
+}
+
 // create the sql query
 $sql = "SELECT * from users";
 
@@ -56,7 +62,7 @@ $conn->close();
           echo "<td>
                   <form action=\"\" method=\"post\">
                     <input name=\"id\" type=\"hidden\" value=\"" . $row['userid'] . "\">
-                    <input type=\"submit\" value=\"delete\">
+                    <input type=\"submit\" value=\"delete\" name=\"delete\">
                   </form>
                 </td>";
         ?>
@@ -65,7 +71,7 @@ $conn->close();
         <td>
             <form action="" method="post">
               <input type="hidden" name="id" value=" <?php echo $row['userid']; ?> ">
-              <input type="submit" value="delete">
+              <input type="submit" value="delete" name="delete">
             </form>
         </td>
 
