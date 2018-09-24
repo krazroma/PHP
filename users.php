@@ -71,14 +71,14 @@ $conn->close();
         <td>
             <form action="" method="post">
               <input type="hidden" name="id" value=" <?php echo $row['userid']; ?> ">
-              <input type="submit" value="delete" name="delete">
+              <input type="submit" value="delete" name="delete">-->
             </form>
         </td>
 
-        <!-- <?php
+       <?php
               echo "</tr>";
         }
-        ?> -->
+        ?>
     </table>
   </body>
 </html>
