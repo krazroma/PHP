@@ -19,7 +19,7 @@ require('dbconnection.php');
 
 if (isset($_POST['id']) && isset($_POST['delete']))
 {
-  $sql = "DELETE FROM users WHERE userid = " . $_POST['id'] . ";";
+  $sql = "DELETE FROM users WHERE userid = " . $_POST['id'];
   $result = $conn->query($sql);
 }
 
@@ -72,18 +72,7 @@ $conn->close();
                     <input type=\"submit\" value=\"delete\" name=\"delete\">
                   </form>
                 </td>";
-        ?>
-
-<!--Another way of doing php in html
-        <td>
-            <form action="" method="post">
-              <input type="hidden" name="id" value=" <?php echo $row['userid']; ?> ">
-              <input type="submit" value="delete" name="delete">-->
-            </form>
-        </td>
-
-       <?php
-              echo "</tr>";
+        echo "</tr>";
         }
         ?>
     </table>
