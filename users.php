@@ -64,7 +64,7 @@ $conn->close();
                   <input type=\"hidden\" name=\"id\" value=\"" . $row['userid'] . "\">
                   <input type=\"submit\" value=\"edit\" name=\"edit\">
                 </form>
-                </td>;
+                </td>";
 
           echo "<td>
                   <form action=\"\" method=\"post\">
