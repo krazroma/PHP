@@ -39,7 +39,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
 {
   $username = $_POST['username'];
   $password = $_POST['password'];
-  $sql = "UPDATE users SET username='" . $_POST['username'] . "' WHERE userid= " . $_POST['id'];
+  $sql = "UPDATE users SET username='" . $_POST['username'] . "' WHERE userid= " . $_POST['userid'];
 
   $result = $conn->query($sql);
   if($result)
