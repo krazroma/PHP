@@ -19,7 +19,7 @@ if (isset($_GET['id']) && $_GET['edit']=="edit")
 
   while($row = $result->fetch_assoc())
   {
-    echo "<input name=\"userid\" type =\"text\" disabled value=\"" . $row['userid'] . "\">";
+    echo "<input name=\"userid\" type =\"text\" hidden value=\"" . $row['userid'] . "\">";
     echo "<br />";
     echo "<input name=\"username\" type =\"text\" value=\"" . $row['username'] . "\">";
     echo "<br />";
