@@ -37,8 +37,8 @@ else
 
 if(isset($_GET['username']) && isset($_GET['password']))
 {
-  $db_user = $_GET['username'];
-  $db_password = $_GET['password'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
   $sql = "UPDATE users SET password='$db_password' WHERE username='$db_user';";
   $result = $conn->query($sql);
   if($result)
