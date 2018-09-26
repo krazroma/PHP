@@ -39,7 +39,7 @@ if(isset($_GET['username']) && isset($_GET['password']))
 {
   $username = $_GET['username'];
   $password = $_GET['password'];
-  $sql = "UPDATE users SET password='$db_password' WHERE username='$db_user';";
+  $sql = "UPDATE users SET username='$username' WHERE userid = " . $_POST['id'];
   $result = $conn->query($sql);
   if($result)
   {
