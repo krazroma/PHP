@@ -44,10 +44,12 @@ if(isset($_GET['username']) && isset($_GET['password']))
   if($result)
   {
     $msg = "Updated Sussecfully";
+    echo "$msg";
   }
   else
   {
     $msg = "Error Updating";
+    echo "$msg";
   }
 
 }
