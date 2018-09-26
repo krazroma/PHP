@@ -35,10 +35,10 @@ else
   echo "You should not be here.";
 }
 
-if(isset($_GET['username']) && isset($_GET['password']))
+if(isset($_POST['username']) && isset($_POST['password']))
 {
-  $username = $_GET['username'];
-  $password = $_GET['password'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
   $sql = "UPDATE users SET username='" . $_POST['username'] . "' WHERE userid= " . $_POST['id'];
 
   $result = $conn->query($sql);
