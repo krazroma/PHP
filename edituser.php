@@ -35,4 +35,19 @@ else
   echo "You should not be here.";
 }
 
+if(isset($_GET['username']) && $_GET['password']))
+{
+  $sql = "UPDATE users SET password='$db_password' WHERE username='$db_user';";
+  $result = $conn->query($sql);
+  if($result)
+  {
+    $msg = "Updated Sussecfully";
+  }
+  else
+  {
+    $msg = "Error Updating";
+  }
+
+}
+
  ?>
