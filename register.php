@@ -4,9 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   require('dbconnection.php');
   $username = $_POST['username'];
   $password = $_POST['password'];
-  $password =password_hash($password, PASSWORD_BCRYPT);
-
-
+  $password = password_hash($password, PASSWORD_BCRYT)
   $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
   $conn->query($sql);
 }
