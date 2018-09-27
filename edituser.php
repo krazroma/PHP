@@ -1,13 +1,38 @@
 <?php
-      if (!isset($_SESSION))
-      {
-        session_start();
-      }
+if (!isset($_SESSION))
+{
+  session_start();
+}
 
-      if (!isset($_SESSION['username']))
-      {
-        header('Location: login.php');
-      }
+if (!isset($_SESSION['username']))
+{
+  header('Location: login.php');
+}
+
+// if (isset($_POST))
+if(isset($_POST['username']) && isset($_POST['password']))
+{
+  require('dbconnection.php');
+  //$userid = $_POST['userid'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  // $sql = "UPDATE users set username = \"$username\" WHERE userid = $userid";
+  $sql = "UPDATE users SET username='" . $_POST['username'] . "' WHERE userid= " . $_POST['userid'];
+
+  $result = $conn->query($sql);
+  if($result)
+  {
+    $msg = "Updated Sussecfully";
+    echo "$msg";
+  }
+  else
+  {
+    $msg = "Error Updating";
+    echo "$msg";
+  }
+  header('Location: users.php');
+}
+
 
 if (isset($_GET['id']) && $_GET['edit']=="edit")
 {
@@ -36,28 +61,4 @@ else
 {
   echo "You should not be here.";
 }
-
-// if (isset($_POST))
-if(isset($_POST['username']) && isset($_POST['password']))
-{
-  //require('dbconnection.php');
-  //$userid = $_POST['userid'];
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-  // $sql = "UPDATE users set username = \"$username\" WHERE userid = $userid";
-  $sql = "UPDATE users SET username='" . $_POST['username'] . "' WHERE userid= " . $_POST['userid'];
-
-  $result = $conn->query($sql);
-  if($result)
-  {
-    $msg = "Updated Sussecfully";
-    echo "$msg";
-  }
-  else
-  {
-    $msg = "Error Updating";
-    echo "$msg";
-  }
-}
-
  ?>
