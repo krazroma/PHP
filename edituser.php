@@ -9,25 +9,6 @@
         header('Location: login.php');
       }
 
-      if(isset($_POST['username']) && isset($_POST['password']))
-      {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $sql = "UPDATE users SET username='" . $_POST['username'] . "' WHERE userid= " . $_POST['userid'];
-
-        $result = $conn->query($sql);
-        if($result)
-        {
-          $msg = "Updated Sussecfully";
-          echo "$msg";
-        }
-        else
-        {
-          $msg = "Error Updating";
-          echo "$msg";
-        }
-      }
-
 if (isset($_GET['id']) && $_GET['edit']=="edit")
 {
   require('dbconnection.php'); // bring in database connection
@@ -38,8 +19,8 @@ if (isset($_GET['id']) && $_GET['edit']=="edit")
 
   while($row = $result->fetch_assoc())
   {
-    echo "<input name=\"userid\" type =\"text\" disabled value=\"" . $row['userid'] . "\">";
-    echo "<br />";
+    // echo "<input name=\"userid\" type =\"text\" disabled value=\"" . $row['userid'] . "\">";
+    // echo "<br />";
     echo "<input name=\"userid\" type =\"text\" hidden value=\"" . $row['userid'] . "\">";
     echo "<br />";
     echo "<input name=\"username\" type =\"text\" value=\"" . $row['username'] . "\">";
@@ -54,6 +35,25 @@ if (isset($_GET['id']) && $_GET['edit']=="edit")
 else
 {
   echo "You should not be here.";
+}
+
+if(isset($_POST['username']) && isset($_POST['password']))
+{
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $sql = "UPDATE users SET username='" . $_POST['username'] . "' WHERE userid= " . $_POST['userid'];
+
+  $result = $conn->query($sql);
+  if($result)
+  {
+    $msg = "Updated Sussecfully";
+    echo "$msg";
+  }
+  else
+  {
+    $msg = "Error Updating";
+    echo "$msg";
+  }
 }
 
  ?>
