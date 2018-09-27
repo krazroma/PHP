@@ -30,6 +30,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
     $msg = "Error Updating";
     echo "$msg";
   }
+  var_dump($result);
   header('Location: users.php');
 }
 
