@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('dbconnection.php');
-require('navigation.php');
+//require('navigation.php');
 
 if (isset($_POST['username']))
 {
