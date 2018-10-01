@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   </head>
   <body>
     <form method="post" action="">
-      <a href="login.php">Login</a>
+      <!-- <a href="login.php">Login</a> -->
       <br>
       <input type="text" name="username"> <br>
       <input type="password" name="password"> <br>
