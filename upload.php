@@ -10,6 +10,14 @@ if (!isset($_SESSION['username']))
   header('Location: login.php');
 }
 
+if (isset($_SESSION['username']))
+{
+  echo "<a href =\"register.php\"> Register</a>";
+  echo "<a href =\"login.php\"> | Login</a>";
+  echo "<a href =\"upload.php\"> | Upload</a>";
+  echo "<a href =\"users.php\"> | Users</a>";
+}
+
 // var_dump($_POST['upload']);
 // echo "<hr />";
 // var_dump($_FILES['upload']);

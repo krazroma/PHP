@@ -9,6 +9,14 @@ if (!isset($_SESSION['username']))
   header('Location: login.php');
 }
 
+if (isset($_SESSION['username']))
+{
+  echo "<a href =\"register.php\"> Register</a>";
+  echo "<a href =\"login.php\"> | Login</a>";
+  echo "<a href =\"upload.php\"> | Upload</a>";
+  echo "<a href =\"users.php\"> | Users</a>";
+}
+
 // if (isset($_POST))
 if(isset($_POST['username']) && isset($_POST['password']))
 {
