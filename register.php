@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   require('dbconnection.php');
   $username = $_POST['username'];
   $password = $_POST['password'];
-  $password = password_hash($password, PASSWORD_BCRYT)
+  $password = password_hash($password, PASSWORD_BCRYT);
   $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
   $conn->query($sql);
 }
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   </head>
   <body>
     <form method="post" action="">
-      <!-- <a href="login.php">Login</a> -->
+      <a href="login.php">Login</a>
       <br>
       <input type="text" name="username"> <br>
       <input type="password" name="password"> <br>
