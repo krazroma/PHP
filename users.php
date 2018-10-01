@@ -16,6 +16,7 @@ if (!isset($_SESSION['username']))
 
 // bring in database connection
 require('dbconnection.php');
+require('nav.php');
 
 if (isset($_POST['id']) && isset($_POST['delete']))
 {
