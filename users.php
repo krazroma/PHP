@@ -1,5 +1,8 @@
 <?php
 
+echo(basename($_server['php_self']) == "users.php") ? "<a href = users.php><strong>Users</string> : "<a href = users.php>Users</a>
+
+
 // check to see if session has started
 if (!isset($_SESSION))
 {
