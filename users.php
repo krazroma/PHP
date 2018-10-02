@@ -25,7 +25,7 @@ if (isset($_SESSION['username']))
   echo "<a href =\"register.php\"> Register</a>";
   echo "<a href =\"login.php\"> | Login</a>";
   echo "<a href =\"upload.php\"> | Upload</a>";
-  echo "<a href =\"users.php\"> | Users</a>";
+  echo "<a href =\"users.php\"> <strong>| Users</strong></a>";
 }
 
 if (isset($_POST['id']) && isset($_POST['delete']))
