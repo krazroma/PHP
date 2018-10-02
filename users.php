@@ -1,6 +1,6 @@
 <?php
 
-echo (basename($_server['PHP_self']) == "users.php") ? "<a href = users.php><strong>Users</strong> : "<a href = users.php>Users</a>;
+//echo (basename($_server['PHP_self']) == "users.php") ? "<a href = users.php><strong>Users</strong> : "<a href = users.php>Users</a>;
 
 
 // check to see if session has started
