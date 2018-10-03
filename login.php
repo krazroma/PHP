@@ -47,12 +47,12 @@ if (isset($_POST['username']))
 
     if(isset($_SESSION['username']))
     {
-      echo "<a href=\"upload.php\"> | Upload</a>";
+      echo "<a href=\"upload.php\"><strong>| Upload</strong></a>";
     }
 
     if(isset($_SESSION['username']))
     {
-      echo "<a href=\"users.php\"> | Users</a>";
+      echo "<a href=\"users.php\"><strong>| Users</strong></a>";
     }
   ?>
 
