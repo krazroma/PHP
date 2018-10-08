@@ -16,6 +16,12 @@ else {
   setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
 }
 
+if (isset($_COOKIE['last_visit']))
+{
+  $change = time () - $last_visit;
+  echo "$change";
+}
+
  ?>
 
 <!DOCTYPE html>
@@ -26,26 +32,10 @@ else {
   </head>
   <body>
     <h2>
-    <?php
-
-    echo $notification;
-
-
-    echo ($last_visit != "")? "<br /> Last Visit: " . $last_visit : "";
-      // if (isset($_COOKIE['user'])) {
-      //   echo "You have been here before.";
-      //   setcookie($cookie_name,$cookie_value, time() - (60), "/");
-      //   // going back in time, makes an expired cookie, which browser will delete
-      // }
-      // else {//make the cookie
-      //   echo "This is your first time here.";
-      //   setcookie($cookie_name,$cookie_value, time() + (86400*30), "/");
-
-      //setcookie($cookie_name,$cookie_value, time() + (86400*30), "/");
-      //php7 allows this go work, otherwise would have to be up to before any html code
-      //to see cookies in chrome-> settings to advanced settings to content settings to see all cookies
-      //}
-     ?>
-</h2>
+      <?php
+          echo $notification;
+          echo ($last_visit != "")? "<br /> Last Visit: " . $last_visit : "";
+       ?>
+    </h2>
   </body>
 </html>
