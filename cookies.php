@@ -18,8 +18,8 @@ else {
 
 if (isset($_COOKIE['last_visit']))
 {
-  $change = time () - $last_visit;
-  $visit_time = "Lat time you were here " . $change . " seconds ago";
+  $change = (time() + (86400 * 30)) - $last_visit;
+  $visit_time = "Last time you were here " . $change . " seconds ago";
 }
 
  ?>
