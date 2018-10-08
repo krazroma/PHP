@@ -18,7 +18,7 @@ else {
 
 if (isset($_COOKIE['last_visit']))
 {
-  $change = (time() - (86400 * 30)) - $last_visit;
+  $change = $last_visit - time();
   $visit_time = "Last time you were here " . $change . " seconds ago";
 }
 
