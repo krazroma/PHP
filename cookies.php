@@ -29,6 +29,8 @@ else {
     <h2>
     echo $notification;
     </h2>
+
+    ($last_visit)? echo "<br /> Last Visit: " . $last_visit : ;
       // if (isset($_COOKIE['user'])) {
       //   echo "You have been here before.";
       //   setcookie($cookie_name,$cookie_value, time() - (60), "/");
