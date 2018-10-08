@@ -25,10 +25,11 @@ else {
     <title></title>
   </head>
   <body>
-    <?php
     <h2>
+    <?php
+
     echo $notification;
-    </h2>
+
 
     echo ($last_visit != "")? "<br /> Last Visit: " . $last_visit : "";
       // if (isset($_COOKIE['user'])) {
@@ -45,22 +46,6 @@ else {
       //to see cookies in chrome-> settings to advanced settings to content settings to see all cookies
       //}
      ?>
-
+</h2>
   </body>
 </html>
-<!--
-  <?php
-  $cookie_name ="user";
-  $cookie_value = "".date('m-d-Y')."";
-
-  if (isset($_COOKIE[$cookie_name])){
-      echo "Your last visit was on:  " .$_COOKIE[$cookie_name];
-      $cookie_value = "".date('m-d-Y')."";
-      setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
-  }
-  else {
-    echo "This is your first time here. We are required to let you know that we use cookies.";
-    setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
-  }
-   ?>
- -->
