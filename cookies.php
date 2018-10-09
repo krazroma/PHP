@@ -36,7 +36,7 @@ else {
     <h2>
       <?php
           echo $notification;
-          echo ($last_visit != "")? "<br /> Last Visit: " . $last_visit : "";
+          echo ($last_visit != "") ? "<br /> Last Visit: " . $last_visit : "";
           //echo "<br />";
           //echo $visit_time;
           //var_dump($_COOKIE);
