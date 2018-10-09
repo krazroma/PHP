@@ -39,8 +39,8 @@ if (isset($_COOKIE['last_visit']))
       <?php
           echo $notification;
           echo ($last_visit != "")? "<br /> Last Visit: " . $last_visit : "";
-          echo $notification;
-          echo "<br /> " . time();
+          // echo $notification;
+          // echo "<br /> " . time();
           //echo "<br />";
           //echo $visit_time;
           //var_dump($_COOKIE);
