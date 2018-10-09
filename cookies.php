@@ -7,7 +7,7 @@ $cookie_value = date("l jS \of F Y h:i:s A");// l -day of the week
 
 if (isset($_COOKIE['last_visit']))
 {
-  echo "You were here last " .(time() - $_COOKIE['last_visit']). " seconds ago.";
+  $notification = "You were here last " .(time() - $_COOKIE['last_visit']). " seconds ago.";
   $cookie_value = time();
   setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
   // $notification = "You have been here within 30 days";
