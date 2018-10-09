@@ -19,12 +19,12 @@ else {
   setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
 }
 
-// if (isset($_COOKIE['last_visit']))
-// {
-//   echo "Last time you were here " . (time()- $_COOKIE[])$change . " seconds ago";
-//   $change = time() - $cookie_value;
-//   $visit_time = "Last time you were here " . $change . " seconds ago";
-// }
+if (isset($_COOKIE['last_visit']))
+{
+  echo "Last time you were here " . (time()- $last_visit) . " seconds ago";
+  // $change = time() - $cookie_value;
+  // $visit_time = "Last time you were here " . $change . " seconds ago";
+}
 
  ?>
 
