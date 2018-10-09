@@ -11,7 +11,7 @@ if (isset($_COOKIE['last_visit']))
   $cookie_value = time();
   setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
   // $notification = "You have been here within 30 days";
-  // $last_visit = $_COOKIE['last_visit'];
+  $last_visit = $_COOKIE['last_visit'];
 }
 else {
   $notification = "This is your first time here, or it`s been more than 30 days";
