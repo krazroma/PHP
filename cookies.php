@@ -51,7 +51,7 @@ else {
   <body>
     <h2>
       <?php
-          echo $notification;
+          //echo $notification;
           echo ($last_visit != "")? "<br /> Last Visit: " . (time() - $_COOKIE['last_visit']) : "";
           // echo $notification;
           // echo "<br /> " . time();
