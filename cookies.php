@@ -13,11 +13,11 @@ if (isset($_COOKIE['last_visit']))
   // $notification = "You have been here within 30 days";
   $last_visit = $_COOKIE['last_visit'];
 }
-else {
+else
+{
   $notification = "This is your first time here, or it`s been more than 30 days";
   $cookie_value = time();
   setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
-  // setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
 }
 
 
@@ -32,14 +32,6 @@ else {
  //   setcookie($cookie_name, $cookie_value, time() + (86400*30), "/");
  // }
 
-// if (isset($_COOKIE['last_visit']))
-// {
-//   $notification = "Last time you were here " . (time() - $_COOKIE['last_visit']) . " seconds ago";
-//   $cookie_value = time();
-//   // $change = time() - $cookie_value;
-//   // $visit_time = "Last time you were here " . $change . " seconds ago";
-// }
-
  ?>
 
 <!DOCTYPE html>
@@ -52,7 +44,7 @@ else {
     <h2>
       <?php
           //echo $notification;
-          echo ($last_visit != "")? "<br /> Last Visit: " . (time() - $_COOKIE['last_visit']) . " seconds ago.": "";
+          echo ($last_visit != "")? "Last Visit: " . (time() - $_COOKIE['last_visit']) . " seconds ago.": "";
           // echo $notification;
           // echo "<br /> " . time();
           //echo "<br />";
