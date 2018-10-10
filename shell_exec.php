@@ -8,9 +8,20 @@ $pwd = shell_exec('$pwd');
 echo "<pre>$pwd</pre>";
 
 
-$filename = '/test';
+//$filename = '/test';
 
-if (file_exists($filename))
+// if (file_exists($filename))
+// {
+//     echo "The file $filename exists";
+// }
+// else
+// {
+//     echo "The file $filename does not exist";
+// }
+
+$filename = 'test';
+
+if [-d /test]
 {
     echo "The file $filename exists";
 }
