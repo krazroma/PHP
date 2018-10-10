@@ -8,19 +8,36 @@ $pwd = shell_exec('$pwd');
 echo "<pre>$pwd</pre>";
 
 
-//$folder_test = file_exists("test");
+$file_test = file_exists("test");
 
+    if ($file_test)
+    {
+      $folder_test = is_dir("test");
+      if ($folder_test)
+      {
+        echo "test exists, and it is a folder";
+      }
+      else
+      {
+        echo "test exists and it is a file";
+      }
+    }
+    else
+    {
+      mkdir("test");
+    }
+//$folder_test = is_dir("test");
 
-$filename = 'test';
-
-if (file_exists($filename))
-{
-    echo "The file $filename exists";
-}
-else
-{
-    echo "The file $filename does not exist";
-}
+// $filename = 'test';
+//
+// if (file_exists($filename))
+// {
+//     echo "The file $filename exists";
+// }
+// else
+// {
+//     echo "The file $filename does not exist";
+// }
 
 // $dirname = $_POST["test"];
 // $filename = "/folder/" . $dirname . "/";
