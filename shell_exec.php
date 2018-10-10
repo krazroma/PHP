@@ -19,15 +19,16 @@ echo "<pre>$pwd</pre>";
 //     echo "The file $filename does not exist";
 // }
 
-$filename = 'test';
+$dirname = $_POST["test"];
+$filename = "/folder/" . $dirname . "/";
 
-if [-d /test]
-{
-    echo "The file $filename exists";
-}
-else
-{
-    echo "The file $filename does not exist";
+if (!file_exists($filename)) {
+    //mkdir("folder/" . $dirname, 0777);
+    //echo "The directory $dirname was successfully created.";
+    echo "The directory $dirname exists.";
+    exit;
+} else {
+    echo "The directory $dirname doesn`t exist.";
 }
 
  ?>
