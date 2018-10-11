@@ -16,6 +16,10 @@ $file_test = file_exists("test");
       if ($folder_test)
       {
         echo "test exists, and it is a folder";
+        $testArray = scandir("test/");
+        var_dump($testArray);
+        print_r($testArray);
+
       }
       else
       {
@@ -28,11 +32,7 @@ $file_test = file_exists("test");
     }
 
 
-$dir    = 'test';
-$files1 = scandir($dir);
-//$files2 = scandir($dir, 1);
 
-print_r($files1);
 //print_r($files2);
 
 // $filename = 'test';
