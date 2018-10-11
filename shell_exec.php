@@ -17,8 +17,16 @@ $file_test = file_exists("test");
       {
         echo "test exists, and it is a folder";
         $testArray = scandir("test/");
-        var_dump($testArray);
-        print_r($testArray);
+        // var_dump($testArray);
+        // print_r($testArray);
+        foreach ($testArray as $key => $value)
+        {
+          if($value == "." || $value == "..")
+          {
+            continue;
+          }
+          echo $value . "<br />";
+        }
 
       }
       else
