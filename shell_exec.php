@@ -42,8 +42,8 @@ $file_test = file_exists("test");
     $users = shell_exec('w');
     echo "<pre>$users</pre>";
 
-    parse_str($users, $output);
-echo $output['user'];  // value
+    parse_str($users);
+echo $users['user'];  // value
 
     // foreach ($users as $key => $value)
     // {
