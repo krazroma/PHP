@@ -44,7 +44,7 @@ $file_test = file_exists("test");
 
     foreach ($users as $key => $value)
     {
-      if($value == "user")
+      if($key == "user")
       {
         //echo "<pre>$users</pre>";
         echo $value . "<br />";
