@@ -47,7 +47,7 @@ $file_test = file_exists("test");
       if($key == "user")
       {
         //echo "<pre>$users</pre>";
-        echo $value . "<br />";
+        echo $key . "<br />";
       }
 
     }
