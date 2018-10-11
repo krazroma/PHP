@@ -39,7 +39,8 @@ $file_test = file_exists("test");
       mkdir("test");
     }
 
-
+    $users = shell_exec('w');
+    echo "<pre>$users</pre>";
 
 //print_r($files2);
 
