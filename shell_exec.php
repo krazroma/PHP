@@ -42,9 +42,10 @@ $file_test = file_exists("test");
     $users = shell_exec('w');
     echo "<pre>$users</pre>";
 
-    parse_str($users);
-echo $users['user'];  // value
+    parse_str("$users", $output);
+    echo $output['$users'];
 
+    // value
     // foreach ($users as $key => $value)
     // {
     //   if($value == "user")
