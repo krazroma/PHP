@@ -42,6 +42,15 @@ $file_test = file_exists("test");
     $users = shell_exec('w');
     echo "<pre>$users</pre>";
 
+    foreach ($users as $key => $value)
+    {
+      if($value == "user")
+      {
+        echo $value . "<br />";
+      }
+
+    }
+
 //print_r($files2);
 
 // $filename = 'test';
