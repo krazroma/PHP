@@ -40,17 +40,19 @@ $file_test = file_exists("test");
     }
 
     $users = shell_exec('w');
+    echo "<pre>$users</pre>";
 
+    parse_str($users, $output);
+echo $output['user'];  // value
 
-    foreach ($users as $key => $value)
-    {
-      if($key == "user")
-      {
-        //echo "<pre>$users</pre>";
-        echo $key . "<br />";
-      }
-
-    }
+    // foreach ($users as $key => $value)
+    // {
+    //   if($value == "user")
+    //   {
+    //     echo $value . "<br />";
+    //   }
+    //
+    // }
 
 //print_r($files2);
 
