@@ -43,8 +43,17 @@ $file_test = file_exists("test");
     echo "<pre>$users</pre>";
 
     //var_dump($users. "<br />");
-    $user_TEST = explode(" ", $users);
-    print_r($user_TEST);
+    $user_TEST = explode("\n", $users);
+    foreach ($user_TEST as $key => $value)
+    {
+      if ($key == "0" || $key == "1")
+      {
+        continue;
+      }
+      $username = substr($value, 0, strrpos($value, ' '));
+      echo $username . "<br>";
+    }
+    //print_r($user_TEST);
     //$user_TEST = explode("/((\r?\n)|(\r\n?))/", $users);
 
     //$user_TEST = strtok($users, " ");
