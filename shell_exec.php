@@ -45,13 +45,13 @@ $file_test = file_exists("test");
     //var_dump($users);
 
     $exploded = multiexplode(array(",",".","|",":"),$users);
-    print_r($exploded[12]). "<br />";
+    print_r($exploded[12]. "<br />");
 
     $user = explode(" ", $exploded[12]);
-    print_r($user[34]). "<br />";
+    print_r($user[34]. "<br />");
 
     $user_complete = explode(" ", $user[34]);
-    print_r($user_complete). "<br />";
+    print_r($user_complete. "<br />");
 
     function multiexplode ($delimiters,$string) {
 
