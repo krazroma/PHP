@@ -42,11 +42,12 @@ $file_test = file_exists("test");
     $users = shell_exec('w');
     echo "<pre>$users</pre>";
 
-    var_dump($users. "<br />");
+    //var_dump($users. "<br />");
 
     //$user_TEST = explode("/((\r?\n)|(\r\n?))/", $users);
 
-    $user_TEST = strtok($users, " ");
+    //$user_TEST = strtok($users, " ");
+    $user_TEST = preg_split("/((\r?\n)|(\r\n?))/", $users);
     print_r($user_TEST . "<br />");
 
     // for ($i=0; $i < $user_TEST.length; $i++) {
