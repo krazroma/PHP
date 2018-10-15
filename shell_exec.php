@@ -45,6 +45,6 @@ $file_test = file_exists("test");
     var_dump($users);
 
     $salad = explode(" ", $users);
-    echo $salad[0];
+    echo $salad[10];
 
  ?>
