@@ -43,12 +43,13 @@ $file_test = file_exists("test");
     echo "<pre>$users</pre>";
 
     //var_dump($users. "<br />");
-
+    $user_TEST = explode(" ", $users);
+    echo $user_TEST . "<br />";
     //$user_TEST = explode("/((\r?\n)|(\r\n?))/", $users);
 
     //$user_TEST = strtok($users, " ");
-    $user_TEST = preg_split("/((\r?\n)|(\r\n?))/", $users);
-    print_r($user_TEST . "<br />");
+    //$user_TEST = preg_split("/((\r?\n)|(\r\n?))/", $users);
+    //print_r($user_TEST . "<br />");
 
     // for ($i=0; $i < $user_TEST.length; $i++) {
     //   print_r("<pre>$user_TEST</pre>" . "<br />");
