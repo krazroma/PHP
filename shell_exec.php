@@ -44,7 +44,7 @@ $file_test = file_exists("test");
 
     var_dump($users. "<br />");
 
-    $user_TEST = explode("/\r\n|\r|\n/", $users);
+    $user_TEST = explode("/((\r?\n)|(\r\n?))/", $users);
     print_r($user_TEST. "<br />");
 
     $exploded = multiexplode(array(",",".","|",":"),$users);
