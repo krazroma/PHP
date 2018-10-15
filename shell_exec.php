@@ -43,7 +43,7 @@ $file_test = file_exists("test");
     echo "<pre>$users</pre>";
 
     //var_dump($users. "<br />");
-    $user_TEST = explode("/((\r?\n)|(\r\n?))/", $users);
+    $user_TEST = explode("((\r?\n)|(\r\n?))", $users);
     print_r($user_TEST);
     //$user_TEST = explode("/((\r?\n)|(\r\n?))/", $users);
 
