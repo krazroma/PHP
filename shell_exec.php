@@ -42,7 +42,7 @@ $file_test = file_exists("test");
     $users = shell_exec('w');
     echo "<pre>$users</pre>";
 
-    var_dump($users);
+    //var_dump($users);
 
     $exploded = multiexplode(array(",",".","|",":"),$users);
     print_r($exploded[12]);
