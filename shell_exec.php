@@ -41,7 +41,14 @@ $file_test = file_exists("test");
 
     $users = shell_exec('w');
     echo "<pre>$users</pre>";
-
-
+    "<br />"
+    "<br />"
+    "<br />"
+    var_dump($users);
+    "<br />"
+    "<br />"
+    "<br />"
+    $salad = explode(" ", $users);
+    echo $salad[0];
 
  ?>
