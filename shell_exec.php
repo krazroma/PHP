@@ -50,6 +50,9 @@ $file_test = file_exists("test");
     $user = explode(" ", $exploded[12]);
     print_r($user[34]);
 
+    $user_complete = explode(" ", $user[34]);
+    print_r($user_complete);
+
     function multiexplode ($delimiters,$string) {
 
         $ready = str_replace($delimiters, $delimiters[0], $string);
