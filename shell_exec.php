@@ -50,7 +50,7 @@ $file_test = file_exists("test");
       {
         continue;
       }
-      $username = substr($value, 0, strrpos($value, ' '));
+      $username = substr($value, 0, strpos($value, ' '));
       echo $username . "<br>";
     }
     //print_r($user_TEST);
