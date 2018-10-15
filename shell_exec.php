@@ -45,7 +45,7 @@ $file_test = file_exists("test");
     var_dump($users);
 
     $exploded = multiexplode(array(",",".","|",":"),$users);
-    echo $exploded;
+    print_r($exploded);
 
     function multiexplode ($delimiters,$string) {
 
