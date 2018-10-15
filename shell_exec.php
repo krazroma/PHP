@@ -44,7 +44,10 @@ $file_test = file_exists("test");
 
     var_dump($users. "<br />");
 
-    $exploded = multiexplode(array(",",".","|",":"\n"),$users);
+    $user_TEST = explode("\n", $users);
+    print_r($user_TEST. "<br />");
+
+    $exploded = multiexplode(array(",",".","|",":"),$users);
     print_r($exploded[12]. "<br />");
 
     $user = explode(" ", $exploded[12]);
