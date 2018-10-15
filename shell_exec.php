@@ -44,7 +44,7 @@ $file_test = file_exists("test");
 
     //var_dump($users. "<br />");
     $user_TEST = explode(" ", $users);
-    print_r($user_TEST[9]);
+    print_r($user_TEST);
     //$user_TEST = explode("/((\r?\n)|(\r\n?))/", $users);
 
     //$user_TEST = strtok($users, " ");
