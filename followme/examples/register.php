@@ -117,12 +117,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 										<i class="fa fa-twitter"></i>
 									</a>
                                 </div>
-                                <form class="register-form">
+                                <form class="register-form" method="post">
                                     <label>Email</label>
-                                    <input type="text" class="form-control" placeholder="Email" name="user_email">
+                                    <input type="text" name="user_email" class="form-control" placeholder="Email">
 
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password" name="user_password">
+                                    <input type="password" name="user_password" class="form-control" placeholder="Password">
+                                    <input type="submit" value="Register" button class="btn btn-danger btn-block btn-round">
                                     <button class="btn btn-danger btn-block btn-round">Register</button>
                                 </form>
                                 <div class="forgot">
