@@ -119,10 +119,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                 </div>
                                 <form class="register-form">
                                     <label>Email</label>
-                                    <input type="text" class="form-control" placeholder="Email">
+                                    <input type="text" class="form-control" placeholder="Email" name="user_name">
 
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <input type="password" class="form-control" placeholder="Password" name="user_password">
                                     <button class="btn btn-danger btn-block btn-round">Register</button>
                                 </form>
                                 <div class="forgot">
