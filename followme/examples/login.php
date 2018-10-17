@@ -108,10 +108,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                     </a>
                                     <a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
                                         <i class="fa fa-google-plus"></i>
-                                    </a> -->
-									<a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
-										<i class="fa fa-twitter"></i>
-									</a>
+                                    </a>
+                  									<a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
+                  										<i class="fa fa-twitter"></i>
+                  									</a> -->
                                 </div>
                                 <form class="register-form" method="post">
                                     <label>Email</label>
