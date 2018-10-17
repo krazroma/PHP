@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
   // grab POST data password will be hashed so no need to sanitaze
   $password = $_POST['password'];
-  $password = password_hash($password, PASSWORD_BCRYT);
+  $password = password_hash($password, PASSWORD_BCRYPT);
   $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
   $conn->query($sql);
 }
