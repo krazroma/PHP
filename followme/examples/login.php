@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                         <div class="col-lg-4 ml-auto mr-auto">
                             <div class="card card-register">
                                 <h3 class="title">Register</h3>
-								<!-- <div class="social-line text-center">
+								<div class="social-line text-center">
                                     <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
                                         <i class="fa fa-facebook-square"></i>
                                     </a>
@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                     </a>
 									<a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
 										<i class="fa fa-twitter"></i>
-									</a> -->
+									</a>
                                 </div>
                                 <form class="register-form" method="post">
                                     <label>Email</label>
