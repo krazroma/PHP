@@ -121,9 +121,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                     <input type="password" name="user_password" class="form-control" placeholder="Password">
                                     <input type="submit" value="Register" button class="btn btn-danger btn-block btn-round">
                                 </form>
-                                <!-- <div class="forgot">
+                                <div class="forgot">
                                     <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
