@@ -137,18 +137,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                     <input type="submit" value="Register" button class="btn btn-danger btn-block btn-round">
                                     <!-- <button class="btn btn-danger btn-block btn-round">Register</button> -->
 
-                                    <?php $result = $conn->query($sql);
+                                    <?php
+
+                                    $result = $conn->query($sql);
                                     if($result)
                                     {
-                                      $msg = "Updated Sussecfully!";
+                                      $msg = "Updated Sussecfully";
                                       echo "$msg";
                                     }
                                     else
                                     {
-                                      $msg = "Error Updating!";
+                                      $msg = "Error Updating";
                                       echo "$msg";
                                     }
-                                   ?>
+
+                                    ?>
                                 </form>
                                 <div class="forgot">
                                     <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
