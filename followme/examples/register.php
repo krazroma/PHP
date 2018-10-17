@@ -33,18 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   $sql = "INSERT INTO fm_users (user_email, user_password) VALUES ('$user_email', '$user_password')";
   $conn->query($sql);
 
-  $result = $conn->query($sql);
-  if($result)
-  {
-    $msg = "Updated Sussecfully";
-    echo "$msg";
-  }
-  else
-  {
-    $msg = "Error Updating";
-    echo "$msg";
-  }
-}
+
  ?>
 
  <!doctype html>
@@ -147,6 +136,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                     <input type="password" name="user_password" class="form-control" placeholder="Password">
                                     <input type="submit" value="Register" button class="btn btn-danger btn-block btn-round">
                                     <!-- <button class="btn btn-danger btn-block btn-round">Register</button> -->
+
+                                    <?php $result = $conn->query($sql);
+                                    if($result)
+                                    {
+                                      $msg = "Updated Sussecfully";
+                                      echo "$msg";
+                                    }
+                                    else
+                                    {
+                                      $msg = "Error Updating";
+                                      echo "$msg";
+                                    }
+                                  } ?>
                                 </form>
                                 <div class="forgot">
                                     <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
