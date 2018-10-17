@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   $sql = "INSERT INTO fm_users (user_email, user_password) VALUES ('$user_email', '$user_password')";
   $conn->query($sql);
 
-  if (isset($_GET['user_email']) && $_GET['user_email'] == 'true')
+  if (isset($_POST['user_email']) && $_POST['user_email'] == 'true')
   {
       echo "Record inserted successfully";
   }
