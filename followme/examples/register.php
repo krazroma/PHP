@@ -139,9 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                     <!-- <button class="btn btn-danger btn-block btn-round">Register</button> -->
 
                                     <?php
-
-                                    $result = $conn->query($sql);
-                                    if($result == true)
+                                    if($conn == true)
                                     {
                                       $msg = "Updated Sussecfully";
                                       echo "$msg";
