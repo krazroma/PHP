@@ -15,16 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   $user_email = $_POST['$user_email'];
   // sanitaze the $username by remove tags
   $user_email = filter_var($user_email, FILTER_SANITAZE_EMAIL);
-  // trim white space from beginning and the end of the $username
-  $user_email = trim($user_email);
-  // remove slashes from $username, no / allowed
-  //$username = stripslashes($username);
-
-  $user_email = str_replace("/", "", $user_email);
-  $user_email = str_replace("\\", "", $user_email);
-  // remove white space from the middle of the string
-  //$username = str_replace(' ', '', $username); //first parameter is string to look, second is what to replace with
+  $user_email = trim($user_email); // trim white space from beginning and the end of the $username
+  //$user_email = str_replace("/", "", $user_email);
+  //$user_email = str_replace("\\", "", $user_email);
   $user_email = preg_replace("/\s+/", "", $user_email); //removes tab is pressed
+
   // grab POST data password will be hashed so no need to sanitaze
   $user_password = $_POST['user_password'];
   $user_password_hashed = password_hash($user_password, PASSWORD_BCRYPT);
