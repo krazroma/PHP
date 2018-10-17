@@ -140,15 +140,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                     <?php $result = $conn->query($sql);
                                     if($result)
                                     {
-                                      $msg = "Updated Sussecfully";
+                                      $msg = "Updated Sussecfully!";
                                       echo "$msg";
                                     }
                                     else
                                     {
-                                      $msg = "Error Updating";
+                                      $msg = "Error Updating!";
                                       echo "$msg";
                                     }
-                                  } ?>
+                                   ?>
                                 </form>
                                 <div class="forgot">
                                     <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
