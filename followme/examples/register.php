@@ -32,14 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   $user_password = password_hash($user_password, PASSWORD_BCRYT);
   $sql = "INSERT INTO fm_users (user_email, user_password) VALUES ('$user_email','$user_password')";
   $conn->query($sql);
-
-
-  if (mysqli_query($conn, $sql)) {
-      echo "Signup Sucessfull";
-    } else {
-      die(mysqli_error($con));
-    }
-
 }
  ?>
 
@@ -142,6 +134,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                     <label>Password</label>
                                     <input type="password" name="user_password" class="form-control" placeholder="Password">
                                     <input type="submit" value="Register" button class="btn btn-danger btn-block btn-round">
+
+                                    <?php
+                                    if (mysqli_query($conn, $sql))
+                                    {
+                                        echo "Updated Sucessfully!!!";
+                                    }
+                                    else
+                                    {
+                                        die(mysqli_error($con));
+                                    }
+                                    ?>
+
                                 </form>
                                 <div class="forgot">
                                     <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
