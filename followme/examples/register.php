@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
   $user_email = $_POST['$user_email'];
   // sanitaze the $username by remove tags
-  $user_email = filter_var($user_email, FILTER_SANITAZE_STRING);
+  $user_email = filter_var($user_email, FILTER_SANITAZE_EMAIL);
   // trim white space from beginning and the end of the $username
   $user_email = trim($user_email);
   // remove slashes from $username, no / allowed
