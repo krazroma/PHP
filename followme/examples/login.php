@@ -103,12 +103,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                             <div class="card card-register">
                                 <h3 class="title">Register</h3>
 								<div class="social-line text-center">
-                                    <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
+                                    <!-- <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
                                         <i class="fa fa-facebook-square"></i>
                                     </a>
                                     <a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
                                         <i class="fa fa-google-plus"></i>
-                                    </a>
+                                    </a> -->
 									<a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
 										<i class="fa fa-twitter"></i>
 									</a>
