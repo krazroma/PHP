@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                         <div class="col-lg-4 ml-auto mr-auto">
                             <div class="card card-register">
                                 <h3 class="title">Register</h3>
-								<div class="social-line text-center">
+				                            <div class="social-line text-center">
                                     <!-- <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
                                         <i class="fa fa-facebook-square"></i>
                                     </a>
@@ -112,18 +112,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                   									<a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
                   										<i class="fa fa-twitter"></i>
                   									</a> -->
-                                </div>
-                                <form class="register-form" method="post">
-                                    <label>Email</label>
-                                    <input type="text" name="user_email" class="form-control" placeholder="Email">
+                                    </div>
+                                    <form class="register-form" method="post">
+                                        <label>Email</label>
+                                        <input type="text" name="user_email" class="form-control" placeholder="Email">
 
-                                    <label>Password</label>
-                                    <input type="password" name="user_password" class="form-control" placeholder="Password">
-                                    <input type="submit" value="Register" button class="btn btn-danger btn-block btn-round">
-                                </form>
-                                <div class="forgot">
-                                    <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
-                                </div>
+                                        <label>Password</label>
+                                        <input type="password" name="user_password" class="form-control" placeholder="Password">
+                                        <input type="submit" value="Register" button class="btn btn-danger btn-block btn-round">
+                                    </form>
+                                    <div class="forgot">
+                                        <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
+                                    </div>
                             </div>
                         </div>
                     </div>
