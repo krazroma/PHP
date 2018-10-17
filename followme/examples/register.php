@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     die("Connection Failed: " . $conn->connect_error);
   }
 
-  $user_email = $_POST['$user_email'];
+  $user_email = $_POST['user_email'];
   // sanitaze the $username by remove tags
   //$user_email = filter_var($user_email, FILTER_SANITAZE_EMAIL);
   //$user_email = trim($user_email); // trim white space from beginning and the end of the $username
