@@ -32,6 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   $user_password = password_hash($user_password, PASSWORD_BCRYT);
   $sql = "INSERT INTO fm_users (user_email, user_password) VALUES ('$user_email', '$user_password')";
   $conn->query($sql);
+
+  if (isset($_GET['user_email']) && $_GET['user_email'] == 'true')
+  {
+      echo "Record inserted successfully";
+  }
 }
  ?>
 
