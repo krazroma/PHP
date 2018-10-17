@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   $conn->query($sql);
 
 
+}
  ?>
 
  <!doctype html>
