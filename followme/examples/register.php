@@ -140,16 +140,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
                                     <?php
 
-                                    $result = $conn->query($sql);
-                                    if($result)
+
+                                    if ($conn->connect_error)
                                     {
-                                      $msg = "Updated Sussecfully";
-                                      echo "$msg";
+                                      die("Connection Failed: " . $conn->connect_error);
                                     }
                                     else
                                     {
-                                      $msg = "Error Updating";
-                                      echo "$msg";
+                                      $msg = "Updated Sussecfully";
+                                      echo "$msg";.
                                     }
 
                                     ?>
