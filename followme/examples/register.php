@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   }
 
   $user_email = $_POST['user_email'];
-  $user_email = filter_var($user_email, FILTER_SANITAZE_EMAIL); // sanitaze the $username by remove tags
+  //$user_email = filter_var($user_email, FILTER_SANITAZE_EMAIL); // sanitaze the $username by remove tags
   //$user_email = trim($user_email); // trim white space from beginning and the end of the $username
   //$user_email = preg_replace("/\s+/", "", $user_email); //removes tab is pressed
 
