@@ -1,21 +1,31 @@
 <?php
+session_start();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-  require('dbconnection.php');
+  $db_host = 'localhost'; // Database is installed on the PHPH server
+  $db_user = 'roman'; // name to log in to MySQL
+  $db_password = 'southhills#'; // password to login to MySQL
+  $db_name = 'roman'; // name of the database within MySQL
+  $conn = new mysqli($db_host, $db_user, $db_password, $db_name);
+  if ($conn->connect_error)
+  {
+    die("Connection Failed: " . $conn->connect_error);
+  }
   // grab POST data could be dangerous because of XSS (cross site inctiption) or SQL injection
   $user_email = $_POST['user_email'];
-  // sanitaze the $username by remove tags
-  $user_email = filter_var($user_email, FILTER_SANITAZE_STRING);
-  // trim white space from beginning and the end of the $username
-  $user_email = trim($user_email);
-  // remove slashes from $username, no / allowed
-  //$username = stripslashes($username);
-
-  $user_email = str_replace("/", "", $user_email);
-  $user_email = str_replace("\\", "", $user_email);
-  // remove white space from the middle of the string
-  //$username = str_replace(' ', '', $username); //first parameter is string to look, second is what to replace with
-  $user_email = preg_replace("/\s+/", "", $user_email); //removes tab is pressed
+  // // sanitaze the $username by remove tags
+  // $user_email = filter_var($user_email, FILTER_SANITAZE_STRING);
+  // // trim white space from beginning and the end of the $username
+  // $user_email = trim($user_email);
+  // // remove slashes from $username, no / allowed
+  // //$username = stripslashes($username);
+  //
+  // $user_email = str_replace("/", "", $user_email);
+  // $user_email = str_replace("\\", "", $user_email);
+  // // remove white space from the middle of the string
+  // //$username = str_replace(' ', '', $username); //first parameter is string to look, second is what to replace with
+  // $user_email = preg_replace("/\s+/", "", $user_email); //removes tab is pressed
 
   // grab POST data password will be hashed so no need to sanitaze
   $user_password = $_POST['user_password'];
