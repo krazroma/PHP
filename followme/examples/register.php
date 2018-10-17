@@ -147,8 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                     }
                                     else
                                     {
-                                      $msg = "Updated Sussecfully";
-                                      echo "$msg";
+                                      echo "<p class='alert alert-successful'>Updated Sussecfully</p>"
                                     }
 
                                     ?>
