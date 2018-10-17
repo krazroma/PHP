@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   $user_email = trim($user_email); // trim white space from beginning and the end of the $username
   //$user_email = str_replace("/", "", $user_email);
   //$user_email = str_replace("\\", "", $user_email);
-  $user_email = preg_replace("/\s+/", "", $user_email); //removes tab is pressed
+  //$user_email = preg_replace("/\s+/", "", $user_email); //removes tab is pressed
 
   // grab POST data password will be hashed so no need to sanitaze
   $user_password = $_POST['user_password'];
