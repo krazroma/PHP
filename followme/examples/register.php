@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
   if (mysqli_query($conn, $sql))
   {
-      echo "Updated Sucessfully!!!";
+      echo "<script>alert('Updated Sucessfully!!!');</script>";
   }
   else
   {
