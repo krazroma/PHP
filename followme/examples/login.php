@@ -140,7 +140,7 @@ session_start();
                                      </form>
 
                                      <?php
-                                       echo "Logged in as: " . $_SESSION['username'];
+                                       echo "Logged in as: " . $_SESSION['user_email'];
 
                                      ?>
                                     </form>
