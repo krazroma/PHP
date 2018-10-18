@@ -32,7 +32,7 @@
          echo "Invalid Entry, please enter correct email and password";
      }
 
-     //$user_password = password_hash($user_password, PASSWORD_BCRYPT);
+     $user_password = password_hash($user_password, PASSWORD_BCRYPT);
 
 
      // sql statement to execute. Surroundvariables with single quotes
@@ -48,7 +48,7 @@
        if ($user_email == $row['user_email'] && $user_password == $row['user_password']))
        {
           $_SESSION['user_email'] = $user_email;
-          //header("Location: profile.html");
+          header("Location: profile.html");
        }
        else
        {
