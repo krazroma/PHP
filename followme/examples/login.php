@@ -45,15 +45,15 @@
      // Extraction the returned query information
      while ($row = $result->fetch_assoc())
      {
-       if ($user_email == $row['user_email'] && $user_password == $row['user_password']))
-       {
-          $_SESSION['user_email'] = $user_email;
-          header("Location: profile.html");
-       }
-       else
-       {
-         echo "This is an invalid login. Your mom will have to come to school now.";
-       }
+       // if ($user_email == $row['user_email'] && $user_password == $row['user_password']))
+       // {
+       //    $_SESSION['user_email'] = $user_email;
+       //    header("Location: profile.html");
+       // }
+       // else
+       // {
+       //   echo "This is an invalid login. Your mom will have to come to school now.";
+       // }
      } // closes if statement
    } // closes while loop
 
