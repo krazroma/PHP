@@ -14,6 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
   $user_email = $_POST['user_email'];
   $sanitized_email = filter_var($user_email, FILTER_SANITIZE_EMAIL);
+  if (filter_var($sanitized_email, FILTER_VALIDATE_EMAIL))
+  {
+      echo "This sanitized email address is considered valid.";
+  }
+  else
+  {
+      echo "This sanitized email address is considered invalid.\n";
+  }
+
   $user_password = $_POST['user_password'];
   $user_password_hashed = password_hash($user_password, PASSWORD_BCRYPT);
   //var_dump($user_password);
