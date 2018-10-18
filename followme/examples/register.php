@@ -13,8 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   }
 
   $user_email = $_POST['user_email'];
-  $sanitized_email = filter_var($user_email, FILTER_SANITIZE_EMAIL);
-  if (filter_var($sanitized_email, FILTER_VALIDATE_EMAIL))
+  $user_email = filter_var($user_email, FILTER_SANITIZE_EMAIL);
+  if (filter_var($user_email, FILTER_VALIDATE_EMAIL))
   {
       echo "This sanitized email address is considered valid.";
   }
@@ -34,9 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 
   //var_dump($user_password);
-  if ($sanitized_email === true)
+  if ($user_email === true)
   {
-    $sql = "INSERT INTO fm_users (user_email, user_password) VALUES ('$sanitized_email','$user_password_hashed')";
+    $sql = "INSERT INTO fm_users (user_email, user_password) VALUES ('$user_email','$user_password_hashed')";
     $conn->query($sql);
   }
 
