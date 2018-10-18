@@ -7,7 +7,7 @@ session_start();
  if (isset($_POST['user_email']))
  {
    $user_email = $_POST['user_email'];
-   $user_password_hashed = $_POST['user_password_hashed'];
+   $user_password = $_POST['user_password'];
    // sql statement to execute. Surroundvariables with single quotes
    $sql = "SELECT user_email, user_password FROM fm_users where user_email = '$user_email'";
 
@@ -17,10 +17,14 @@ session_start();
    // Extraction the returned query information
    while ($row = $result->fetch_assoc())
    { // $row[username] is value from database
-     if ($user_email == $row['user_email'] && password_verify($user_password_hashed, $row['user_password']))
+     if ($user_email == $row['user_email'] && $row['user_password']))
      {
-       $_SESSION['user_email'] = $user_email;
+        header('Location: profile.html');
 
+     }
+     else
+     {
+       echo "This is an invalid login. Your mom will have to come to school now.";
      } // closes if statement
    } // closes while loop
  } // closes POST condition

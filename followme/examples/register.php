@@ -30,13 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       echo "Invalid Entry, please enter correct email and password";
   }
 
-  $user_password_hashed = password_hash($user_password, PASSWORD_BCRYPT);
+  $user_password = password_hash($user_password, PASSWORD_BCRYPT);
 
 
   //var_dump($user_password);
   if ($user_email == true)
   {
-    $sql = "INSERT INTO fm_users (user_email, user_password) VALUES ('$user_email','$user_password_hashed')";
+    $sql = "INSERT INTO fm_users (user_email, user_password) VALUES ('$user_email','$user_password')";
     $conn->query($sql);
   }
 
