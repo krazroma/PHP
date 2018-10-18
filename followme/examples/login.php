@@ -14,6 +14,12 @@ session_start();
      die("Connection Failed: " . $conn->connect_error);
    }
 
+ }
+
+ if ($_SERVER['REQUEST_METHOD'] == 'POST')
+
+ {
+
    $user_email = $_POST['user_email'];
    $user_email = filter_var($user_email, FILTER_SANITIZE_EMAIL);
    if (filter_var($user_email, FILTER_VALIDATE_EMAIL))
@@ -34,7 +40,7 @@ session_start();
 
 
    // sql statement to execute. Surroundvariables with single quotes
-   $sql = "SELECT user_email, user_password FROM fm_users where user_email = " . $user_email;
+   $sql = "SELECT user_email, user_password FROM fm_users where user_email = '$user_email' ";
 
    // execute the sql and return array to $result
    $result = $conn->query($sql);
@@ -45,6 +51,7 @@ session_start();
    //{ // $row[username] is value from database
      if ($user_email == $row['user_email'] && $user_password == $row['user_password']))
      {
+        $_SESSION['user_email'] = $user_email;
         header("Location: profile.html");
      }
      else
