@@ -34,7 +34,7 @@
 
 
    // sql statement to execute. Surroundvariables with single quotes
-   $sql = "SELECT user_email, user_password FROM fm_users where user_email = '$user_email'";
+   $sql = "SELECT user_email, user_password FROM fm_users where user_email = " . $user_email;
 
    // execute the sql and return array to $result
    $result = $conn->query($sql);
@@ -170,7 +170,7 @@
                                      </form>
 
                                      <?php
-                                     var_dump($user_email);
+                                     //var_dump($user_email);
                                        echo "Logged in as: " . $_SESSION['user_email'];
 
                                      ?>
