@@ -1,3 +1,10 @@
+<?php
+// start session
+// Uses $_SESSION['email'] to display in navigation
+// modify fm_users to include image_url loas it to $_SESSION['image_url']
+// modify fm_users table to include first_name and last_name and put it in session variable $_SESSION['first_name'] and $_SESSION['last_name']
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -38,7 +45,14 @@
 			<div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="login.php" class="nav-link">Login</a>
+            <a href="#" class="nav-link">Login</a>
+          </li>
+					<li class="nav-item">
+            <a href="login.php" class="nav-link">
+							<?php
+								echo $_SESSION['email']; // user_email goes here
+							?>
+						</a>
           </li>
       	</ul>
     	</div>
@@ -53,10 +67,10 @@
             <div class="container">
                 <div class="owner">
                     <div class="avatar">
-                        <img src="../assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                      <img src="<?php echo $_SESSION['image_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                     </div>
                     <div class="name">
-                        <h4 class="title">Jane Faker<br /></h4>
+                        <h4 class="title"><?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name'] ?><br /></h4>
 						<h6 class="description">Music Producer</h6>
                     </div>
                 </div>
