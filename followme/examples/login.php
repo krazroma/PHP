@@ -37,12 +37,11 @@ session_start();
      if ($user_email == $row['user_email'] && $user_password == $row['user_password']))
      {
         header("Location: profile.html");
-
      }
-     else
-     {
-       echo "This is an invalid login. Your mom will have to come to school now.";
-     } // closes if statement
+     // else
+     // {
+     //   echo "This is an invalid login. Your mom will have to come to school now.";
+     // } // closes if statement
    } // closes while loop
  } // closes POST condition
 
