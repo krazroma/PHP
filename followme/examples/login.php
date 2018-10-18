@@ -1,11 +1,9 @@
 <?php
-session_start();
+//session_start();
 
- require('dbconnection.php');
-
-
- if (isset($_POST['user_email']))
+ if ($_SERVER['REQUEST_METHOD'] == 'POST')
  {
+   require('dbconnection.php');
    $user_email = $_POST['user_email'];
    $user_email = filter_var($user_email, FILTER_SANITIZE_EMAIL);
    if (filter_var($user_email, FILTER_VALIDATE_EMAIL))
@@ -30,18 +28,19 @@ session_start();
 
    // execute the sql and return array to $result
    $result = $conn->query($sql);
+   $row = $result->fetch_assoc();
 
    // Extraction the returned query information
-   while ($row = $result->fetch_assoc())
-   { // $row[username] is value from database
+   //while ($row = $result->fetch_assoc())
+   //{ // $row[username] is value from database
      if ($user_email == $row['user_email'] && $user_password == $row['user_password']))
      {
-        header("Location: profile.html");
+        header('Location: profile.html');
      }
-     // else
-     // {
-     //   echo "This is an invalid login. Your mom will have to come to school now.";
-     // } // closes if statement
+     else
+     {
+       echo "This is an invalid login. Your mom will have to come to school now.";
+     } // closes if statement
    } // closes while loop
  } // closes POST condition
 
