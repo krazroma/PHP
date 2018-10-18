@@ -4,12 +4,12 @@ session_start();
  require('dbconnection.php');
 
 
- if (isset($_POST['sanitized_email']))
+ if (isset($_POST['user_email']))
  {
-   $sanitized_email = $_POST['sanitized_email'];
+   $user_email = $_POST['user_email'];
    $user_password_hashed = $_POST['user_password_hashed'];
    // sql statement to execute. Surroundvariables with single quotes
-   $sql = "SELECT user_email, user_password FROM fm_users where user_email = '$sanitized_email'";
+   $sql = "SELECT user_email, user_password FROM fm_users where user_email = '$user_email'";
 
    // execute the sql and return array to $result
    $result = $conn->query($sql);
@@ -17,9 +17,9 @@ session_start();
    // Extraction the returned query information
    while ($row = $result->fetch_assoc())
    { // $row[username] is value from database
-     if ($sanitized_email == $row['user_email'] && password_verify($user_password_hashed, $row['user_password']))
+     if ($user_email == $row['user_email'] && password_verify($user_password_hashed, $row['user_password']))
      {
-       $_SESSION['user_email'] = $sanitized_email;
+       $_SESSION['user_email'] = $user_email;
      } // closes if statement
    } // closes while loop
  } // closes POST condition
