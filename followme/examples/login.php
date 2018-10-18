@@ -35,7 +35,7 @@
    //{ // $row[username] is value from database
      if ($user_email == $row['user_email'] && $user_password == $row['user_password']))
      {
-        header('Location: profile.html');
+        header("Location: profile.html");
      }
      else
      {
