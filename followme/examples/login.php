@@ -46,7 +46,7 @@ session_start();
      if ($user_email == $row['user_email'] && $user_password == $row['user_password']))
      {
         $_SESSION['user_email'] = $user_email;
-        header("Location: profile.html");
+        //header("Location: profile.html");
      }
      else
      {
