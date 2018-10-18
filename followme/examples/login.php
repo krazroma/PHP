@@ -89,10 +89,10 @@
 
 <?php
 
-  if (isset($_POST['logout']))
-  {
-    unset($_SESSION['user_email']);
-  }
+  // if (isset($_POST['logout']))
+  // {
+  //   unset($_SESSION['user_email']);
+  // }
 ?>
 
 <body>
@@ -174,7 +174,7 @@
 
                                      <?php
                                      //var_dump($user_email);
-                                       echo "Logged in as: " . $_SESSION['user_email'];
+                                       //echo "Logged in as: " . $_SESSION['user_email'];
 
                                      ?>
                                     </form>
