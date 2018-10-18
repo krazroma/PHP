@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 
   //var_dump($user_password);
-  if ($user_email === true)
+  if ($user_email == true)
   {
     $sql = "INSERT INTO fm_users (user_email, user_password) VALUES ('$user_email','$user_password_hashed')";
     $conn->query($sql);
