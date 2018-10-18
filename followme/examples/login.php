@@ -7,9 +7,26 @@ session_start();
  if (isset($_POST['user_email']))
  {
    $user_email = $_POST['user_email'];
+   $user_email = filter_var($user_email, FILTER_SANITIZE_EMAIL);
+   if (filter_var($user_email, FILTER_VALIDATE_EMAIL))
+   {
+       echo "This sanitized email address is considered valid.";
+   }
+   else
+   {
+       echo "This sanitized email address is considered invalid.\n";
+   }
    $user_password = $_POST['user_password'];
+   if (empty($user_email) || empty($user_password))
+   {
+       echo "Invalid Entry, please enter correct email and password";
+   }
+
+   $user_password = password_hash($user_password, PASSWORD_BCRYPT);
+
+
    // sql statement to execute. Surroundvariables with single quotes
-   $sql = "SELECT user_email, user_password FROM fm_users where user_email = '$user_email'";
+   $sql = "SELECT user_email, user_password FROM fm_users where user_email = " . $user_email;
 
    // execute the sql and return array to $result
    $result = $conn->query($sql);
@@ -17,7 +34,7 @@ session_start();
    // Extraction the returned query information
    while ($row = $result->fetch_assoc())
    { // $row[username] is value from database
-     if ($user_email == $row['user_email'] && $row['user_password']))
+     if ($user_email == $row['user_email'] && $user_email == $row['user_password']))
      {
         header('Location: profile.html');
 
