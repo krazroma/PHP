@@ -4,53 +4,54 @@ session_start();
 
  if ($_SERVER['REQUEST_METHOD'] == 'POST')
  {
-   $db_host = 'localhost'; // Database is installed on the PHPH server
-   $db_user = 'roman'; // name to log in to MySQL
-   $db_password = 'southhills#'; // password to login to MySQL
-   $db_name = 'roman'; // name of the database within MySQL
-   $conn = new mysqli($db_host, $db_user, $db_password, $db_name);
-   if ($conn->connect_error)
-   {
-     die("Connection Failed: " . $conn->connect_error);
-   }
-
-   $user_email = $_POST['user_email'];
-   $user_email = filter_var($user_email, FILTER_SANITIZE_EMAIL);
-   if (filter_var($user_email, FILTER_VALIDATE_EMAIL))
-   {
-       echo "This sanitized email address is considered valid.";
-   }
-   else
-   {
-       echo "This sanitized email address is considered invalid.\n";
-   }
-   $user_password = $_POST['user_password'];
-   if (empty($user_email) || empty($user_password))
-   {
-       echo "Invalid Entry, please enter correct email and password";
-   }
-
-   $user_password = password_hash($user_password, PASSWORD_BCRYPT);
-
-
-   // sql statement to execute. Surroundvariables with single quotes
-   $sql = "SELECT user_email, user_password FROM fm_users where user_email = '$user_email' ";
-
-   // execute the sql and return array to $result
-   $result = $conn->query($sql);
-   $row = $result->fetch_assoc();
-
-   // Extraction the returned query information
-   //while ($row = $result->fetch_assoc())
-   //{ // $row[username] is value from database
-     if ($user_email == $row['user_email'] && $user_password == $row['user_password']))
+     $db_host = 'localhost'; // Database is installed on the PHPH server
+     $db_user = 'roman'; // name to log in to MySQL
+     $db_password = 'southhills#'; // password to login to MySQL
+     $db_name = 'roman'; // name of the database within MySQL
+     $conn = new mysqli($db_host, $db_user, $db_password, $db_name);
+     if ($conn->connect_error)
      {
-        $_SESSION['user_email'] = $user_email;
-        //header("Location: profile.html");
+       die("Connection Failed: " . $conn->connect_error);
+     }
+
+     $user_email = $_POST['user_email'];
+     $user_email = filter_var($user_email, FILTER_SANITIZE_EMAIL);
+     if (filter_var($user_email, FILTER_VALIDATE_EMAIL))
+     {
+         echo "This sanitized email address is considered valid.";
      }
      else
      {
-       echo "This is an invalid login. Your mom will have to come to school now.";
+         echo "This sanitized email address is considered invalid.\n";
+     }
+     $user_password = $_POST['user_password'];
+     if (empty($user_email) || empty($user_password))
+     {
+         echo "Invalid Entry, please enter correct email and password";
+     }
+
+     $user_password = password_hash($user_password, PASSWORD_BCRYPT);
+
+
+     // sql statement to execute. Surroundvariables with single quotes
+     $sql = "SELECT user_email, user_password FROM fm_users where user_email = '$user_email' ";
+
+     // execute the sql and return array to $result
+     $result = $conn->query($sql);
+    // $row = $result->fetch_assoc();
+
+     // Extraction the returned query information
+     while ($row = $result->fetch_assoc())
+     {
+       if ($user_email == $row['user_email'] && $user_password == $row['user_password']))
+       {
+          $_SESSION['user_email'] = $user_email;
+          header("Location: profile.html");
+       }
+       else
+       {
+         echo "This is an invalid login. Your mom will have to come to school now.";
+       }
      } // closes if statement
    } // closes while loop
 
