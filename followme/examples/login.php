@@ -51,8 +51,6 @@ session_start();
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 	<link href="../assets/css/nucleo-icons.css" rel="stylesheet">
 
-  <a href="register.php">Register</a>
-
 
 </head>
 
@@ -130,6 +128,7 @@ session_start();
                   										<i class="fa fa-twitter"></i>
                   									</a> -->
                                     </div>
+                                    <a href="register.php">Register</a>
                                     <form class="register-form" method="post">
                                         <label>Email</label>
                                         <input type="text" name="user_email" class="form-control" placeholder="Email">
