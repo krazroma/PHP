@@ -20,7 +20,7 @@ session_start();
      if ($user_email == $row['user_email'] && password_verify($user_password_hashed, $row['user_password']))
      {
        $_SESSION['user_email'] = $user_email;
-       var_dump();
+       echo var_dump();
      } // closes if statement
    } // closes while loop
  } // closes POST condition
