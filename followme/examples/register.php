@@ -135,6 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 										<i class="fa fa-twitter"></i>
 									</a>
                                 </div>
+                                <a href="login.php">Login</a>
                                 <form class="register-form" method="post">
                                     <label>Email</label>
                                     <input type="text" name="user_email" class="form-control" placeholder="Email">
