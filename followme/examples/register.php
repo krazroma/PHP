@@ -31,9 +31,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   }
 
   $user_password_hashed = password_hash($user_password, PASSWORD_BCRYPT);
+
+
   //var_dump($user_password);
-  $sql = "INSERT INTO fm_users (user_email, user_password) VALUES ('$sanitized_email','$user_password_hashed')";
-  $conn->query($sql);
+  if ($sanitized_email === true)
+  {
+    $sql = "INSERT INTO fm_users (user_email, user_password) VALUES ('$sanitized_email','$user_password_hashed')";
+    $conn->query($sql);
+  }
+
 }
  ?>
 
