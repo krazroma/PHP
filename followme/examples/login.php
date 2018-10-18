@@ -14,12 +14,6 @@ session_start();
      die("Connection Failed: " . $conn->connect_error);
    }
 
- }
-
- if ($_SERVER['REQUEST_METHOD'] == 'POST')
-
- {
-
    $user_email = $_POST['user_email'];
    $user_email = filter_var($user_email, FILTER_SANITIZE_EMAIL);
    if (filter_var($user_email, FILTER_VALIDATE_EMAIL))
