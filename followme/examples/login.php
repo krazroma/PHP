@@ -13,22 +13,22 @@
    {
      die("Connection Failed: " . $conn->connect_error);
    }
-   
+
    $user_email = $_POST['user_email'];
    $user_email = filter_var($user_email, FILTER_SANITIZE_EMAIL);
-   if (filter_var($user_email, FILTER_VALIDATE_EMAIL))
-   {
-       echo "This sanitized email address is considered valid.";
-   }
-   else
-   {
-       echo "This sanitized email address is considered invalid.\n";
-   }
+   // if (filter_var($user_email, FILTER_VALIDATE_EMAIL))
+   // {
+   //     echo "This sanitized email address is considered valid.";
+   // }
+   // else
+   // {
+   //     echo "This sanitized email address is considered invalid.\n";
+   // }
    $user_password = $_POST['user_password'];
-   if (empty($user_email) || empty($user_password))
-   {
-       echo "Invalid Entry, please enter correct email and password";
-   }
+   // if (empty($user_email) || empty($user_password))
+   // {
+   //     echo "Invalid Entry, please enter correct email and password";
+   // }
 
    $user_password = password_hash($user_password, PASSWORD_BCRYPT);
 
