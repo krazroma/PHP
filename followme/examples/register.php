@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $conn->query($sql);
   }
 
-  header('Location: landing.html');
+  //header('Location: landing.html');
 
 }
  ?>

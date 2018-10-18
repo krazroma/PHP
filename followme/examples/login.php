@@ -34,9 +34,9 @@ session_start();
    // Extraction the returned query information
    while ($row = $result->fetch_assoc())
    { // $row[username] is value from database
-     if ($user_email == $row['user_email'] && $user_email == $row['user_password']))
+     if ($user_email == $row['user_email'] && $user_password == $row['user_password']))
      {
-        header('Location: profile.html');
+        header("Location: profile.html");
 
      }
      else
