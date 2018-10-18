@@ -24,6 +24,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   }
 
   $user_password = $_POST['user_password'];
+
+  if ($user_email != NULL && $user_password != NULL;) {
+    while($user_email == NULL && $user_password == NULL;)
+    {
+      echo "Invalid Entry, please enter correct email and password";
+    }
+  }
+
   $user_password_hashed = password_hash($user_password, PASSWORD_BCRYPT);
   //var_dump($user_password);
   $sql = "INSERT INTO fm_users (user_email, user_password) VALUES ('$sanitized_email','$user_password_hashed')";
