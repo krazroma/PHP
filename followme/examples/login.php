@@ -24,13 +24,15 @@ session_start();
      {
          echo "This sanitized email address is considered invalid.\n";
      }
+
      $user_password = $_POST['user_password'];
+
      if (empty($user_email) || empty($user_password))
      {
          echo "Invalid Entry, please enter correct email and password";
      }
 
-     $user_password = password_hash($user_password, PASSWORD_BCRYPT);
+     //$user_password = password_hash($user_password, PASSWORD_BCRYPT);
 
 
      // sql statement to execute. Surroundvariables with single quotes
