@@ -25,11 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
   $user_password = $_POST['user_password'];
 
-  if ($user_email != NULL && $user_password != NULL;) {
-    while($user_email == NULL && $user_password == NULL;)
-    {
+  if (empty($user_email) || empty($user_password))
+  {
       echo "Invalid Entry, please enter correct email and password";
-    }
   }
 
   $user_password_hashed = password_hash($user_password, PASSWORD_BCRYPT);
