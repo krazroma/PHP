@@ -1,6 +1,6 @@
 <?php
 
-//session_start();
+session_start();
 
  if ($_SERVER['REQUEST_METHOD'] == 'POST')
  {
@@ -52,7 +52,6 @@
        echo "This is an invalid login. Your mom will have to come to school now.";
      } // closes if statement
    } // closes while loop
- } // closes POST condition
 
  ?>
 
