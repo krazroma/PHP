@@ -1,24 +1,29 @@
 <?php
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-  $db_host = 'localhost'; // Database is installed on the PHPH server
-  $db_user = 'roman'; // name to log in to MySQL
-  $db_password = 'southhills#'; // password to login to MySQL
-  $db_name = 'roman'; // name of the database within MySQL
-  $conn = new mysqli($db_host, $db_user, $db_password, $db_name);
-  if ($conn->connect_error)
-  {
-    die("Connection Failed: " . $conn->connect_error);
-  }
-  // grab POST data password will be hashed so no need to sanitaze
-  $user_password = $_POST['user_password'];
-  $user_password_hashed = password_hash($user_password, PASSWORD_BCRYPT);
-  //var_dump($user_password);
-  $sql = "INSERT INTO fm_users (user_email, user_password) VALUES ('$user_email','$user_password_hashed')";
-  $conn->query($sql);
-}
+ require('dbconnection.php');
+
+
+ if (isset($_POST['sanitized_email']))
+ {
+   $sanitized_email = $_POST['sanitized_email'];
+   $user_password_hashed = $_POST['user_password_hashed'];
+   // sql statement to execute. Surroundvariables with single quotes
+   $sql = "SELECT user_email, user_password FROM fm_users where user_email = '$sanitized_email'";
+
+   // execute the sql and return array to $result
+   $result = $conn->query($sql);
+
+   // Extraction the returned query information
+   while ($row = $result->fetch_assoc())
+   { // $row[username] is value from database
+     if ($sanitized_email == $row['user_email'] && password_verify($user_password_hashed, $row['user_password']))
+     {
+       $_SESSION['user_email'] = $sanitized_email;
+     } // closes if statement
+   } // closes while loop
+ } // closes POST condition
+
  ?>
 
  <!doctype html>
@@ -46,7 +51,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 	<link href="../assets/css/nucleo-icons.css" rel="stylesheet">
 
+  <a href="register.php">Register</a>
+
+
 </head>
+
+<?php
+
+  if (isset($_POST['logout']))
+  {
+    unset($_SESSION['username']);
+  }
+?>
+
 <body>
     <nav class="navbar navbar-expand-md fixed-top navbar-transparent">
         <div class="container">
@@ -101,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     <div class="row">
                         <div class="col-lg-4 ml-auto mr-auto">
                             <div class="card card-register">
-                                <h3 class="title">Register</h3>
+                                <h3 class="title">Login</h3>
 				                            <div class="social-line text-center">
                                     <!-- <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
                                         <i class="fa fa-facebook-square"></i>
@@ -119,7 +136,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
                                         <label>Password</label>
                                         <input type="password" name="user_password" class="form-control" placeholder="Password">
-                                        <input type="submit" value="Register" button class="btn btn-danger btn-block btn-round">
+                                        <input type="submit" value="Login" button class="btn btn-danger btn-block btn-round">
+                                       <input type="submit" name="logout" value="logout">
+                                     </form>
+
+                                     <?php
+                                       echo "Logged in as: " . $_SESSION['username'];
+
+                                     ?>
                                     </form>
                                     <div class="forgot">
                                         <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
