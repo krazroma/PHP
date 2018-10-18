@@ -13,15 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   }
 
   $user_email = $_POST['user_email'];
-  // $user_email = filter_var($user_email, FILTER_SANITAZE_EMAIL); // sanitaze the $username by remove tags
-  // $user_email = trim($user_email); // trim white space from beginning and the end of the $username
-  // $user_email = preg_replace("/\s+/", "", $user_email); //removes tab is pressed
-
-  // grab POST data password will be hashed so no need to sanitaze
+  $sanitized_email = filter_var($user_email, FILTER_SANITIZE_EMAIL);
   $user_password = $_POST['user_password'];
   $user_password_hashed = password_hash($user_password, PASSWORD_BCRYPT);
   //var_dump($user_password);
-  $sql = "INSERT INTO fm_users (user_email, user_password) VALUES ('$user_email','$user_password_hashed')";
+  $sql = "INSERT INTO fm_users (user_email, user_password) VALUES ('$sanitized_email','$user_password_hashed')";
   $conn->query($sql);
 }
  ?>
