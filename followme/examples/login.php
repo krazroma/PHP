@@ -85,7 +85,13 @@ session_start();
 
 </head>
 
+<?php
 
+  if (isset($_POST['logout']))
+  {
+    unset($_SESSION['user_email']);
+  }
+?>
 
 <body>
     <nav class="navbar navbar-expand-md fixed-top navbar-transparent">
@@ -161,7 +167,7 @@ session_start();
                                         <label>Password</label>
                                         <input type="password" name="user_password" class="form-control" placeholder="Password">
                                         <input type="submit" value="Login" button class="btn btn-danger btn-block btn-round">
-                                       <!-- <input type="submit" value="Logout" button class="btn btn-danger btn-block btn-round"> -->
+                                       <input type="submit" value="Logout" button class="btn btn-danger btn-block btn-round">
                                      </form>
 
                                      <?php
