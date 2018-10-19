@@ -3,6 +3,11 @@
 // Uses $_SESSION['email'] to display in navigation
 // modify fm_users to include image_url loas it to $_SESSION['image_url']
 // modify fm_users table to include first_name and last_name and put it in session variable $_SESSION['first_name'] and $_SESSION['last_name']
+// modify fm_users to add title and then load it to $_SESSION['title']
+// modify fm_users to add description and then load into $_SESSION['description']
+
+
+
 
 ?>
 <!doctype html>
@@ -71,12 +76,12 @@
                     </div>
                     <div class="name">
                         <h4 class="title"><?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name'] ?><br /></h4>
-						<h6 class="description">Music Producer</h6>
+												<h6 class="description"><?php echo $_SESSION['title']; ?></h6>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 ml-auto mr-auto text-center">
-                        <p>An artist of considerable range, Jane Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+                        <p><?php echo $_SESSION['description']; ?></p>
                         <br />
                         <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</btn>
                     </div>
