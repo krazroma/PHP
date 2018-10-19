@@ -32,7 +32,7 @@
          echo "Invalid Entry, please enter correct email and password";
      }
 
-     //$user_password = password_hash($user_password, PASSWORD_BCRYPT);
+     //$user_password = password_hash($user_password, PASSWORD_BCRYPT); //
 
 
      // sql statement to execute. Surroundvariables with single quotes
@@ -45,7 +45,7 @@
      // Extraction the returned query information
      while ($row = $result->fetch_assoc())
      {
-       if ($user_email == $row['user_email'] && password_verify($user_password, $row['user_password']))
+       if ($user_email == $row['user_email'] && password_verify($user_password, $row['user_password'])) // compare users password to the hash
        {
           $_SESSION['user_email'] = $user_email;
           header("Location: profile.html");
