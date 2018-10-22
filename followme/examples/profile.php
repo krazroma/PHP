@@ -6,12 +6,12 @@ if (!isset($_SESSION))
 }
 
 // Uses $_SESSION['email'] to display in navigation
-echo $_SESSION['user_email'];
+//echo $_SESSION['user_email'];
 
-// modify fm_users to include image_url load it to $_SESSION['image_url']
+modify fm_users to include image_url load it to $_SESSION['image_url']
 if(isset($_SESSION['user_email']))
 {
-	echo "../assets/img/fabio-mangione.jpg";
+	echo url(../assets/img/fabio-mangione.jpg);
 }
 
 
