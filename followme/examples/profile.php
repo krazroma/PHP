@@ -1,5 +1,9 @@
 <?php
 // start session
+if (!isset($_SESSION))
+{
+  session_start();
+}
 // Uses $_SESSION['email'] to display in navigation
 // modify fm_users to include image_url loas it to $_SESSION['image_url']
 // modify fm_users table to include first_name and last_name and put it in session variable $_SESSION['first_name'] and $_SESSION['last_name']
