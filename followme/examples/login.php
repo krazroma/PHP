@@ -48,7 +48,7 @@
        if ($user_email == $row['user_email'] && password_verify($user_password, $row['user_password'])) // compare users password to the hash
        {
           $_SESSION['user_email'] = $user_email;
-          header("Location: profile.html");
+          header("Location: profile.php");
        }
        else
        {
