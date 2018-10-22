@@ -9,10 +9,10 @@ if (!isset($_SESSION))
 //echo $_SESSION['user_email'];
 
 //modify fm_users to include image_url load it to $_SESSION['image_url']
-if(isset($_SESSION['user_email']))
-{
-	url(../assets/img/fabio-mangione.jpg);
-}
+// if(isset($_SESSION['user_email']))
+// {
+// 	url(../assets/img/fabio-mangione.jpg);
+// }
 
 
 // modify fm_users table to include first_name and last_name and put it in session variable $_SESSION['first_name'] and $_SESSION['last_name']
