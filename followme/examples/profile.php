@@ -11,7 +11,7 @@ if (!isset($_SESSION))
 //modify fm_users to include image_url load it to $_SESSION['image_url']
 if(isset($_SESSION['user_email']))
 {
-	echo url(../assets/img/fabio-mangione.jpg);
+	url(../assets/img/fabio-mangione.jpg);
 }
 
 
