@@ -25,34 +25,34 @@ else
       echo "0 results";
 }
 
-// if (isset($_POST['user_email']))
-// {
-  // $first_name = $_POST['first_name'];
-  // $last_name = $_POST['last_name'];
-  // //$user_email = $_POST['last_name'];
-  // //$user_password = $_POST['user_password'];
-  // $image_url = $_POST['image_url'];
-  // $description = $_POST['description'];
-  // $title = $_POST['title'];
-  // sql statement to execute. Surroundvariables with single quotes
+if (isset($_POST['user_email']))
+{
+  $first_name = $_POST['first_name'];
+  $last_name = $_POST['last_name'];
+  //$user_email = $_POST['last_name'];
+  //$user_password = $_POST['user_password'];
+  $image_url = $_POST['image_url'];
+  $description = $_POST['description'];
+  $title = $_POST['title'];
+  sql statement to execute. Surroundvariables with single quotes
 
 
-  // Extraction the returned query information
-  // while ($row = $result->fetch_assoc())
-  // {
-  //   if ($user_email == $row['user_email'])
-  //   {
-  //     $_SESSION['first_name'] = $first_name;
-  //     $_SESSION['last_name'] = $last_name;
-  //     //$_SESSION['user_email'] = $user_email;
-  //     //$_SESSION['user_password'] = $user_password;
-  //     $_SESSION['image_url'] = $image_url;
-  //     $_SESSION['description'] = $description;
-  //     $_SESSION['title'] = $title;
-  //     var_dump('1');
-  //   } // closes if statement
-  // } // closes while loop
-//} // closes POST condition
+  Extraction the returned query information
+  while ($row = $result->fetch_assoc())
+  {
+    if ($user_email == $row['user_email'])
+    {
+      $_SESSION['first_name'] = $first_name;
+      $_SESSION['last_name'] = $last_name;
+      //$_SESSION['user_email'] = $user_email;
+      //$_SESSION['user_password'] = $user_password;
+      $_SESSION['image_url'] = $image_url;
+      $_SESSION['description'] = $description;
+      $_SESSION['title'] = $title;
+      var_dump('1');
+    } // closes if statement
+  } // closes while loop
+} // closes POST condition
 
 //var_dump($first_name, $last_name, $user_email, $user_password, $image_url, $description, $title);
 
