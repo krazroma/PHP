@@ -13,13 +13,17 @@ $sql = "SELECT first_name, last_name, image_url, description, title FROM fm_user
 $result = $conn->query($sql);
 
 
-if ($result->num_rows > 0) {
+if ($result->num_rows > 0)
+{
     // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<br> id: ". $row["first_name"]. " ". $row["last_name"]. " " . $row["last_name"] . "<br>";
+    while($row = $result->fetch_assoc())
+    {
+        echo "<br> id: ". $row["first_name"]. " ". $row["last_name"]. " " . $row["description"] . "<br>";
     }
-} else {
-    echo "0 results";
+}
+else
+{
+      echo "0 results";
 }
 
 // if (isset($_POST['user_email']))
