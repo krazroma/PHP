@@ -22,6 +22,8 @@ if (isset($_POST['user_email']))
   // execute the sql and return array to $result
   $result = $conn->query($sql);
 
+  var_dump($first_name, $last_name, $user_email, $user_password, $image_url, $description, $title);
+
   // Extraction the returned query information
   // while ($row = $result->fetch_assoc())
   // { // $row[username] is value from database
