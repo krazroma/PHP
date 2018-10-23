@@ -32,9 +32,6 @@ session_start();
          echo "Invalid Entry, please enter correct email and password";
      }
 
-     //$user_password = password_hash($user_password, PASSWORD_BCRYPT); //
-
-
      // sql statement to execute. Surroundvariables with single quotes
      $sql = "SELECT * FROM fm_users where user_email = '$user_email' ";
 
@@ -47,8 +44,7 @@ session_start();
      {
        if ($user_email == $row['user_email'] && password_verify($user_password, $row['user_password'])) // compare users password to the hash
        {
-          $_SESSION['user_email'] = $user_email;
-
+            $_SESSION['user_email'] = $user_email;
             $_SESSION['first_name'] = $row['first_name'];
             $_SESSION['last_name'] = $row['last_name'];
             //$_SESSION['user_email'] = $user_email;
