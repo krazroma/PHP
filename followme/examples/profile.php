@@ -12,10 +12,10 @@ $sql = "SELECT first_name, last_name, image_url, description, title FROM fm_user
 // execute the sql and return array to $result
 $result = $conn->query($sql);
 
-while($row = $result->fetch_assoc())
-{
-    echo "<br>". $row['first_name']. " ". $row["last_name"]. " " . $row["description"] . "<br>";
-}
+$row = $result->fetch_assoc();
+
+echo "<br>". $row['first_name']. " ". $row["last_name"]. " " . $row["description"] . "<br>";
+
 // if ($result->num_rows > 0)
 // {
 //     // output data of each row
