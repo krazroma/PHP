@@ -11,7 +11,7 @@ if (isset($_POST['user_email']))
 {
   $first_name = $_POST['first_name'];
   $last_name = $_POST['last_name'];
-  $user_email = $_POST['user_email'];
+  //$user_email = $_POST['user_email'];
   $user_password = $_POST['user_password'];
   $image_url = $_POST['image_url'];
   $description = $_POST['description'];
@@ -24,7 +24,7 @@ if (isset($_POST['user_email']))
 
   // Extraction the returned query information
   while ($row = $result->fetch_assoc())
-  { // $row[username] is value from database
+  {
     if ($user_email == $row['user_email'])
     {
       $_SESSION['first_name'] = $first_name;
