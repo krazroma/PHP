@@ -5,6 +5,33 @@ if (!isset($_SESSION))
   session_start();
 }
 
+require('dbconnection.php');
+
+if (isset($_POST['user_email']))
+{
+  $first_name = $_POST['first_name'];
+  $last_name = $_POST['last_name'];
+  $user_email = $_POST['user_email'];
+  $user_password = $_POST['user_password'];
+  $image_url = $_POST['image_url'];
+  $description = $_POST['description'];
+  $title = $_POST['title'];
+  // sql statement to execute. Surroundvariables with single quotes
+  $sql = "SELECT first_name, last_name, user_email, user_password, image_url, description, title FROM fm_users where user_email = '$user_email'";
+
+  // execute the sql and return array to $result
+  $result = $conn->query($sql);
+
+  // Extraction the returned query information
+  // while ($row = $result->fetch_assoc())
+  // { // $row[username] is value from database
+  //   if ($username == $row['username'] && password_verify($user_password, $row['user_password']))
+  //   {
+  //     $_SESSION['username'] = $username;
+  //   } // closes if statement
+  // } // closes while loop
+} // closes POST condition
+
 // Uses $_SESSION['email'] to display in navigation
 //done
 
