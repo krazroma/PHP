@@ -22,8 +22,6 @@ if (isset($_POST['user_email']))
   // execute the sql and return array to $result
   $result = $conn->query($sql);
 
-
-
   // Extraction the returned query information
   while ($row = $result->fetch_assoc())
   { // $row[username] is value from database
@@ -39,6 +37,8 @@ if (isset($_POST['user_email']))
     } // closes if statement
   } // closes while loop
 } // closes POST condition
+
+var_dump($first_name, $last_name, $user_email, $user_password, $image_url, $description, $title);
 
 // Uses $_SESSION['email'] to display in navigation
 //done
@@ -100,7 +100,7 @@ if (isset($_POST['user_email']))
 			<div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="#" class="nav-link">Login</a>
+            <a href="login.php" class="nav-link">Login</a>
           </li>
 					<li class="nav-item">
             <a href="login.php" class="nav-link">
