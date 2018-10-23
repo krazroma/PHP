@@ -1,9 +1,9 @@
 <?php
-//start session
-if (!isset($_SESSION))
-{
-  session_start();
-}
+start_session();
+// if (!isset($_SESSION))
+// {
+//   session_start();
+// }
 
 require('dbconnection.php');
 
@@ -42,7 +42,7 @@ if (isset($_POST['user_email']))
   {
     if ($user_email == $row['user_email'])
     {
-      $_SESSION['first_name'] = $first_name;
+      $_SESSION['first_name'] = $row['first_name'];
       $_SESSION['last_name'] = $last_name;
       //$_SESSION['user_email'] = $user_email;
       //$_SESSION['user_password'] = $user_password;
