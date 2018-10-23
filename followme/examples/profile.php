@@ -12,18 +12,18 @@ $sql = "SELECT first_name, last_name, image_url, description, title FROM fm_user
 // execute the sql and return array to $result
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0)
-{
-    // output data of each row
-    while($row = $result->fetch_assoc())
-    {
-        echo "<br>". $row["first_name"]. " ". $row["last_name"]. " " . $row["description"] . "<br>";
-    }
-}
-else
-{
-      echo "0 results";
-}
+// if ($result->num_rows > 0)
+// {
+//     // output data of each row
+//     while($row = $result->fetch_assoc())
+//     {
+//         echo "<br>". $row["first_name"]. " ". $row["last_name"]. " " . $row["description"] . "<br>";
+//     }
+// }
+// else
+// {
+//       echo "0 results";
+// }
 
 if (isset($_POST['user_email']))
 {
@@ -34,10 +34,10 @@ if (isset($_POST['user_email']))
   $image_url = $_POST['image_url'];
   $description = $_POST['description'];
   $title = $_POST['title'];
-  sql statement to execute. Surroundvariables with single quotes
+  //sql statement to execute. Surroundvariables with single quotes
 
 
-  Extraction the returned query information
+  //Extraction the returned query information
   while ($row = $result->fetch_assoc())
   {
     if ($user_email == $row['user_email'])
