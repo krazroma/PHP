@@ -36,7 +36,7 @@ session_start();
 
 
      // sql statement to execute. Surroundvariables with single quotes
-     $sql = "SELECT user_email, user_password FROM fm_users where user_email = '$user_email' ";
+     $sql = "SELECT * FROM fm_users where user_email = '$user_email' ";
 
      // execute the sql and return array to $result
      $result = $conn->query($sql);
@@ -48,14 +48,22 @@ session_start();
        if ($user_email == $row['user_email'] && password_verify($user_password, $row['user_password'])) // compare users password to the hash
        {
           $_SESSION['user_email'] = $user_email;
-          header("Location: profile.php");
-       }
-       else
-       {
-         echo "This is an invalid login. Your mom will have to come to school now.";
-       }
-     } // closes if statement
-   } // closes while loop
+
+            $_SESSION['first_name'] = $row['first_name'];
+            $_SESSION['last_name'] = $row['last_name'];
+            //$_SESSION['user_email'] = $user_email;
+            //$_SESSION['user_password'] = $user_password;
+            $_SESSION['image_url'] = $row['image_url'];
+            $_SESSION['description'] = $row['description'];
+            $_SESSION['title'] = $row['title'];
+            header("Location: profile.php");
+        } // closes if statement
+        else
+        {
+          echo "This is an invalid login. Your mom will have to come to school now.";
+        }
+      } // closes while loop
+} // closes POST condition
 
  ?>
 
