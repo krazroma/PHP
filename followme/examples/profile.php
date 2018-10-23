@@ -12,12 +12,12 @@ if (isset($_POST['user_email']))
   $first_name = $_POST['first_name'];
   $last_name = $_POST['last_name'];
   //$user_email = $_POST['user_email'];
-  $user_password = $_POST['user_password'];
+  //$user_password = $_POST['user_password'];
   $image_url = $_POST['image_url'];
   $description = $_POST['description'];
   $title = $_POST['title'];
   // sql statement to execute. Surroundvariables with single quotes
-  $sql = "SELECT first_name, last_name, user_email, user_password, image_url, description, title FROM fm_users where user_email = '$user_email'";
+  $sql = "SELECT first_name, last_name, image_url, description, title FROM fm_users where user_email = '$user_email'";
 
   // execute the sql and return array to $result
   $result = $conn->query($sql);
@@ -29,8 +29,8 @@ if (isset($_POST['user_email']))
     {
       $_SESSION['first_name'] = $first_name;
       $_SESSION['last_name'] = $last_name;
-      $_SESSION['user_email'] = $user_email;
-      $_SESSION['user_password'] = $user_password;
+      //$_SESSION['user_email'] = $user_email;
+      //$_SESSION['user_password'] = $user_password;
       $_SESSION['image_url'] = $image_url;
       $_SESSION['description'] = $description;
       $_SESSION['title'] = $title;
