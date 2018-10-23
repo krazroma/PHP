@@ -7,7 +7,7 @@ if (!isset($_SESSION))
 
 require('dbconnection.php');
 
-$sql = "SELECT first_name, last_name, image_url, description, title FROM fm_users";
+$sql = "SELECT * FROM fm_users";
 
 // execute the sql and return array to $result
 $result = $conn->query($sql);
