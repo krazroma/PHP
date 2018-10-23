@@ -7,8 +7,23 @@ if (!isset($_SESSION))
 
 require('dbconnection.php');
 
-if (isset($_POST['user_email']))
-{
+$sql = "SELECT first_name, last_name, image_url, description, title FROM fm_users where user_email = '$user_email'";
+
+// execute the sql and return array to $result
+$result = $conn->query($sql);
+
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<br> id: ". $row["first_name"]. " ". $row["last_name"]. " " . $row["last_name"] . "<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+// if (isset($_POST['user_email']))
+// {
   // $first_name = $_POST['first_name'];
   // $last_name = $_POST['last_name'];
   // //$user_email = $_POST['last_name'];
@@ -17,20 +32,7 @@ if (isset($_POST['user_email']))
   // $description = $_POST['description'];
   // $title = $_POST['title'];
   // sql statement to execute. Surroundvariables with single quotes
-  $sql = "SELECT first_name, last_name, image_url, description, title FROM fm_users where user_email = '$user_email'";
 
-  // execute the sql and return array to $result
-  $result = $conn->query($sql);
-
-
-  if ($result->num_rows > 0) {
-      // output data of each row
-      while($row = $result->fetch_assoc()) {
-          echo "<br> id: ". $row["first_name"]. " ". $row["last_name"]. " " . $row["last_name"] . "<br>";
-      }
-  } else {
-      echo "0 results";
-  }
 
 
 
@@ -51,9 +53,9 @@ if (isset($_POST['user_email']))
   //     var_dump('1');
   //   } // closes if statement
   // } // closes while loop
-} // closes POST condition
+//} // closes POST condition
 
-var_dump($first_name, $last_name, $user_email, $user_password, $image_url, $description, $title);
+//var_dump($first_name, $last_name, $user_email, $user_password, $image_url, $description, $title);
 
 // Uses $_SESSION['email'] to display in navigation
 //done
