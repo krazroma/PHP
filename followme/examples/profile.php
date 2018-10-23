@@ -7,7 +7,7 @@ start_session();
 
 require('dbconnection.php');
 
-$sql = "SELECT * FROM fm_users where user_email = " . $_POST['user_email'];
+$sql = "SELECT * FROM fm_users where user_email = '$user_email'";
 
 // execute the sql and return array to $result
 $result = $conn->query($sql);
