@@ -17,7 +17,7 @@ if ($result->num_rows > 0)
     // output data of each row
     while($row = $result->fetch_assoc())
     {
-        echo "<br> id: ". $row["first_name"]. " ". $row["last_name"]. " " . $row["description"] . "<br>";
+        echo "<br>". $row["first_name"]. " ". $row["last_name"]. " " . $row["description"] . "<br>";
     }
 }
 else
@@ -35,10 +35,6 @@ else
   // $description = $_POST['description'];
   // $title = $_POST['title'];
   // sql statement to execute. Surroundvariables with single quotes
-
-
-
-
 
 
   // Extraction the returned query information
@@ -75,9 +71,6 @@ else
 
 // modify fm_users to add description and then load into $_SESSION['description']
 // done
-
-
-
 
 ?>
 <!doctype html>
