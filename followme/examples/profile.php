@@ -1,76 +1,76 @@
 <?php
-start_session();
+//start_session();
 // if (!isset($_SESSION))
 // {
 //   session_start();
 // }
 
-require('dbconnection.php');
-
-$sql = "SELECT * FROM fm_users where user_email = '$_POST['user_email']'";
-
-// execute the sql and return array to $result
-$result = $conn->query($sql);
-
-// if ($result->num_rows > 0)
+// require('dbconnection.php');
+//
+// $sql = "SELECT * FROM fm_users where user_email = '$_POST['user_email']'";
+//
+// // execute the sql and return array to $result
+// $result = $conn->query($sql);
+//
+// // if ($result->num_rows > 0)
+// // {
+// //     // output data of each row
+// //     while($row = $result->fetch_assoc())
+// //     {
+// //         echo "<br>". $row["first_name"]. " ". $row["last_name"]. " " . $row["description"] . "<br>";
+// //     }
+// // }
+// // else
+// // {
+// //       echo "0 results";
+// // }
+//
+// if (isset($_POST['user_email']))
 // {
-//     // output data of each row
-//     while($row = $result->fetch_assoc())
+//   // $first_name = $_POST['first_name'];
+//   // $last_name = $_POST['last_name'];
+//   // //$user_email = $_POST['last_name'];
+//   // //$user_password = $_POST['user_password'];
+//   // $image_url = $_POST['image_url'];
+//   // $description = $_POST['description'];
+//   // $title = $_POST['title'];
+//   // //sql statement to execute. Surroundvariables with single quotes
+//
+//
+//   //Extraction the returned query information
+//   while ($row = $result->fetch_assoc())
+//   {
+//     if ($user_email == $row['user_email'])
 //     {
-//         echo "<br>". $row["first_name"]. " ". $row["last_name"]. " " . $row["description"] . "<br>";
-//     }
-// }
-// else
-// {
-//       echo "0 results";
-// }
-
-if (isset($_POST['user_email']))
-{
-  // $first_name = $_POST['first_name'];
-  // $last_name = $_POST['last_name'];
-  // //$user_email = $_POST['last_name'];
-  // //$user_password = $_POST['user_password'];
-  // $image_url = $_POST['image_url'];
-  // $description = $_POST['description'];
-  // $title = $_POST['title'];
-  // //sql statement to execute. Surroundvariables with single quotes
-
-
-  //Extraction the returned query information
-  while ($row = $result->fetch_assoc())
-  {
-    if ($user_email == $row['user_email'])
-    {
-      $_SESSION['first_name'] = $row['first_name'];
-      $_SESSION['last_name'] = $last_name;
-      //$_SESSION['user_email'] = $user_email;
-      //$_SESSION['user_password'] = $user_password;
-      $_SESSION['image_url'] = $image_url;
-      $_SESSION['description'] = $description;
-      $_SESSION['title'] = $title;
-      var_dump('1');
-    } // closes if statement
-  } // closes while loop
-} // closes POST condition
-
-//var_dump($first_name, $last_name, $user_email, $user_password, $image_url, $description, $title);
-
-// Uses $_SESSION['email'] to display in navigation
-//done
-
-//modify fm_users to include image_url load it to $_SESSION['image_url']
-//done
-
-
-// modify fm_users table to include first_name and last_name and put it in session variable $_SESSION['first_name'] and $_SESSION['last_name']
-//done
-
-// modify fm_users to add title and then load it to $_SESSION['title']
-//done
-
-// modify fm_users to add description and then load into $_SESSION['description']
-// done
+//       $_SESSION['first_name'] = $row['first_name'];
+//       $_SESSION['last_name'] = $last_name;
+//       //$_SESSION['user_email'] = $user_email;
+//       //$_SESSION['user_password'] = $user_password;
+//       $_SESSION['image_url'] = $image_url;
+//       $_SESSION['description'] = $description;
+//       $_SESSION['title'] = $title;
+//       var_dump('1');
+//     } // closes if statement
+//   } // closes while loop
+// } // closes POST condition
+//
+// //var_dump($first_name, $last_name, $user_email, $user_password, $image_url, $description, $title);
+//
+// // Uses $_SESSION['email'] to display in navigation
+// //done
+//
+// //modify fm_users to include image_url load it to $_SESSION['image_url']
+// //done
+//
+//
+// // modify fm_users table to include first_name and last_name and put it in session variable $_SESSION['first_name'] and $_SESSION['last_name']
+// //done
+//
+// // modify fm_users to add title and then load it to $_SESSION['title']
+// //done
+//
+// // modify fm_users to add description and then load into $_SESSION['description']
+// // done
 
 ?>
 <!doctype html>
