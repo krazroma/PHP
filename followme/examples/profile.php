@@ -27,13 +27,13 @@ $result = $conn->query($sql);
 
 if (isset($_POST['user_email']))
 {
-  // $first_name = $_POST['first_name'];
-  // $last_name = $_POST['last_name'];
-  // //$user_email = $_POST['last_name'];
-  // //$user_password = $_POST['user_password'];
-  // $image_url = $_POST['image_url'];
-  // $description = $_POST['description'];
-  // $title = $_POST['title'];
+  $first_name = $_POST['first_name'];
+  $last_name = $_POST['last_name'];
+  //$user_email = $_POST['last_name'];
+  //$user_password = $_POST['user_password'];
+  $image_url = $_POST['image_url'];
+  $description = $_POST['description'];
+  $title = $_POST['title'];
   // //sql statement to execute. Surroundvariables with single quotes
 
 
