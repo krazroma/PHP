@@ -22,16 +22,22 @@ if (isset($_POST['user_email']))
   // execute the sql and return array to $result
   $result = $conn->query($sql);
 
-  var_dump($first_name);
+
 
   // Extraction the returned query information
-  // while ($row = $result->fetch_assoc())
-  // { // $row[username] is value from database
-  //   if ($username == $row['username'] && password_verify($user_password, $row['user_password']))
-  //   {
-  //     $_SESSION['username'] = $username;
-  //   } // closes if statement
-  // } // closes while loop
+  while ($row = $result->fetch_assoc())
+  { // $row[username] is value from database
+    if ($user_email == $row['user_email'])
+    {
+      $_SESSION['first_name'] = $first_name;
+      $_SESSION['last_name'] = $last_name;
+      $_SESSION['user_email'] = $user_email;
+      $_SESSION['user_password'] = $user_password;
+      $_SESSION['image_url'] = $image_url;
+      $_SESSION['description'] = $description;
+      $_SESSION['title'] = $title;
+    } // closes if statement
+  } // closes while loop
 } // closes POST condition
 
 // Uses $_SESSION['email'] to display in navigation
