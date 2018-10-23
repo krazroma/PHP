@@ -13,7 +13,7 @@ $sql = "SELECT first_name, last_name, image_url, description, title FROM fm_user
 $result = $conn->query($sql);
 
 
-if ($result->num_rows > 0)
+if (isset($_POST['user_email']))
 {
     // output data of each row
     while($row = $result->fetch_assoc())
