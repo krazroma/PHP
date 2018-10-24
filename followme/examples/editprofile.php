@@ -1,6 +1,18 @@
 <?php
 // strt session if it is not running
-session_start();
+//session_start();
+if (!isset($_SESSION))
+{
+  session_start();
+}//checks if global variable for session is set
+
+// add name attributes to form elements
+// set default values for each form element from $_SESSION
+// Update subbmited values to Database
+// Update submitted values to $_SESSION
+
+
+// update session variables with new values
 
 ?>
 <!doctype html>
@@ -91,7 +103,7 @@ session_start();
 									<span class="input-group-addon">
 										<i class="nc-icon nc-tag-content"></i>
 									</span>
-									<input type="text" class="form-control" placeholder="Title">
+									<input value="<?php echo $_SESSION['title']; ?>" type="text" class="form-control" placeholder="Title">
 								</div>
 
 								<label>Description</label>
