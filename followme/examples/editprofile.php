@@ -97,7 +97,7 @@ session_start();
 								<label>Description</label>
 								<textarea class="form-control" rows="4" placeholder="Tell everyone a little about you..."></textarea>
 								<div class="row">
-									<div class="col-md-4 ml-auto mr-auto" "text-center">
+									<div class="col-md-4 ml-auto mr-auto text-center">
 										<button class="btn btn-danger btn-lg btn-fill">Update</button>
 									</div>
 								</div>
