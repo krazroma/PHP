@@ -85,6 +85,15 @@ session_start();
 										</div>
 									</div>
 								</div><!--ends first row-->
+
+								<label>Title</label>
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="nc-icon nc-tag-content"></i>
+									</span>
+									<input type="text" class="form-control" placeholder="Title">
+								</div>
+
 								<label>Description</label>
 								<textarea class="form-control" rows="4" placeholder="Tell everyone a little about you..."></textarea>
 								<div class="row">
