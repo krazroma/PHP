@@ -67,21 +67,21 @@ session_start();
 								<form class="contact-form" action="" method="post">
 								<div class="row">
 									<div class="col-md-6">
-										<label>Name</label>
+										<label>First Name</label>
 											<div class="input-group">
 												<span class="input-group-addon">
 													<i class="nc-icon nc-single-02"></i>
 												</span>
-												<input type="text" class="form-control" placeholder="Name">
+												<input type="text" class="form-control" placeholder="First Name">
 										</div>
 									</div>
 									<div class="col-md-6">
-										<label>Email</label>
+										<label>Last Name</label>
 										<div class="input-group">
 											<span class="input-group-addon">
-												<i class="nc-icon nc-email-85"></i>
+												<i class="nc-icon nc-single-02"></i>
 											</span>
-											<input type="text" class="form-control" placeholder="Email">
+											<input type="text" class="form-control" placeholder="Last Name">
 										</div>
 									</div>
 								</div><!--ends first row-->
