@@ -45,6 +45,8 @@ session_start();
        if ($user_email == $row['user_email'] && password_verify($user_password, $row['user_password'])) // compare users password to the hash
        {
             $_SESSION['user_email'] = $user_email;
+            $_SESSION['user_password'] = $row['user_password'];
+            $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['first_name'] = $row['first_name'];
             $_SESSION['last_name'] = $row['last_name'];
             //$_SESSION['user_email'] = $user_email;

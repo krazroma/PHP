@@ -1,16 +1,22 @@
 <?php
 // strt session if it is not running
-if (!isset($_SESSION))
-{
-  session_start();
-}
+
+session_start();
+
 
 // if (isset($_POST))
-if(isset($_POST['user_email'])
+if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-  require('dbconnection.php');
-  //$userid = $_POST['userid'];
-  //$user_email = $_POST['user_email'];
+  $db_host = 'localhost'; // Database is installed on the PHPH server
+  $db_user = 'roman'; // name to log in to MySQL
+  $db_password = 'southhills#'; // password to login to MySQL
+  $db_name = 'roman'; // name of the database within MySQL
+  $conn = new mysqli($db_host, $db_user, $db_password, $db_name);
+  if ($conn->connect_error)
+  {
+    die("Connection Failed: " . $conn->connect_error);
+  }
+
 
   $sql ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',
   title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
