@@ -1,10 +1,36 @@
 <?php
 // strt session if it is not running
-//session_start();
 if (!isset($_SESSION))
 {
   session_start();
-}//checks if global variable for session is set
+}
+
+// if (isset($_POST))
+if(isset($_POST['user_email'])
+{
+  require('dbconnection.php');
+  //$userid = $_POST['userid'];
+  $user_email = $_POST['user_email'];
+
+  $sql ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',
+  title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
+  $result = $conn->query($sql);
+  
+  $sql="SELECT * FROM fm_users WHERE user_id = " . $_SESSION['user_id'];
+  $result = $conn->query($sql);
+
+    while ($row = $result->fetch_assoc())
+    {
+      if (($_SESSION['user_id'] == $row['user_id']))
+          {
+              $_SESSION['first_name'] = $row['first_name'];
+              $_SESSION['last_name'] = $row['last_name'];
+              $_SESSION['title'] = $row['title'];
+              $_SESSION['description'] = $row['description'];
+              header('Location: profile.php');
+          }
+    }
+  }
 
 // add name attributes to form elements
 // set default values for each form element from $_SESSION
