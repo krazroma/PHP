@@ -10,12 +10,12 @@ if(isset($_POST['user_email'])
 {
   require('dbconnection.php');
   //$userid = $_POST['userid'];
-  $user_email = $_POST['user_email'];
+  //$user_email = $_POST['user_email'];
 
   $sql ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',
   title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
   $result = $conn->query($sql);
-  
+
   $sql="SELECT * FROM fm_users WHERE user_id = " . $_SESSION['user_id'];
   $result = $conn->query($sql);
 
