@@ -116,7 +116,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 												<span class="input-group-addon">
 													<i class="nc-icon nc-single-02"></i>
 												</span>
-												<input type="text" class="form-control" placeholder="First Name">
+												<input name="first_name" type="text" class="form-control" placeholder="First Name">
 										</div>
 									</div>
 									<div class="col-md-6">
