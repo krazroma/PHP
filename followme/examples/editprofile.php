@@ -125,7 +125,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 											<span class="input-group-addon">
 												<i class="nc-icon nc-single-02"></i>
 											</span>
-											<input type="text" class="form-control" placeholder="Last Name">
+											<input name="last_name" type="text" class="form-control" placeholder="Last Name">
 										</div>
 									</div>
 								</div><!--ends first row-->
@@ -135,11 +135,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 									<span class="input-group-addon">
 										<i class="nc-icon nc-tag-content"></i>
 									</span>
-									<input value="<?php echo $_SESSION['title']; ?>" type="text" class="form-control" placeholder="Title">
+									<input name="title" value="<?php echo $_SESSION['title']; ?>" type="text" class="form-control" placeholder="Title">
 								</div>
 
 								<label>Description</label>
-								<textarea class="form-control" rows="4" placeholder="Tell everyone a little about you..."></textarea>
+								<textarea name="description" class="form-control" rows="4" placeholder="Tell everyone a little about you..."></textarea>
 								<div class="row">
 									<div class="col-md-4 ml-auto mr-auto text-center">
 										<button class="btn btn-danger btn-lg btn-fill" type="submit">Update</button>
