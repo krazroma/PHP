@@ -1,9 +1,14 @@
 <?php
-//Start Session if it is not running
-//Add name attributes to form elements
-//Set default values for each form element from $_SESSION
-//Update submitted values to database
-//Upldate submitted values to $_SESSION
+session_start();
+
+// get array of users from Database
+// <li> needs to be in the loop of database records
+// replace flume with first and last name of database
+// "music producer with title" image source should point to their profile url
+// checkbox shod be unchecked
+
+
+
 ?>
 <!doctype html>
 <html lang="en">
