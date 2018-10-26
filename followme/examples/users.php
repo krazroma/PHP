@@ -84,7 +84,7 @@ if (isset($_POST['user_id']))
           <ul class="list-unstyled follows">
 
           <?php while($row = $result->fetch_assoc())
-            {
+            { ?>
 
             <li>
               <div class="row">
@@ -104,9 +104,9 @@ if (isset($_POST['user_id']))
                 </div>
               </div>
             </li>
-          }
-             ?>
             <hr />
+          <?php } ?>
+
           </ul>
         </div>
       </div>
