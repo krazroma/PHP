@@ -6,7 +6,7 @@ if (!isset($_SESSION)){
 if (isset($_POST['user_id']))
 {
   require('dbconnection.php');
-  $sql = "SELECT * FROM fm_users WHERE userid = " . $_POST['user_id'];
+  $sql = "SELECT * FROM fm_users";
   $result = $conn->query($sql);
 
   //echo "<form action=\"\" method=\"post\">";
