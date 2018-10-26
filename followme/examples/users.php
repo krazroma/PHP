@@ -11,14 +11,14 @@ if (isset($_POST['user_id']))
 
   //echo "<form action=\"\" method=\"post\">";
 
-  // while($row = $result->fetch_assoc())
-  // {
-  //   $_SESSION['first_name'] = $row['first_name'];
-  //   $last_name = $row['last_name'];
-  //   $image_url = $row['image_url'];
-  //   $title = $row['title'];
-  // }
-
+  while($row = $result->fetch_assoc())
+  {
+    $_SESSION['first_name'] = $row['first_name'];
+    $last_name = $row['last_name'];
+    $image_url = $row['image_url'];
+    $title = $row['title'];
+  }
+}
 
 // get array of users from Database
 // <li> needs to be in the loop of database records
