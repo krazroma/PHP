@@ -3,16 +3,9 @@ if (!isset($_SESSION)){
   session_start();
 }
 
-if (isset($_POST['user_id']))
-{
-  require('dbconnection.php');
-  $sql = "SELECT * FROM fm_users";
-  $result = $conn->query($sql);
-
-  //echo "<form action=\"\" method=\"post\">";
-
-
-}
+require('dbconnection.php');
+$sql = "SELECT * FROM fm_users";
+$result = $conn->query($sql);
 
 // get array of users from Database
 // <li> needs to be in the loop of database records
