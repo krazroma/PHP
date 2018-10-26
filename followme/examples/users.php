@@ -1,5 +1,24 @@
 <?php
-session_start();
+if (!isset($_SESSION)){
+  session_start();
+}
+
+if (isset($_POST['user_id']))
+{
+  require('dbconnection.php');
+  $sql = "SELECT * FROM fm_users WHERE userid = " . $_POST['user_id'];
+  $result = $conn->query($sql);
+
+  //echo "<form action=\"\" method=\"post\">";
+
+  while($row = $result->fetch_assoc())
+  {
+    $_SESSION['first_name'] = $row['first_name'];
+    $last_name = $row['last_name'];
+    $image_url = $row['image_url'];
+    $title = $row['title'];
+  }
+
 
 // get array of users from Database
 // <li> needs to be in the loop of database records
@@ -39,63 +58,59 @@ session_start();
 <body>
   <nav class="navbar navbar-expand-md fixed-top navbar-transparent" color-on-scroll="150">
     <div class="container">
-                        <div class="navbar-translate">
-               <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                             <span class="navbar-toggler-bar"></span>
-                                   <span class="navbar-toggler-bar"></span>
-                                   <span class="navbar-toggler-bar"></span>
-               </button>
-               <a class="navbar-brand" href="#">Follow Me</a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="navbarToggler">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="login.php" class="nav-link">Login</a>
-                        </li>
-                                                                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                                                                                <?php echo $_SESSION['email']; ?>
-                                                                                        </a>
-                        </li>
-                    </ul>
-                </div>
-                </div>
-    </nav>
+      <div class="navbar-translate">
+        <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-bar"></span>
+           <span class="navbar-toggler-bar"></span>
+           <span class="navbar-toggler-bar"></span>
+         </button>
+           <a class="navbar-brand" href="#">Follow Me</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="login.php" class="nav-link">Login</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link"><?php echo $_SESSION['user_email']; ?></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <div class="wrapper">
-      <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
-                          <div class="filter"></div>
+  <div class="wrapper">
+    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
+      <div class="filter"></div>
+    </div>
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-md-6 ml-auto mr-auto">
+          <ul class="list-unstyled follows">
+            <li>
+              <div class="row">
+                <div class="col-md-2 col-sm-2 ml-auto mr-auto">
+                  <img src="../assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                </div>
+                <div class="col-md-7 col-sm-4  ml-auto mr-auto">
+                  <h6><?php echo $_SESSION['first_name'];?><br/><small><?php echo $last_name;?></small></h6>
+                </div>
+                <div class="col-md-3 col-sm-2  ml-auto mr-auto">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" value="" checked>
+                        <span class="form-check-sign"></span>
+                    </label>
                   </div>
-
-                        <br />
-                        <br />
-
-                        <div class="row">
-                                <div class="col-md-6 ml-auto mr-auto">
-                                        <ul class="list-unstyled follows">
-                                                <li>
-                                                        <div class="row">
-                                                                <div class="col-md-2 col-sm-2 ml-auto mr-auto">
-                                                                        <img src="../assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                                                </div>
-                                                                <div class="col-md-7 col-sm-4  ml-auto mr-auto">
-                                                                        <h6>Flume<br/><small>Musical Producer</small></h6>
-                                                                </div>
-                                                                <div class="col-md-3 col-sm-2  ml-auto mr-auto">
-                                                                        <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                        <input class="form-check-input" type="checkbox" value="" checked>
-                                                                                        <span class="form-check-sign"></span>
-                                                                                </label>
-                                                                        </div>
-                                                                </div>
-                                                        </div>
-                                                </li>
-                                                <hr />
-                                        </ul>
-                                </div>
-                        </div>
                 </div>
+              </div>
+            </li>
+            <hr />
+          </ul>
+        </div>
+      </div>
+    </div>
 
 
         <footer class="footer section-dark">
