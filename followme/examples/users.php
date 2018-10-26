@@ -14,9 +14,9 @@ if (isset($_POST['user_id']))
   while($row = $result->fetch_assoc())
   {
     $_SESSION['first_name'] = $row['first_name'];
-    $last_name = $row['last_name'];
-    $image_url = $row['image_url'];
-    $title = $row['title'];
+    $_SESSION['last_name'] = $row['last_name'];
+    $_SESSION['image_url'] = $row['image_url'];
+    $_SESSION['title'] = $row['title'];
   }
 }
 
