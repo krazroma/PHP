@@ -5,7 +5,9 @@ if (!isset($_SESSION)){
 
 require('dbconnection.php');
 $sql = "SELECT * FROM fm_users";
+$sql2 = "SELECT * FROM fm_follows";
 $result = $conn->query($sql);
+$result2 = $conn->query($sql2);
 
 // get array of users from Database
 // <li> needs to be in the loop of database records
@@ -77,7 +79,8 @@ $result = $conn->query($sql);
           <ul class="list-unstyled follows">
 
           <?php while($row = $result->fetch_assoc())
-            { ?>
+            {
+              ?>
 
             <li>
               <div class="row">
@@ -90,7 +93,17 @@ $result = $conn->query($sql);
                 <div class="col-md-3 col-sm-2  ml-auto mr-auto">
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" value="">
+                      <input class="form-check-input" type="checkbox" value="" <?php
+                      while($row = $result2->fetch_assoc())
+                      {
+                        if($row['user_id']=='121' && $row['following_user_id']=='122')
+                        {
+                          echo checked;
+                        }
+                      }
+
+
+                      ?>>
                         <span class="form-check-sign"></span>
                     </label>
                   </div>
