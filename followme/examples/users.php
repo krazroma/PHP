@@ -17,7 +17,7 @@ while($row2 = $result2->fetch_assoc())
   if ($_SESSION['user_id'] == $row['user_id'])
   {
     $_SESSION['user_id'] = $user_id;
-    var_dump($user_id);
+    var_dump($row['user_id']);
   }
 }
 
