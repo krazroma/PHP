@@ -9,8 +9,8 @@ $sql = "SELECT * FROM fm_users";
 $sql2 = "SELECT * FROM fm_follows where used_id = " . $_SESSION['user_id'];
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
-//var_dump($result2);
-$row = $result2->fetch_assoc();
+var_dump($sql2);
+//$row = $result2->fetch_assoc();
 // while ($row2 = $result2->fetch_assoc())
 // {
 //   if ($user_email == $row['user_email'])
