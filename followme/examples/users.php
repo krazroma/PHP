@@ -20,9 +20,7 @@ while($row2 = $result2->fetch_row())
   $folliwing_user_ids[] = $row2[0];
 }
 
-
-var_dump($result2);
-
+//var_dump($result2);
 
 // get array of users from Database
 // <li> needs to be in the loop of database records
@@ -112,13 +110,19 @@ var_dump($result2);
                       <input class="form-check-input" type="checkbox" value="" <?php
                         //$row2 = $result2->fetch_assoc();
                         //if($_SESSION['user_id'] == $row2['user_id'])
-                        if($folliwing_user_ids[] = $user_id)
+                        while($row2 = $result2->fetch_row())
                         {
-                          echo checked;
+                          $folliwing_user_ids[] = $row2[0];
+
+                          if($folliwing_user_ids[] = $user_id)
+                          {
+                            echo checked;
+                          }
+                          else
+                          {
+                          }
                         }
-                        else
-                        {
-                        }
+
 
                       ?>>
                         <span class="form-check-sign"></span>
