@@ -14,9 +14,9 @@ $result2 = $conn->query($sql2);
 //var_dump($row2);
 while ($row2 = $result2->fetch_assoc())
 {
-  if ($user_email == $row['user_email'])
+  if ($_SESSION['user_id'] == $row['user_id'])
   {
-       $_SESSION['user_id'] = $row['user_id'];
+       //$_SESSION['user_id'] = $row['user_id'];
        $_SESSION['following_user_id'] = $row['following_user_id'];
    }
  }
