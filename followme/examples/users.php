@@ -6,12 +6,19 @@ session_start();
 
 require('dbconnection.php');
 $sql = "SELECT * FROM fm_users";
-$sql2 = "SELECT following_user_id FROM fm_follows WHERE user_id = " . $_SESSION['user_id'];
 $result = $conn->query($sql);
+
+$user_id = $_SESSION['user_id'];
+
+//sql2 = "SELECT following_user_id FROM fm_follows WHERE user_id = " . $_SESSION['user_id'];
+$sql2 = "SELECT following_user_id FROM fm_follows WHERE user_id = '$user_id'";
 $result2 = $conn->query($sql2);
 
 
-
+while($row = $result2->fetch_row())
+{
+  $folliwing_user_ids[] = $row;
+}
 //var_dump($row2);
 
 
@@ -101,8 +108,9 @@ $result2 = $conn->query($sql2);
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input" type="checkbox" value="" <?php
-                        $row2 = $result2->fetch_assoc();
-                        if($_SESSION['user_id'] == $row2['user_id'])
+                        //$row2 = $result2->fetch_assoc();
+                        //if($_SESSION['user_id'] == $row2['user_id'])
+                        if($folliwing_user_ids=122)
                         {
                           echo checked;
                         }
