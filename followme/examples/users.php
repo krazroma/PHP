@@ -17,7 +17,7 @@ $result2 = $conn->query($sql2);
 
 while($row2 = $result2->fetch_row())
 {
-  $folliwing_user_ids[] = $row2;
+  $folliwing_user_ids[] = $row2[0];
 }
 
 
