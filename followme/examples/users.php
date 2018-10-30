@@ -96,11 +96,10 @@ $result2 = $conn->query($sql2);
                       <input class="form-check-input" type="checkbox" value="" <?php
                       while($row = $result2->fetch_assoc())
                       {
-                        if($row='122')
-                        {
-                          echo checked;
-                          echo "Eat Shit";
-                        }
+
+                        echo checked;
+                        echo "Eat Shit";
+
                       }
                       ?>>
                         <span class="form-check-sign"></span>
