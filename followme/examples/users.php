@@ -8,7 +8,7 @@ $sql = "SELECT * FROM fm_users";
 $sql2 = "SELECT following_user_id FROM fm_follows where following_user_id = 122";
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
-
+var_dump($result2);
 // get array of users from Database
 // <li> needs to be in the loop of database records
 // replace flume with first and last name of database
@@ -93,7 +93,12 @@ $result2 = $conn->query($sql2);
                 <div class="col-md-3 col-sm-2  ml-auto mr-auto">
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" value="" >
+                      <input class="form-check-input" type="checkbox" value="" <?php
+                      while($row = $result2->fetch_assoc())
+                      {
+                        echo checked;
+                      }
+                      ?>>
                         <span class="form-check-sign"></span>
                     </label>
                   </div>
