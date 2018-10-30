@@ -102,8 +102,6 @@ var_dump($row2);
 
           <?php while($row = $result->fetch_assoc())
             {
-              $row['user_id']=$user_id;
-              var_dump($user_id);
               ?>
 
             <li>
