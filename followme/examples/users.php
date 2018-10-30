@@ -112,9 +112,9 @@ while($row2 = $result2->fetch_row())
                         //if($_SESSION['user_id'] == $row2['user_id'])
                         while($row2 = $result2->fetch_row())
                         {
-                          $folliwing_user_ids[] = $row2[0];
+                          $following_user_ids[] = $row2[0];
 
-                          if($folliwing_user_ids[] = 122)
+                          if($following_user_ids[] = 122)
                           {
                             echo checked;
                           }
