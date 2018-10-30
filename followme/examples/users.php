@@ -5,7 +5,7 @@ if (!isset($_SESSION)){
 
 require('dbconnection.php');
 $sql = "SELECT * FROM fm_users";
-$sql2 = "SELECT following_user_id FROM fm_follows where following_user_id = 122";
+$sql2 = "SELECT following_user_id FROM fm_follows where used_id = " . $_SESSION['user_id'];
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
 $row2 = $result2->fetch_assoc();
