@@ -94,7 +94,7 @@ $result2 = $conn->query($sql2);
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input" type="checkbox" value="" <?php
-                      if ($row2=='122')
+                      if ($row2==122)
                       {
                         echo checked;
                       }
