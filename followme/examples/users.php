@@ -6,12 +6,12 @@ session_start();
 
 require('dbconnection.php');
 $sql = "SELECT * FROM fm_users";
-$sql2 = "SELECT following_user_id FROM fm_follows where user_id = " . $_SESSION['user_id'];
+$sql = "SELECT following_user_id FROM fm_follows where user_id = " . $_SESSION['user_id'];
 $result = $conn->query($sql);
-$result2 = $conn->query($sql2);
+//$result2 = $conn->query($sql2);
 
 //$row2 = $result2->fetch_assoc();
-var_dump($result2);
+var_dump($result);
 // if ($_SESSION['user_id'] == $row['user_id'])
 // {
 //      //$_SESSION['user_id'] = $row['user_id'];
