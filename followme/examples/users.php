@@ -102,7 +102,7 @@ $result2 = $conn->query($sql2);
                     <label class="form-check-label">
                       <input class="form-check-input" type="checkbox" value="" <?php
 
-                      while($row2 = $result2->fetch_assoc();)
+                      while($row2 = $result2->fetch_assoc())
                       {
                         if($_SESSION['user_id'] == $row2['user_id'])
                         {
