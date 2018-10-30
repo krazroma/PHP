@@ -98,7 +98,7 @@ $result2 = $conn->query($sql2);
                       {
 
                         echo checked;
-                        echo "Eat Shit";
+                        //echo "Eat Shit";
 
                       }
                       ?>>
