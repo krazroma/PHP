@@ -110,8 +110,8 @@ $result2 = $conn->query($sql2);
                       if ($row2='122')
                       {
                         echo checked;
-                        var_dump($result2);
                       }
+                      var_dump($result2);
                       ?>>
                         <span class="form-check-sign"></span>
                     </label>
