@@ -21,8 +21,8 @@ while ($row2 = $result2->fetch_assoc())
    }
  }
 
- echo $_SESSION['user_id'];
- echo $_SESSION['following_user_id'];
+ // echo $_SESSION['user_id'];
+ // echo $_SESSION['following_user_id'];
 
 // get array of users from Database
 // <li> needs to be in the loop of database records
