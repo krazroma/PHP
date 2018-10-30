@@ -9,6 +9,7 @@ $sql = "SELECT * FROM fm_users";
 $sql2 = "SELECT * FROM fm_follows where used_id = " . $_SESSION['user_id'];
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
+var_dump($result2);
 //$row2 = $result2->fetch_assoc();
 // while ($row2 = $result2->fetch_assoc())
 // {
@@ -111,7 +112,7 @@ $result2 = $conn->query($sql2);
                       {
                         echo checked;
                       }
-                      var_dump($result2);
+
                       ?>>
                         <span class="form-check-sign"></span>
                     </label>
