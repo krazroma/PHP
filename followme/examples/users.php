@@ -114,7 +114,7 @@ while($row2 = $result2->fetch_row())
                         {
                           $folliwing_user_ids[] = $row2[0];
 
-                          if($folliwing_user_ids[] = $user_id)
+                          if($folliwing_user_ids[] = 122)
                           {
                             echo checked;
                           }
