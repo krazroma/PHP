@@ -10,8 +10,8 @@ $sql2 = "SELECT following_user_id FROM fm_follows where user_id = 121";
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
 
-//$row2 = $result2->fetch_assoc();
-var_dump($result2);
+$row2 = $result2->fetch_assoc();
+var_dump($row2);
 // if ($_SESSION['user_id'] == $row['user_id'])
 // {
 //      //$_SESSION['user_id'] = $row['user_id'];
