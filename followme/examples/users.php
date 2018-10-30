@@ -98,7 +98,7 @@ $result2 = $conn->query($sql2);
                       {
 
                         echo checked;
-                        var_dump($result2);
+                        var_dump($row2);
                       }
                       ?>>
                         <span class="form-check-sign"></span>
