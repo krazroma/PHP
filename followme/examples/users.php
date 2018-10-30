@@ -102,6 +102,11 @@ var_dump($row2);
 
           <?php while($row = $result->fetch_assoc())
             {
+              if($row['user_id']=122)
+              {
+                var_dump($row['user_id']);
+              }
+
               ?>
 
             <li>
