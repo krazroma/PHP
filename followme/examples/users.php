@@ -12,7 +12,7 @@ $result2 = $conn->query($sql2);
 
 $row2 = $result2->fetch_assoc();
 
-if ($_SESSION['user_id']==122) {
+if ($_SESSION['user_id']==121) {
   var_dump($row2);
 }
 
