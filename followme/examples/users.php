@@ -10,11 +10,17 @@ $sql2 = "SELECT following_user_id FROM fm_follows WHERE user_id = " . $_SESSION[
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
 
-$row2 = $result2->fetch_assoc();
+//$row2 = $result2->fetch_assoc();
 
-if ($_SESSION['user_id']==121) {
-  var_dump($row2);
+while($row2 = $result2->fetch_assoc())
+{
+  if ($_SESSION['user_id'] == $row['user_id'])
+  {
+    $_SESSION['user_id'] = $user_id;
+    echo $user_id;
+  }
 }
+
 
 // if ($_SESSION['user_id'] == $row['user_id'])
 // {
