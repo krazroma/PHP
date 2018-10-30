@@ -99,6 +99,7 @@ $result2 = $conn->query($sql2);
                         if($row='122')
                         {
                           echo checked;
+                          echo "Eat Shit";
                         }
                       }
                       ?>>
