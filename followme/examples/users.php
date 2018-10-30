@@ -6,7 +6,7 @@ session_start();
 
 require('dbconnection.php');
 $sql = "SELECT * FROM fm_users";
-$sql = "SELECT following_user_id FROM fm_follows where user_id = '121'";
+$sql2 = "SELECT following_user_id FROM fm_follows where user_id = '121'";
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
 
