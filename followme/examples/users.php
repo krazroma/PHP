@@ -12,24 +12,7 @@ $result2 = $conn->query($sql2);
 
 $row2 = $result2->fetch_assoc();
 var_dump($row2);
-// while($row2 = $result2->fetch_assoc())
-// {
-//   if ($_SESSION['user_id'] = 121)
-//   {
-//     $_SESSION['user_id'] = $user_id;
-//     //var_dump($_SESSION['user_id']);
-//   }
-// }
 
-
-// if ($_SESSION['user_id'] == $row['user_id'])
-// {
-//      //$_SESSION['user_id'] = $row['user_id'];
-//      $_SESSION['following_user_id'] = $row['following_user_id'];
-//  }
-//
-//  var_dump($_SESSION['user_id']);
- //echo $_SESSION['following_user_id'];
 
 // get array of users from Database
 // <li> needs to be in the loop of database records
@@ -117,7 +100,7 @@ var_dump($row2);
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input" type="checkbox" value="" <?php
-                      if ($row['user_id']==122)
+                      if ($row2['user_id']==121)
                       {
                         echo checked;
                       }
