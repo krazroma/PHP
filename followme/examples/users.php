@@ -8,7 +8,7 @@ $sql = "SELECT * FROM fm_users";
 $sql2 = "SELECT following_user_id FROM fm_follows where following_user_id = 122";
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
-echo "$result2";
+var_dump($sql2);
 // get array of users from Database
 // <li> needs to be in the loop of database records
 // replace flume with first and last name of database
