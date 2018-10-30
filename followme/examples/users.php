@@ -1,7 +1,8 @@
 <?php
-if (!isset($_SESSION)){
-  session_start();
-}
+// if (!isset($_SESSION)){
+//   session_start();
+// }
+session_start();
 
 require('dbconnection.php');
 $sql = "SELECT * FROM fm_users";
@@ -99,12 +100,6 @@ $row2 = $result2->fetch_assoc();
                       {
                         echo checked;
                       }
-                      // while($row2 = $result2->fetch_assoc())
-                      // {
-                      //
-                      //
-                      //   //var_dump($row2);
-                      // }
                       ?>>
                         <span class="form-check-sign"></span>
                     </label>
