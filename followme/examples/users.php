@@ -114,7 +114,7 @@ var_dump($row2);
                         {
                           $following_user_ids[] = $row2[0];
 
-                          if($following_user_ids[] = 122)
+                          if($following_user_ids[] = 123)
                           {
                             echo checked;
                           }
