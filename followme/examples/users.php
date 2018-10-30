@@ -5,7 +5,7 @@ if (!isset($_SESSION)){
 
 require('dbconnection.php');
 $sql = "SELECT * FROM fm_users";
-$sql2 = "SELECT * FROM fm_follows";
+$sql2 = "SELECT following_user_id FROM fm_follows where following_user_id = 122;
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
 
@@ -96,10 +96,10 @@ $result2 = $conn->query($sql2);
                       <input class="form-check-input" type="checkbox" value="" <?php
                       while($row = $result2->fetch_assoc())
                       {
-                        if($row['user_id']=='121' && $row['following_user_id']=='122')
-                        {
+                        // if($row['user_id']=='121' && $row['following_user_id']=='122')
+                        // {
                           echo checked;
-                        }
+                        // }
                       }
 
 
