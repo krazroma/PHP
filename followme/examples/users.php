@@ -98,8 +98,7 @@ $result2 = $conn->query($sql2);
                       {
 
                         echo checked;
-                        echo 'Eat Shit';
-
+                        var_dump('Eat Shit');
                       }
                       ?>>
                         <span class="form-check-sign"></span>
