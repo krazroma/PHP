@@ -112,7 +112,7 @@ var_dump($result2);
                       <input class="form-check-input" type="checkbox" value="" <?php
                         //$row2 = $result2->fetch_assoc();
                         //if($_SESSION['user_id'] == $row2['user_id'])
-                        if($folliwing_user_ids[] = '122')
+                        if($folliwing_user_ids[] = $user_id)
                         {
                           echo checked;
                         }
