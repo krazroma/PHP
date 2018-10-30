@@ -108,7 +108,7 @@ $row2 = $result2->fetch_assoc();
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input" type="checkbox" value="" <?php
-                      if ($result2='122')
+                      if ($row2='122')
                       {
                         echo checked;
                         //var_dump($result2);
