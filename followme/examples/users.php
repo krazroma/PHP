@@ -10,12 +10,9 @@ $sql2 = "SELECT following_user_id FROM fm_follows WHERE user_id = " . $_SESSION[
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
 
-while($row != NULL)
-{
-  $row2 = $result2->fetch_assoc();
-}
 
-var_dump($row2);
+
+//var_dump($row2);
 
 
 // get array of users from Database
@@ -104,14 +101,17 @@ var_dump($row2);
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input" type="checkbox" value="" <?php
-                      if ($row2['user_id']==121)
-                      {
-                        echo checked;
-                      }
-                      else
-                      {
 
-                      }
+                      while($row2 = $result2->fetch_assoc();)
+                      {
+                        if($_SESSION['user_id'] == $row['user_id'])
+                        {
+                          echo checked;
+                        }
+                        else
+                        {
+
+                        }
 
                       ?>>
                         <span class="form-check-sign"></span>
