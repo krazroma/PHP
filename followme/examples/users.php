@@ -102,6 +102,7 @@ var_dump($row2);
 
           <?php while($row = $result->fetch_assoc())
             {
+              $row['user_id']=$user_id;
               ?>
 
             <li>
@@ -116,7 +117,7 @@ var_dump($row2);
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input" type="checkbox" value="" <?php
-                      if ($row2='122')
+                      if ($user_id='122')
                       {
                         echo checked;
                       }
