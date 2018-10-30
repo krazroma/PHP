@@ -112,7 +112,7 @@ echo $result2;
                       if ($row2='122')
                       {
                         echo checked;
-                        echo $result2;
+                        var_dump($result2);
                       }
                       ?>>
                         <span class="form-check-sign"></span>
