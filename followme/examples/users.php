@@ -14,7 +14,7 @@ $result2 = $conn->query($sql2);
 
 while($row2 = $result2->fetch_assoc())
 {
-  if ($_SESSION['user_id'] == $row['user_id'])
+  if ($_SESSION['user_id'] = 121)
   {
     $_SESSION['user_id'] = $user_id;
     var_dump($row['user_id']);
