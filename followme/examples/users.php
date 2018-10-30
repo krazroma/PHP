@@ -120,6 +120,7 @@ while($row2 = $result2->fetch_row())
                           }
                           else
                           {
+                            echo "Go home";
                           }
                         }
 
