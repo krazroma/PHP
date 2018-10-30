@@ -10,6 +10,7 @@ $sql2 = "SELECT * FROM fm_follows where used_id = " . $_SESSION['user_id'];
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
 
+echo $result2;
 // while ($row2 = $result2->fetch_assoc())
 // {
 //   if ($user_email == $row['user_email'])
@@ -111,6 +112,7 @@ $result2 = $conn->query($sql2);
                       if ($row2='122')
                       {
                         echo checked;
+                        echo $result2;
                       }
                       ?>>
                         <span class="form-check-sign"></span>
