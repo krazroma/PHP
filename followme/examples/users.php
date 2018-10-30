@@ -11,7 +11,11 @@ $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
 
 $row2 = $result2->fetch_assoc();
-var_dump($row2);
+
+if ($_SESSION['user_id']==122) {
+  var_dump($row2);
+}
+
 // if ($_SESSION['user_id'] == $row['user_id'])
 // {
 //      //$_SESSION['user_id'] = $row['user_id'];
