@@ -10,7 +10,7 @@ $sql2 = "SELECT following_user_id FROM fm_follows where user_id = " . $_SESSION[
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
 
-//$row2 = $result2->fetch_assoc();
+$row2 = $result2->fetch_assoc();
 //var_dump($row2);
 if ($_SESSION['user_id'] == $row['user_id'])
 {
@@ -19,7 +19,7 @@ if ($_SESSION['user_id'] == $row['user_id'])
  }
 
  var_dump($_SESSION['user_id']);
- var_dump($result2);
+ var_dump($row2);
  //echo $_SESSION['following_user_id'];
 
 // get array of users from Database
