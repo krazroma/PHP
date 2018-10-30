@@ -18,8 +18,8 @@ if ($_SESSION['user_id'] == $row['user_id'])
      $_SESSION['following_user_id'] = $row['following_user_id'];
  }
 
- echo $_SESSION['user_id'];
- echo $_SESSION['following_user_id'];
+ printf($_SESSION['user_id']);
+ //echo $_SESSION['following_user_id'];
 
 // get array of users from Database
 // <li> needs to be in the loop of database records
