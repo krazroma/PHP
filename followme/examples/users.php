@@ -19,7 +19,9 @@ while($row = $result2->fetch_row())
 {
   $folliwing_user_ids[] = $row;
 }
-//var_dump($row2);
+
+
+var_dump($user_id);
 
 
 // get array of users from Database
