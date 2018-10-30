@@ -10,17 +10,17 @@ $sql = "SELECT * FROM fm_users";
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
 
-while ($row2 = $result2->fetch_assoc())
-{
-  if ($user_email == $row['user_email'])
-  {
-       $_SESSION['user_id'] = $row['user_id'];
-       $_SESSION['following_user_id'] = $row['following_user_id'];
-   }
- }
-
- echo $_SESSION['user_id'];
- echo $_SESSION['following_user_id'];
+// while ($row2 = $result2->fetch_assoc())
+// {
+//   if ($user_email == $row['user_email'])
+//   {
+//        $_SESSION['user_id'] = $row['user_id'];
+//        $_SESSION['following_user_id'] = $row['following_user_id'];
+//    }
+//  }
+//
+//  echo $_SESSION['user_id'];
+//  echo $_SESSION['following_user_id'];
 
 //var_dump($row = $result2->fetch_assoc());
 // get array of users from Database
