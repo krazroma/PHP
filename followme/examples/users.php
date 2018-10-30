@@ -9,7 +9,7 @@ $sql = "SELECT * FROM fm_users";
 $sql2 = "SELECT * FROM fm_follows where used_id = " . $_SESSION['user_id'];
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
-$row2 = $result2->fetch_assoc();
+$result2->fetch_assoc();
 // while ($row2 = $result2->fetch_assoc())
 // {
 //   if ($user_email == $row['user_email'])
@@ -108,7 +108,7 @@ $row2 = $result2->fetch_assoc();
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input" type="checkbox" value="" <?php
-                      if ($row2='122')
+                      if ($result2='122')
                       {
                         echo checked;
                         var_dump($result2);
