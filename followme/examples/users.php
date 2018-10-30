@@ -9,7 +9,7 @@ $sql = "SELECT * FROM fm_users";
 $sql2 = "SELECT * FROM fm_follows where used_id = " . $_SESSION['user_id'];
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
-$row2 = $result2->fetch_assoc();
+//$row2 = $result2->fetch_assoc();
 // while ($row2 = $result2->fetch_assoc())
 // {
 //   if ($user_email == $row['user_email'])
@@ -22,7 +22,6 @@ $row2 = $result2->fetch_assoc();
 //  echo $_SESSION['user_id'];
 //  echo $_SESSION['following_user_id'];
 
-//var_dump($row = $result2->fetch_assoc());
 // get array of users from Database
 // <li> needs to be in the loop of database records
 // replace flume with first and last name of database
