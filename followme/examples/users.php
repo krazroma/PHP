@@ -111,7 +111,7 @@ $result2->fetch_assoc();
                       if ($result2='122')
                       {
                         echo checked;
-                        var_dump($result2);
+                        //var_dump($result2);
                       }
                       ?>>
                         <span class="form-check-sign"></span>
