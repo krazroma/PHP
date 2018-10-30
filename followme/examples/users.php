@@ -94,12 +94,16 @@ $result2 = $conn->query($sql2);
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input" type="checkbox" value="" <?php
-                      while($row2 = $result2->fetch_assoc())
+                      if ($row2=='122')
                       {
-
                         echo checked;
-                        var_dump($row2);
                       }
+                      // while($row2 = $result2->fetch_assoc())
+                      // {
+                      //
+                      //
+                      //   //var_dump($row2);
+                      // }
                       ?>>
                         <span class="form-check-sign"></span>
                     </label>
