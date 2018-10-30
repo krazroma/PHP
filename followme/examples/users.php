@@ -19,6 +19,7 @@ if ($_SESSION['user_id'] == $row['user_id'])
  }
 
  var_dump($_SESSION['user_id']);
+ var_dump($result2);
  //echo $_SESSION['following_user_id'];
 
 // get array of users from Database
