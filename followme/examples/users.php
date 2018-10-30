@@ -10,7 +10,7 @@ $sql2 = "SELECT following_user_id FROM fm_follows WHERE user_id = " . $_SESSION[
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
 
-$row2 = $result2->fetch_assoc();
+//$row2 = $result2->fetch_assoc();
 
 while($row2 = $result2->fetch_assoc())
 {
