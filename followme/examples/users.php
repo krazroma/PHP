@@ -21,7 +21,7 @@ while($row2 = $result2->fetch_row())
 }
 
 
-//var_dump($user_id);
+var_dump($result2);
 
 
 // get array of users from Database
