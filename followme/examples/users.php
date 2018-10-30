@@ -11,7 +11,7 @@ $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
 
 //$row2 = $result2->fetch_assoc();
-//var_dump($row2);
+var_dump($result2);
 // if ($_SESSION['user_id'] == $row['user_id'])
 // {
 //      //$_SESSION['user_id'] = $row['user_id'];
@@ -19,7 +19,6 @@ $result2 = $conn->query($sql2);
 //  }
 //
 //  var_dump($_SESSION['user_id']);
-//  var_dump($row2);
  //echo $_SESSION['following_user_id'];
 
 // get array of users from Database
