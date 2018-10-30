@@ -117,7 +117,7 @@ var_dump($row2);
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input" type="checkbox" value="" <?php
-                      if ($row['user_id']==121)
+                      if ($row['user_id']==122)
                       {
                         echo checked;
                       }
