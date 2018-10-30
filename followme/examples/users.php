@@ -9,7 +9,7 @@ $sql = "SELECT * FROM fm_users";
 $sql2 = "SELECT * FROM fm_follows where used_id = " . $_SESSION['user_id'];
 $result = $conn->query($sql);
 $result2 = $conn->query($sql2);
-
+$row2 = $result2->fetch_assoc();
 echo $result2;
 // while ($row2 = $result2->fetch_assoc())
 // {
