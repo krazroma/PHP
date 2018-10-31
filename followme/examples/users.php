@@ -117,7 +117,7 @@ var_dump($folliwing_user_ids);
 
                           if(in_array("$user_id", $folliwing_user_ids))
                           {
-                            echo checked;
+                            echo "checked";
                           }
                         // }
 
