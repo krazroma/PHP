@@ -19,7 +19,7 @@ while($row2 = $result2->fetch_row())
 {
   $folliwing_user_ids[] = $row2[0];
   //print_r( array_values( $folliwing_user_ids ));
-  var_dump($folliwing_user_ids[]);
+  var_dump($folliwing_user_ids);
 }
 
 
