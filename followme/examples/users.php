@@ -8,10 +8,10 @@ require('dbconnection.php');
 $sql = "SELECT * FROM fm_users";
 $result = $conn->query($sql);
 
-$user_id = $_SESSION['user_id'];
+$MAIN_user_id = $_SESSION['user_id'];
 
 //sql2 = "SELECT following_user_id FROM fm_follows WHERE user_id = " . $_SESSION['user_id'];
-$sql2 = "SELECT * FROM fm_follows WHERE user_id = '$user_id'";
+$sql2 = "SELECT * FROM fm_follows WHERE user_id = '$MAIN_user_id'";
 $result2 = $conn->query($sql2);
 
 //$row2 = $result2->fetch_row();
@@ -115,7 +115,7 @@ var_dump($folliwing_user_ids);
                         // {
                           //$following_user_ids[] = $row2[0];
 
-                          if(in_array("$user_id", $folliwing_user_ids))
+                          if(in_array("$row['user_id']", $folliwing_user_ids))
                           {
                             echo "checked";
                           }
