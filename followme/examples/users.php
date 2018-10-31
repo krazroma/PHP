@@ -114,8 +114,8 @@ var_dump($folliwing_user_ids);
                         // while($row2 = $result2->fetch_row())
                         // {
                           //$following_user_ids[] = $row2[0];
-
-                          if(in_array("$row['user_id']", $folliwing_user_ids))
+                          $user_id = $row['user_id'];
+                          if(in_array("$user_id", $folliwing_user_ids))
                           {
                             echo "checked";
                           }
