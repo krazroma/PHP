@@ -116,7 +116,7 @@ while($row2 = $result2->fetch_row())
                         // {
                           //$following_user_ids[] = $row2[0];
 
-                          if($following_user_ids[] = $row['user_id'])
+                          if($following_user_ids = $row['user_id'])
                           {
                             echo checked;
                           }
