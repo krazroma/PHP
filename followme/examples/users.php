@@ -21,7 +21,7 @@ while($row2 = $result2->fetch_assoc())
   //print_r( array_values( $folliwing_user_ids ));
 }
 
-var_dump($folliwing_user_ids);
+//var_dump($folliwing_user_ids);
 
 // get array of users from Database
 // <li> needs to be in the loop of database records
