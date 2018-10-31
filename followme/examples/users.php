@@ -112,8 +112,8 @@ while($row2 = $result2->fetch_row())
                       <input class="form-check-input" type="checkbox" value="" <?php
                         //$row2 = $result2->fetch_assoc();
                         //if($_SESSION['user_id'] == $row2['user_id'])
-                        while($row2 = $result2->fetch_row())
-                        {
+                        // while($row2 = $result2->fetch_row())
+                        // {
                           //$following_user_ids[] = $row2[0];
 
                           if($following_user_ids[] = $row['user_id'])
@@ -124,7 +124,7 @@ while($row2 = $result2->fetch_row())
                           {
                             echo "Go home";
                           }
-                        }
+                        // }
 
 
                       ?>>
