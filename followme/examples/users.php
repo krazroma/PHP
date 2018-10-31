@@ -115,7 +115,7 @@ var_dump($folliwing_user_ids);
                         // {
                           //$following_user_ids[] = $row2[0];
 
-                          if(in_array($user_id, $following_user_ids))
+                          if(in_array($user_id, $folliwing_user_ids))
                           {
                             echo checked;
                           }
