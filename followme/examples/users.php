@@ -11,7 +11,7 @@ $result = $conn->query($sql);
 $user_id = $_SESSION['user_id'];
 
 //sql2 = "SELECT following_user_id FROM fm_follows WHERE user_id = " . $_SESSION['user_id'];
-$sql2 = "SELECT * FROM fm_follows WHERE user_id = '$user_id'";
+$sql2 = "SELECT following_user_id FROM fm_follows WHERE user_id = '$user_id'";
 $result2 = $conn->query($sql2);
 
 //$row2 = $result2->fetch_row();
@@ -19,10 +19,9 @@ while($row2 = $result2->fetch_assoc())
 {
   $folliwing_user_ids[] = $row2['following_user_id'];
   //print_r( array_values( $folliwing_user_ids ));
-  var_dump($folliwing_user_ids);
 }
 
-
+var_dump($folliwing_user_ids);
 
 // get array of users from Database
 // <li> needs to be in the loop of database records
