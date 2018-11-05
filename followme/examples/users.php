@@ -1,10 +1,59 @@
 <?php
-// if (!isset($_SESSION)){
-//   session_start();
-// }
 session_start();
-
 require('dbconnection.php');
+// add submit button on the buttom of the page so user can follow or unfollow someone
+
+// once users were selected or deselected we hit subbmit button
+
+// create a for loop to searh through the submitted data
+if(isset($_POST['user_id']) && isset($_POST['password']))
+{
+  require('dbconnection.php');
+  //$userid = $_POST['userid'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  // $sql = "UPDATE users set username = \"$username\" WHERE userid = $userid";
+  $sql = "UPDATE users SET username='" . $_POST['username'] . "' WHERE userid= " . $_POST['userid'];
+
+  $result = $conn->query($sql);
+  if($result)
+  {
+    $msg = "Updated Sussecfully";
+    echo "$msg";
+  }
+  else
+  {
+    $msg = "Error Updating";
+    echo "$msg";
+  }
+  //var_dump($result);
+  header('Location: users.php');
+}
+// $_POST[i] and decide if box was checked or unchecked
+
+// <form action="" method="POST">
+//  <input type="checkbox" name="user" value="following_user_id"> Name<br>
+//  <input type="checkbox" name="user" value="following_user_id"> Name<br>
+//  <input type="checkbox" name="user" value="following_user_id"> Name<br>
+//  <input type="checkbox" name="user" value="following_user_id"> Name<br>
+
+// do an sql statement $sql=INCERT INTO or UPDATE...
+// connect to db
+// then do while loop and do it for all the users
+// while($row = $result->fetch_assoc)
+//{
+//  $following_user_ids[]=$row['following_user_id'];
+//}
+
+// if wasnt checked
+// do another sql query $sql= DELETE....
+// connect to debug
+// while($row = $result->fetch_assoc)
+//{
+//  $following_user_ids[]=$row['following_user_id'];
+//}
+
+
 $sql = "SELECT * FROM fm_users";
 $result = $conn->query($sql);
 
@@ -20,42 +69,32 @@ while($row2 = $result2->fetch_assoc())
   $folliwing_user_ids[] = $row2['following_user_id'];
   //print_r( array_values( $folliwing_user_ids ));
 }
-
-//var_dump($folliwing_user_ids);
-
-// get array of users from Database
-// <li> needs to be in the loop of database records
-// replace flume with first and last name of database
-// "music producer with title" image source should point to their profile url
-// checkbox shod be unchecked
-
-
-
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
-        <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-        <title>Follow me by Matthew</title>
+  <title>Follow me by Matthew</title>
 
-        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <meta name="viewport" content="width=device-width" />
 
-        <!-- Bootstrap core CSS     -->
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="../assets/css/paper-kit.css?v=2.1.0" rel="stylesheet"/>
+  <!-- Bootstrap core CSS     -->
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/css/paper-kit.css?v=2.1.0" rel="stylesheet"/>
 
-        <!--  CSS for Demo Purpose, don't include it in your project     -->
-        <link href="../assets/css/demo.css" rel="stylesheet" />
+  <!--  CSS for Demo Purpose, don't include it in your project     -->
+  <link href="../assets/css/demo.css" rel="stylesheet" />
 
-    <!--     Fonts and icons     -->
-        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
-        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-        <link href="../assets/css/nucleo-icons.css" rel="stylesheet">
+  <!--     Fonts and icons     -->
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../assets/css/nucleo-icons.css" rel="stylesheet">
 
 </head>
 <body>
@@ -67,7 +106,7 @@ while($row2 = $result2->fetch_assoc())
            <span class="navbar-toggler-bar"></span>
            <span class="navbar-toggler-bar"></span>
          </button>
-           <a class="navbar-brand" href="#">Follow Me</a>
+         <a class="navbar-brand" href="#">Follow Me</a>
       </div>
       <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav ml-auto">
@@ -94,8 +133,7 @@ while($row2 = $result2->fetch_assoc())
 
           <?php while($row = $result->fetch_assoc())
             {
-
-              ?>
+          ?>
 
             <li>
               <div class="row">
@@ -108,20 +146,14 @@ while($row2 = $result2->fetch_assoc())
                 <div class="col-md-3 col-sm-2  ml-auto mr-auto">
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" value="" <?php
-                        //$row2 = $result2->fetch_assoc();
-                        //if($_SESSION['user_id'] == $row2['user_id'])
-                        // while($row2 = $result2->fetch_row())
-                        // {
-                          //$following_user_ids[] = $row2[0];
+                      <input class="form-check-input" type="checkbox" <?php name=$row['user_id'] value=$row['folliwing_user_ids']
+                          echo $row['user_id'];
+                          echo $row['folliwing_user_ids'];
                           $user_id = $row['user_id'];
                           if(in_array("$user_id", $folliwing_user_ids))
                           {
                             echo "checked";
                           }
-                        // }
-
-
                       ?>>
 
                         <span class="form-check-sign"></span>
