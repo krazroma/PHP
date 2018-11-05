@@ -132,7 +132,7 @@ while($row2 = $result2->fetch_assoc())
             </li>
             <hr />
           <?php } ?>
-          <input type="submit" value="Register" button class="btn btn-danger btn-block btn-round">
+          <input type="submit" value="Submit" button class="btn btn-danger btn-block btn-round">
 
           </ul>
         </div>
