@@ -147,8 +147,8 @@ while($row2 = $result2->fetch_assoc())
                   <div class="form-check">
                     <label class="form-check-label">
                       <input class="form-check-input" type="checkbox" <?php name=$row['user_id'] value=$row['folliwing_user_ids']
-                          echo $row['user_id'];
-                          echo $row['folliwing_user_ids'];
+                          // echo $row['user_id'];
+                          // echo $row['folliwing_user_ids'];
                           $user_id = $row['user_id'];
                           if(in_array("$user_id", $folliwing_user_ids))
                           {
