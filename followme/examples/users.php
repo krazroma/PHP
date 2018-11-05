@@ -123,6 +123,7 @@ while($row2 = $result2->fetch_assoc())
 
 
                       ?>>
+                      <input type="submit" value="Register" button class="btn btn-danger btn-block btn-round">
                         <span class="form-check-sign"></span>
                     </label>
                   </div>
