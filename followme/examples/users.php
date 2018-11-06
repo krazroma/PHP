@@ -36,6 +36,12 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
   echo "Welcome: ". $_POST['ROamn']. "<br />";
   // echo "Your value is: ". $_POST["1"]. "<br />";
   }
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST")
+  {
+    $name = $_POST["ROamn"];
+    echo $name;
+  }
 // <form action="" method="POST">
 //  <input type="checkbox" name="user" value="following_user_id"> Name<br>
 //  <input type="checkbox" name="user" value="following_user_id"> Name<br>
@@ -161,7 +167,7 @@ while($row2 = $result2->fetch_assoc())
                               {
                                 echo "checked";
                               }
-                          ?>name="ROamn" value="<?php "$_SESSION['user_id']" ?>">
+                          ?>name="ROamn" value="<?php $_SESSION['user_id'] ?>">
 
 
                             <span class="form-check-sign"></span>
