@@ -135,7 +135,7 @@ while($row2 = $result2->fetch_assoc())
       <div class="row">
         <div class="col-md-6 ml-auto mr-auto">
           <ul class="list-unstyled follows">
-            <!-- <form action="#" method="post" > -->
+            <form action="#" method="post" >
               <?php while($row = $result->fetch_assoc())
                 {
               ?>
@@ -173,7 +173,7 @@ while($row2 = $result2->fetch_assoc())
                 <hr />
               <?php } ?>
 <input type="submit" value="Submit" button class="btn btn-danger btn-block btn-round">
-            <!-- </form> -->
+            </form>
           </ul>
         </div>
       </div>
