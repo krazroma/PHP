@@ -31,7 +31,7 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
 }
 // $_POST[i] and decide if box was checked or unchecked
 
-  if( $_POST["first_name"] || $_POST["1"])
+  if( $_POST["first_name"])
   {
   echo "Welcome: ". $_POST['first_name']. "<br />";
   echo "Your value is: ". $_POST["1"]. "<br />";
