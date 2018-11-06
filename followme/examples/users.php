@@ -31,12 +31,12 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
 }
 // $_POST[i] and decide if box was checked or unchecked
 
-  if( $_POST["name"] || $_POST["email"] || $_POST["contact"])
-  {
-  echo "Welcome: ". $_POST['name']. "<br />";
-  echo "Your Email is: ". $_POST["email"]. "<br />";
-  echo "Your Mobile No. is: ". $_POST["contact"];
-  }
+  // if( $_POST["name"] || $_POST["email"] || $_POST["contact"])
+  // {
+  // echo "Welcome: ". $_POST['name']. "<br />";
+  // echo "Your Email is: ". $_POST["email"]. "<br />";
+  // echo "Your Mobile No. is: ". $_POST["contact"];
+  // }
 // <form action="" method="POST">
 //  <input type="checkbox" name="user" value="following_user_id"> Name<br>
 //  <input type="checkbox" name="user" value="following_user_id"> Name<br>
