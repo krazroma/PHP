@@ -38,14 +38,14 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
   }
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{
-  for ($i=0; $i < 6; $i++)
-  {
-    $name = $_POST["Roman"];
-    echo $name;
-  }
-}
+// if ($_SERVER["REQUEST_METHOD"] == "POST")
+// {
+//   for ($i=0; $i < 6; $i++)
+//   {
+//     $name = $_POST["Roman"];
+//     echo $name;
+//   }
+// }
 
 
 // <form action="" method="POST">
