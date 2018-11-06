@@ -163,7 +163,7 @@ while($row2 = $result2->fetch_assoc())
                               }
                           ?>name="first_name" value="1">
 
-<input type="submit" value="Submit" button class="btn btn-danger btn-block btn-round">
+
                             <span class="form-check-sign"></span>
                         </label>
                       </div>
@@ -172,7 +172,7 @@ while($row2 = $result2->fetch_assoc())
                 </li>
                 <hr />
               <?php } ?>
-
+<input type="submit" value="Submit" button class="btn btn-danger btn-block btn-round">
             <!-- </form> -->
           </ul>
         </div>
