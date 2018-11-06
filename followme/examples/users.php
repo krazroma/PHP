@@ -162,7 +162,7 @@ while($row2 = $result2->fetch_assoc())
                               {
                                 echo "checked";
                               }
-                              name="$row['first_name']" value="$row['user_id']"
+                              name="first_name" value="1"
                           ?>>
 
 
