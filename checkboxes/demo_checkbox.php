@@ -7,16 +7,16 @@
 <div class="container">
 <div class="main">
 <h2>Select the Services you want:</h2><hr/>
-<form action="checkbox.php" method="post"> \checkbox form to get the values
+<form action="checkbox.php" method="post">
 <label class="heading"></label><br/><br/>
 <input type="checkbox" name="check_list[]" value="Website Development"><label>Website Development</label><br/>
 <input type="checkbox" name="check_list[]" value="Data Support"><label>Data Support</label><br/>
 <input type="checkbox" name="check_list[]" value="Online Marketing"><label>Online Marketing</label><br/>
 <input type="checkbox" name="check_list[]" value="Business Development"><label>Business Development</label><br/>
 <input type="checkbox" name="check_list[]" value="Responsive Themes"><label>Responsive Themes</label><br/><br/>
-<input type="submit" name="submit" Value="Submit"/> \On submitting the form,user will be redirected to "chckbox.php"
+<input type="submit" name="submit" Value="Submit">
 <br/><br/>
-<h2>Update or Delete existing data.</h2><hr/><br/>\links to edit or delete existing data in database
+<h2>Update or Delete existing data.</h2><hr/><br/>
 <a class="link1" href=checkbox-edit.php>Edit</a><br/><br/><br/>
 <a class="link2" href=checkbox-delete.php>Delete</a>
 </form>
