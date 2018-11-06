@@ -167,7 +167,7 @@ while($row2 = $result2->fetch_assoc())
                               {
                                 echo "checked";
                               }
-                          ?>name="ROamn" value="<?php $user_id ?>">
+                          ?>name="ROamn" value="<?php echo $user_id ?>">
 
 
                             <span class="form-check-sign"></span>
