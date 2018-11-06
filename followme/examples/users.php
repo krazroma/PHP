@@ -130,7 +130,7 @@ while($row2 = $result2->fetch_assoc())
       <div class="row">
         <div class="col-md-6 ml-auto mr-auto">
           <ul class="list-unstyled follows">
-<form method="post" action="">
+<form method="post" action="/action_page.php">
           <?php while($row = $result->fetch_assoc())
             {
           ?>
