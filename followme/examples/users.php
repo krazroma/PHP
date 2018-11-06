@@ -37,14 +37,16 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
   // echo "Your value is: ". $_POST["1"]. "<br />";
   }
 
-for ($i=0; $i < 6; $i++)
+
+if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-  if ($_SERVER["REQUEST_METHOD"] == "POST")
+  for ($i=0; $i < 6; $i++)
   {
     $name = $_POST["ROamn"];
     echo $name;
-  }.
+  }
 }
+
 
 // <form action="" method="POST">
 //  <input type="checkbox" name="user" value="following_user_id"> Name<br>
