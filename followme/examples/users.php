@@ -130,7 +130,7 @@ while($row2 = $result2->fetch_assoc())
       <div class="row">
         <div class="col-md-6 ml-auto mr-auto">
           <ul class="list-unstyled follows">
-
+<form method="post" action="">
           <?php while($row = $result->fetch_assoc())
             {
           ?>
@@ -146,7 +146,8 @@ while($row2 = $result2->fetch_assoc())
                 <div class="col-md-3 col-sm-2  ml-auto mr-auto">
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" <?php 
+
+                      <input class="form-check-input" type="checkbox" <?php
                           // echo $row['user_id'];
                           // echo $row['folliwing_user_ids'];
                           $user_id = $row['user_id'];
@@ -155,6 +156,7 @@ while($row2 = $result2->fetch_assoc())
                             echo "checked";
                           }
                       ?>>
+
 
                         <span class="form-check-sign"></span>
                     </label>
@@ -165,7 +167,7 @@ while($row2 = $result2->fetch_assoc())
             <hr />
           <?php } ?>
           <input type="submit" value="Submit" button class="btn btn-danger btn-block btn-round">
-
+</form>
           </ul>
         </div>
       </div>
