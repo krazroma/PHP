@@ -31,9 +31,9 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
 }
 // $_POST[i] and decide if box was checked or unchecked
 
-  if( $_POST["first_name"])
+  if( $_POST["ROamn"])
   {
-  echo "Welcome: ". $_POST['user_id']. "<br />";
+  echo "Welcome: ". $_POST['ROamn']. "<br />";
   echo "Your value is: ". $_POST["1"]. "<br />";
   }
 // <form action="" method="POST">
@@ -161,7 +161,7 @@ while($row2 = $result2->fetch_assoc())
                               {
                                 echo "checked";
                               }
-                          ?>name=<?php "$user_id" ?> value="1">
+                          ?>name="ROamn" value="1">
 
 
                             <span class="form-check-sign"></span>
