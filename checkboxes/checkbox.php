@@ -1,4 +1,6 @@
-<html><head><title>Checkbox Test</title>
+<html>
+<head>
+  <title>Checkbox Test</title>
 <link rel="stylesheet" href="css/checkbox.css" />
 </head>
 <div class="container">

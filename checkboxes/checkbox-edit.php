@@ -1,4 +1,6 @@
-<html><head><title>Checkbox-edit</title>
+<html>
+<head>
+  <title>Checkbox-edit</title>
 <link rel="stylesheet" href="css/checkbox.css" />
 </head>
 <div class="container2">
@@ -13,9 +15,9 @@ $query=mysql_query("select*from checkbox",$connection);
 echo"CLICK ON THE DATA YOU WANT TO EDIT";
 echo"<br/><br/><br>";
 echo "<ol>";
-while($row=mysql_fetch_array($query)){
-
-echo"<li><a href="checkbox-edit.php?uid={$row["user_id"]}">{$row["services"]}</a></li><br/>";
+while($row=mysql_fetch_array($query))
+{
+  echo "<li><a href="checkbox-edit.php $uid={$row["user_id"]}">{$row["services"]}</a></li><br/>";
 }
 
 if(isset($_GET['uid'])){
@@ -69,7 +71,7 @@ else
 $checked5 ="";
 }
 
-echo "<form action='checkbox-edit.php?uid={$row ['user_id']}' method='POST'>
+echo "<form action='checkbox-edit.php $uid={$row ['user_id']}' method='POST'>
 
 <label class="heading">Select the Services you want to insert:</label><br/><br/>
 <input type='checkbox' name='check_list[]' value='Website Development' $checked1 ><label>Website Development</label><br/>
