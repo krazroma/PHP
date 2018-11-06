@@ -34,7 +34,7 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
   if( $_POST["ROamn"])
   {
   echo "Welcome: ". $_POST['ROamn']. "<br />";
-  echo "Your value is: ". $_POST["1"]. "<br />";
+  // echo "Your value is: ". $_POST["1"]. "<br />";
   }
 // <form action="" method="POST">
 //  <input type="checkbox" name="user" value="following_user_id"> Name<br>
