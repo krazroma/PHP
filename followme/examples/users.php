@@ -162,8 +162,8 @@ while($row2 = $result2->fetch_assoc())
                               {
                                 echo "checked";
                               }
-                              name="first_name" value="1"
-                          ?>>
+
+                          ?>name="first_name" value="1">
 
 
                             <span class="form-check-sign"></span>
