@@ -31,12 +31,11 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
 }
 // $_POST[i] and decide if box was checked or unchecked
 
-  // if( $_POST["name"] || $_POST["email"] || $_POST["contact"])
-  // {
-  // echo "Welcome: ". $_POST['name']. "<br />";
-  // echo "Your Email is: ". $_POST["email"]. "<br />";
-  // echo "Your Mobile No. is: ". $_POST["contact"];
-  // }
+  if( $_POST["name"] || $_POST["value"])
+  {
+  echo "Welcome: ". $_POST['name']. "<br />";
+  echo "Your value is: ". $_POST["value"]. "<br />";
+  }
 // <form action="" method="POST">
 //  <input type="checkbox" name="user" value="following_user_id"> Name<br>
 //  <input type="checkbox" name="user" value="following_user_id"> Name<br>
@@ -153,7 +152,7 @@ while($row2 = $result2->fetch_assoc())
                       <div class="form-check">
                         <label class="form-check-label">
 <input type="text" name="name" placeholder="Your Name"></input><br/>
- <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+ <!-- <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br> -->
                           <input class="form-check-input" type="checkbox" <?php
                               // echo $row['user_id'];
                               // echo $row['folliwing_user_ids'];
