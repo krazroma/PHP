@@ -37,7 +37,7 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
   // echo "Your value is: ". $_POST["1"]. "<br />";
   }
 
-for ($i=0; $i < 50; $i++)
+for ($i=0; $i < 6; $i++)
 {
   if ($_SERVER["REQUEST_METHOD"] == "POST")
   {
