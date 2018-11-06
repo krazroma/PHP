@@ -165,17 +165,14 @@ while($row2 = $result2->fetch_assoc())
                     <div class="col-md-3 col-sm-2  ml-auto mr-auto">
                       <div class="form-check">
                         <label class="form-check-label">
-<!-- <input type="text" name="name" placeholder="Your Name"></input><br/> -->
- <!-- <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br> -->
+
                           <input class="form-check-input" type="checkbox" <?php
-                              // echo $row['user_id'];
-                              // echo $row['folliwing_user_ids'];
                               $user_id = $row['user_id'];
                               if(in_array("$user_id", $folliwing_user_ids))
                               {
                                 echo "checked";
                               }
-                          ?>name="<?php echo $MAIN_user_id ?>" value="<?php echo $MAIN_user_id ?>">
+                          ?>name="<?php echo $user_id ?>" value="<?php echo $user_id ?>">
 
 
                             <span class="form-check-sign"></span>
