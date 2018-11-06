@@ -151,7 +151,7 @@ while($row2 = $result2->fetch_assoc())
                     <div class="col-md-3 col-sm-2  ml-auto mr-auto">
                       <div class="form-check">
                         <label class="form-check-label">
-<input type="text" name="name" placeholder="Your Name"></input><br/>
+<!-- <input type="text" name="name" placeholder="Your Name"></input><br/> -->
  <!-- <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br> -->
                           <input class="form-check-input" type="checkbox" <?php
                               // echo $row['user_id'];
