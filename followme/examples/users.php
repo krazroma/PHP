@@ -32,12 +32,16 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
 
 $sql3 = "SELECT COUNT(user_id) FROM fm_users";
 $result3 = $conn->query($sql3);
-while ($row3 = $result3->fetch_assoc())
-{
-  $ids[] = $row3['user_id'];
-  //print_r($row3);
-  var_dump($ids);
-}
+$num_rows = mysql_num_rows($result3);
+
+echo "$num_rows Rows\n";
+
+// while ($row3 = $result3->fetch_assoc())
+// {
+//   $ids[] = $row3['user_id'];
+//   //print_r($row3);
+//   var_dump($ids);
+// }
 
 
 // $_POST[i] and decide if box was checked or unchecked
