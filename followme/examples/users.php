@@ -35,7 +35,7 @@ $result3 = $conn->query($sql3);
 while ($row3 = $result3->fetch_assoc())
 {
   $row3[] = $row3['user_id'];
-  echo $row3[];
+  print_r($row3);
 }
 
 
