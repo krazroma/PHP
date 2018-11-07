@@ -33,7 +33,6 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
 $sql3 = "SELECT COUNT(user_id) FROM fm_users";
 $result3 = $conn->query($sql3);
 $row3 = $result3->fetch_assoc();
-
 var_dump($row3);
 // while ($row3 = $result3->fetch_assoc())
 // {
@@ -45,10 +44,14 @@ var_dump($row3);
 
 // $_POST[i] and decide if box was checked or unchecked
 
-  if( $_POST["Roman"])
+  // if( $_POST["Roman"])
+  // {
+  //   echo "Welcome: " . $_POST['Roman'] . " <br />";
+  //   // echo "Your value is: ". $_POST["1"]. "<br />";
+  // }
+  foreach ($_POST as $key => $value)
   {
-    echo "Welcome: " . $_POST['Roman'] . " <br />";
-    // echo "Your value is: ". $_POST["1"]. "<br />";
+    echo" HELLO USER: ".$value." </br>";
   }
 
   // $checked_count = count($_POST['Roman']);
@@ -177,7 +180,7 @@ while($row2 = $result2->fetch_assoc())
                               {
                                 echo "checked";
                               }
-                          ?> name="Roman" value="<?php echo $user_id ?>">
+                          ?> name="<?php echo $user_id ?>" value="<?php echo $user_id ?>">
                             <span class="form-check-sign"></span>
                         </label>
                       </div>
