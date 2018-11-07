@@ -76,29 +76,31 @@
                 $checked5 ="";
               }
 
-              echo "<form action='checkbox-delete.php' $uid = {$row ['user_id']}' method='POST'>
+              echo "<form action = "checkbox-delete.php" $uid = {$row ['user_id']}' method="POST">
 
-              <label class="heading">Select the Services you want to insert:</label><br/><br/>
-              <input type='checkbox' name='check_list[]' value='Website Development' $checked1 ><label>Website Development</label><br/>
-              <input type='checkbox' name='check_list[]' value='Data Support' $checked2 ><label>Data Support</label><br/>
-              <input type='checkbox' name='check_list[]' value='Online Marketing'$checked3 ><label>Online Marketing</label><br/>
-              <input type='checkbox' name='check_list[]' value='Business Development'$checked4 ><label>Business Development</label><br/>
-              <input type='checkbox' name='check_list[]' value='Responsive Themes'$checked5><label>Responsive Themes</label><br/><br/>
-              <input type='submit' name='dsubmit' Value='DELETE'>";
+              <label class="heading">Select the Services you want to insert:</label>
+              <br/>
+              <br/>
+              <input type = \"checkbox\" name ='check_list[]' value='Website Development' $checked1><label>Website Development</label><br/>
+              <input type = \"checkbox\" name ='check_list[]' value='Data Support' $checked2><label>Data Support</label><br/>
+              <input type = \"checkbox\" name ='check_list[]' value='Online Marketing' $checked3><label>Online Marketing</label><br/>
+              <input type = \"checkbox\" name ='check_list[]' value='Business Development' $checked4><label>Business Development</label><br/>
+              <input type = \"checkbox\" name ='check_list[]' value='Responsive Themes' $checked5><label>Responsive Themes</label><br/><br/>
+              <input type = \"submit\" name ='dsubmit' Value='DELETE'>";
             }
           }
           if(isset($_POST['dsubmit']))
           {
-            $id=$_GET['uid'];
-            $sql="DELETE FROM checkbox WHERE user_id=$id";
-            $query2=mysql_query($sql,$connection);
+            $id = $_GET['uid'];
+            $sql = "DELETE FROM checkbox WHERE user_id = $id";
+            $query2 = mysql_query($sql, $connection);
             echo"<br/><br/><br/>";
             echo"Data Deleted Successfully...!!!";
           }
           echo"</ol>";
           mysql_close($connection);
           echo"<br/><br/>";
-          echo"<a href="demo_checkbox.php">HOME</a>";
+          echo"<a href=\"demo_checkbox.php\">HOME</a>";
         ?>
       </div>
     </div>

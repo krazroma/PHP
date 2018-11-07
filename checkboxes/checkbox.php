@@ -18,23 +18,23 @@
             {
               //database connection
               $connection = mysql_connect('localhost','root','');
-              $db=mysql_select_db('store',$connection);
+              $db = mysql_select_db('store',$connection);
               //Counting number of checked checkboxes
               $checked_count = count($_POST['check_list']);
-              $checkbox1=$_POST['check_list'];
-              $chk="";
-              echo "You have inserted following ".$checked_count." option(s): <br/>";
+              $checkbox1 = $_POST['check_list'];
+              $chk = "";
+              echo "You have inserted following " . $checked_count . " option(s): <br/>";
               echo"</br>";
               //Loop to store and display values of individually checked checkbox
               foreach($_POST['check_list'] as $selected)
               {
-                echo "<p>".$selected ."</p>";
+                echo "<p>" . $selected . "</p>";
               }
               foreach($checkbox1 as $chk1)
               {
-                $chk .= $chk1.",";
+                $chk . = $chk1 . ",";
               }
-              $query=mysql_query("insert into checkbox(services) values ('$chk')",$connection);
+              $query = mysql_query("insert into checkbox(services) values ('$chk')", $connection);
               echo"<br>";
               if($query==1)
               {
@@ -51,7 +51,7 @@
             }
             else
             {
-              echo"Failed To Insert, Please select at least one option";
+              echo "Failed To Insert, Please select at least one option";
             }
           }
 
