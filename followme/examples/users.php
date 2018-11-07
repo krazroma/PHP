@@ -56,6 +56,8 @@ foreach ($allUsers as $key => $allUser_value)
     if ($allUser_value == $checked_value )
     {
       echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
+      $sql1 = "INSERT INTO fm_follows(following_user_id) VALUES($checked_value);
+      $result2 = $conn->query($sql2);
 
 
 
