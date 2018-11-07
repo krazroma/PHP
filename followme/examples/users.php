@@ -8,7 +8,7 @@ require('dbconnection.php');
 // create a for loop to searh through the submitted data
 if(isset($_POST['user_id']) && isset($_POST['password']))
 {
-  require('dbconnection.php');
+  //require('dbconnection.php');
   //$userid = $_POST['userid'];
   $username = $_POST['username'];
   $password = $_POST['password'];
