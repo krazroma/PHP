@@ -30,29 +30,40 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
   //header('Location: users.php');
 }
 
-$sql3 = "SELECT COUNT(user_id) FROM fm_users";
-$result3 = $conn->query($sql3);
-$row3 = $result3->fetch_assoc();
-var_dump($row3);
-// while ($row3 = $result3->fetch_assoc())
-// {
-//   $ids[] = $row3['user_id'];
-//   //print_r($row3);
-//   var_dump($ids);
-// }
+// $sql3 = "SELECT COUNT(user_id) FROM fm_users";
+// $result3 = $conn->query($sql3);
+// $row3 = $result3->fetch_assoc();
+// var_dump($row3);
+
+$sql = "SELECT * FROM fm_users";
+$result1 = $conn->query($sql);
+$allUsers = array();
+while($row = $result1->fetch_assoc())
+{
+  $allUsers = $row['user_id'];
+}
+
 
 
 // $_POST[i] and decide if box was checked or unchecked
+foreach ($allUsers as $key => $allUser_value)
+{
 
-  // if( $_POST["Roman"])
-  // {
-  //   echo "Welcome: " . $_POST['Roman'] . " <br />";
-  //   // echo "Your value is: ". $_POST["1"]. "<br />";
-  // }
-  foreach ($_POST as $key => $value)
+  foreach ($_POST as $key => $checked_value)
   {
-    echo" HELLO USER: ".$value." </br>";
+    if ($allUser_value == $checked_value )
+    {
+      echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
+    }
+    else {
+      echo "NOT FOUND <br />";
+    }
   }
+}
+
+
+
+
 
   // $checked_count = count($_POST['Roman']);
   // echo $checked_count;
