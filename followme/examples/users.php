@@ -30,14 +30,12 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
   header('Location: users.php');
 }
 // $_POST[i] and decide if box was checked or unchecked
-// for ($i=0; $i < ; $i++) {
-//   // code...
-// }
-  // if( $_POST["Roman"])
-  // {
-  // echo "Welcome: ". $_POST['Roman']. "<br />";
-  // // echo "Your value is: ". $_POST["1"]. "<br />";
-  // }
+
+  if( $_POST["Roman"])
+  {
+  echo "Welcome: ". $_POST['Roman']. "<br />";
+  // echo "Your value is: ". $_POST["1"]. "<br />";
+  }
 
 
 // if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -172,7 +170,7 @@ while($row2 = $result2->fetch_assoc())
                               {
                                 echo "checked";
                               }
-                          ?>name="<?php echo $user_id ?>" value="<?php echo $user_id ?>">
+                          ?>name="Roman" value="<?php echo $user_id ?>">
 
 
                             <span class="form-check-sign"></span>

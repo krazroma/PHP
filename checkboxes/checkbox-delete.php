@@ -9,9 +9,9 @@
     <div class="container2">
       <div class="main2"><br/>
         <?php
-          $connection = mysql_connect('localhost','root','');
-          $db = mysql_select_db('store',$connection);
-          $query = mysql_query("select*from checkbox",$connection);
+          // $connection = mysql_connect('localhost','root','');
+          // $db = mysql_select_db('store', $connection);
+          // $query = mysql_query("select * from checkbox", $connection);
           echo"CLICK ON THE DATA YOU WANT TO DELETE";
           echo"<br/><br/><br>";
           echo "<ol>";
