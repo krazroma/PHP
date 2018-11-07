@@ -33,19 +33,9 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
 
   if( $_POST["Roman"])
   {
-  echo "Welcome: ". $_POST['Roman']. "<br />";
-  // echo "Your value is: ". $_POST["1"]. "<br />";
+    echo "Welcome: \" . $_POST['Roman'] . \" <br />";
+    // echo "Your value is: ". $_POST["1"]. "<br />";
   }
-
-
-// if ($_SERVER["REQUEST_METHOD"] == "POST")
-// {
-//   for ($i=0; $i < 6; $i++)
-//   {
-//     $name = $_POST["Roman"];
-//     echo $name;
-//   }
-// }
 
 
 // <form action="" method="POST">
@@ -170,9 +160,7 @@ while($row2 = $result2->fetch_assoc())
                               {
                                 echo "checked";
                               }
-                          ?>name="Roman" value="<?php echo $user_id ?>">
-
-
+                          ?> name="Roman" value="<?php echo $user_id ?>">
                             <span class="form-check-sign"></span>
                         </label>
                       </div>
