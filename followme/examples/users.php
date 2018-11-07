@@ -48,16 +48,16 @@ while($row = $result1->fetch_assoc())
 // $_POST[i] and decide if box was checked or unchecked
 foreach ($allUsers as $key => $allUser_value)
 {
-
   foreach ($_POST as $key => $checked_value)
   {
-    if ($allUser_value == $checked_value )
-    {
-      echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
-    }
-    else {
-      echo "NOT FOUND <br />";
-    }
+    echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
+    // if ($allUser_value == $checked_value )
+    // {
+    //   echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
+    // }
+    // else {
+    //   echo "NOT FOUND <br />";
+    // }
   }
 }
 
