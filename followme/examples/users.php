@@ -61,10 +61,11 @@ foreach ($allUsers as $key => $allUser_value)
 
       break;
     }
-    else {
-      echo "NOT FOUND <br />";
-    }
   }
+  // rest of code
+
+
+
 }
 
 
