@@ -13,7 +13,7 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
   $username = $_POST['username'];
   $password = $_POST['password'];
   // $sql = "UPDATE users set username = \"$username\" WHERE userid = $userid";
-  $sql = "UPDATE users SET username='" . $_POST['username'] . "' WHERE userid= " . $_POST['userid'];
+  $sql = "UPDATE users SET username='" . $_POST['username'] . "' WHERE userid = " . $_POST['userid'];
 
   $result = $conn->query($sql);
   if($result)
@@ -34,7 +34,7 @@ $sql3 = "SELECT COUNT(user_id) FROM fm_users";
 $result3 = $conn->query($sql3);
 while ($row3 = $result3->fetch_assoc())
 {
-  echo $row3[];
+  echo $row3[] = $row3['user_id'];
 }
 
 
