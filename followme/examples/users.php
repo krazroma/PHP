@@ -34,7 +34,7 @@ $sql3 = "SELECT COUNT(user_id) FROM fm_users";
 $result3 = $conn->query($sql3);
 $row3 = $result3->fetch_assoc())
 
-var_dump($row3);
+var_dump($result3);
 // while ($row3 = $result3->fetch_assoc())
 // {
 //   $ids[] = $row3['user_id'];
