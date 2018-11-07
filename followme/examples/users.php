@@ -36,7 +36,7 @@ while ($row3 = $result3->fetch_assoc())
 {
   $ids[] = $row3['user_id'];
   //print_r($row3);
-  var_dump($ids[]);
+  var_dump($ids);
 }
 
 
