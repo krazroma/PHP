@@ -36,7 +36,7 @@ $result3 = $conn->query($sql3);
 $row3 = mysql_fetch_array($result3);
 
 $total = $row3[0];
-echo $total;
+var_dump($total);
 
 // while ($row3 = $result3->fetch_assoc())
 // {
