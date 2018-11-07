@@ -15,22 +15,22 @@
           echo"CLICK ON THE DATA YOU WANT TO DELETE";
           echo"<br/><br/><br>";
           echo "<ol>";
-          while($row=mysql_fetch_array($query))
-          {
-            echo"<li><a href="checkbox-delete.php $uid={$row["user_id"]}">{$row["services"]}</a></li><br/>";
-          }
+          // while($row=mysql_fetch_array($query))
+          // {
+          //   echo"<li><a href=\"checkbox-delete.php $uid={$row["user_id"]}">{$row["services"]}</a></li><br/>";
+          // }
 
           if(isset($_GET['uid']))
           {
-            $id=$_GET['uid'];
-            $query2=mysql_query("select * from checkbox where user_id=$id",$connection);
+            $id = $_GET['uid'];
+            $query2 = mysql_query("select * from checkbox where user_id = $id", $connection);
 
             while($row=mysql_fetch_array($query2))
             {
-              $str=($row['services']);
-              $data=(explode(",",$str));
+              $str = ($row['services']);
+              $data = (explode(",", $str));
 
-              $check=array("Website Development","Data Support","Online Marketing","Business Development","Responsive Themes");
+              $check = array("Website Development","Data Support","Online Marketing","Business Development","Responsive Themes");
               if (in_array($check[0], $data))
               {
                 $checked1 ="checked";
@@ -76,9 +76,9 @@
                 $checked5 ="";
               }
 
-              echo "<form action = "checkbox-delete.php" $uid = {$row ['user_id']}' method="POST">
+              echo "<form action = \"checkbox-delete.php\" $uid = {$row ['user_id']}' method=\"POST\">
 
-              <label class="heading">Select the Services you want to insert:</label>
+              <label class=\"heading\">Select the Services you want to insert:</label>
               <br/>
               <br/>
               <input type = \"checkbox\" name ='check_list[]' value='Website Development' $checked1><label>Website Development</label><br/>
