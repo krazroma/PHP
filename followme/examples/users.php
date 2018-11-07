@@ -30,11 +30,6 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
   //header('Location: users.php');
 }
 
-// $sql3 = "SELECT COUNT(user_id) FROM fm_users";
-// $result3 = $conn->query($sql3);
-// $row3 = $result3->fetch_assoc();
-// var_dump($row3);
-
 $sql = "SELECT * FROM fm_users";
 $result = $conn->query($sql);
 $allUsers = array();
@@ -42,63 +37,29 @@ while($row = $result->fetch_assoc())
 {
   $allUsers[] = $row['user_id'];
 }
-// var_dump($allUsers);
-// echo "<br />";
-// var_dump($_POST);
-
 
 // $_POST[i] and decide if box was checked or unchecked
 foreach ($allUsers as $key => $allUser_value)
 {
   foreach ($_POST as $key => $checked_value)
   {
-    //echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
+    $found=0;
     if ($allUser_value == $checked_value )
     {
+      $found=1;
       echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
-      $sql1 = "INSERT INTO fm_follows(following_user_id) VALUES($checked_value)";
+      $sql1 = "INSERT INTO fm_follows(user_id, following_user_id) VALUES($MAIN_user_id, $checked_value)";
       $result1 = $conn->query($sql1);
-
-
-
       break;
     }
   }
   // rest of code
-
-
-
+  if ($found==0)
+  {
+      $sql4 ="DELETE FROM fm_follows WHERE user_id='$MAIN_user_id' AND following_user_id='$value1'";
+      $result4 = $conn->query($sql4);
+  }
 }
-
-
-
-
-
-  // $checked_count = count($_POST['Roman']);
-  // echo $checked_count;
-
-
-// <form action="" method="POST">
-//  <input type="checkbox" name="user" value="following_user_id"> Name<br>
-//  <input type="checkbox" name="user" value="following_user_id"> Name<br>
-//  <input type="checkbox" name="user" value="following_user_id"> Name<br>
-//  <input type="checkbox" name="user" value="following_user_id"> Name<br>
-
-// do an sql statement $sql=INCERT INTO or UPDATE...
-// connect to db
-// then do while loop and do it for all the users
-// while($row = $result->fetch_assoc)
-//{
-//  $following_user_ids[]=$row['following_user_id'];
-//}
-
-// if wasnt checked
-// do another sql query $sql= DELETE....
-// connect to debug
-// while($row = $result->fetch_assoc)
-//{
-//  $following_user_ids[]=$row['following_user_id'];
-//}
 
 
 $sql = "SELECT * FROM fm_users";
