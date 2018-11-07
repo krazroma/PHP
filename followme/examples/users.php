@@ -36,15 +36,15 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
 // var_dump($row3);
 
 $sql = "SELECT * FROM fm_users";
-$result1 = $conn->query($sql);
+$result = $conn->query($sql);
 $allUsers = array();
-while($row = $result1->fetch_assoc())
+while($row = $result->fetch_assoc())
 {
-  $allUsers = $row['user_id'];
+  $allUsers[] = $row['user_id'];
 }
-var_dump($allUsers);
-echo "<br />";
-var_dump($_POST);
+// var_dump($allUsers);
+// echo "<br />";
+// var_dump($_POST);
 
 
 // $_POST[i] and decide if box was checked or unchecked
@@ -52,14 +52,14 @@ foreach ($allUsers as $key => $allUser_value)
 {
   foreach ($_POST as $key => $checked_value)
   {
-    echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
-    // if ($allUser_value == $checked_value )
-    // {
-    //   echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
-    // }
-    // else {
-    //   echo "NOT FOUND <br />";
-    // }
+    //echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
+    if ($allUser_value == $checked_value )
+    {
+      echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
+    }
+    else {
+      echo "NOT FOUND <br />";
+    }
   }
 }
 
