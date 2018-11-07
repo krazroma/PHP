@@ -34,7 +34,7 @@ $sql3 = "SELECT COUNT(user_id) FROM fm_users";
 $result3 = $conn->query($sql3);
 $num_rows = mysql_num_rows($result3);
 
-echo "$num_rows Rows\n";
+echo $num_rows;
 
 // while ($row3 = $result3->fetch_assoc())
 // {
