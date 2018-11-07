@@ -27,8 +27,14 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
     echo "$msg";
   }
   //var_dump($result);
-  header('Location: users.php');
+  //header('Location: users.php');
 }
+
+$sql3 = "SELECT COUNT(userid) FROM users";
+$result3 = $conn->query($sql3);
+echo $result3;
+
+
 // $_POST[i] and decide if box was checked or unchecked
 
   if( $_POST["Roman"])
