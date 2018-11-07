@@ -56,6 +56,10 @@ foreach ($allUsers as $key => $allUser_value)
     if ($allUser_value == $checked_value )
     {
       echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
+
+
+
+      break;
     }
     else {
       echo "NOT FOUND <br />";
