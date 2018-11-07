@@ -42,7 +42,9 @@ while($row = $result1->fetch_assoc())
 {
   $allUsers = $row['user_id'];
 }
-
+var_dump($allUsers);
+echo "<br />";
+var_dump($_POST);
 
 
 // $_POST[i] and decide if box was checked or unchecked
