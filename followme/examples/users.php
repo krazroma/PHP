@@ -37,6 +37,9 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
     // echo "Your value is: ". $_POST["1"]. "<br />";
   }
 
+  $checked_count = count($_POST['Roman']);
+  echo $checked_count;
+
 
 // <form action="" method="POST">
 //  <input type="checkbox" name="user" value="following_user_id"> Name<br>
