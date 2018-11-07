@@ -19,13 +19,13 @@
         echo "<ol>";
         while($row=mysql_fetch_array($query))
         {
-          echo "<li><a href="checkbox-edit.php $uid={$row["user_id"]}">{$row["services"]}</a></li><br/>";
+          echo "<li><a href=\"checkbox-edit.php $uid={$row["user_id"]}\">{$row[\"services\"]}</a></li><br/>";
         }
 
         if(isset($_GET['uid']))
         {
           $id=$_GET['uid'];
-          $query2=mysql_query("select * from checkbox where user_id=$id",$connection);
+          $query2=mysql_query("select * from checkbox where user_id  = $id", $connection);
           while($row=mysql_fetch_array($query2))
           {
             $str=($row['services']);
@@ -76,7 +76,7 @@
 
             echo "<form action='checkbox-edit.php $uid={$row ['user_id']}' method='POST'>
 
-            <label class="heading">Select the Services you want to insert:</label><br/><br/>
+            <label class=\"heading\">Select the Services you want to insert:</label><br/><br/>
             <input type='checkbox' name='check_list[]' value='Website Development' $checked1 ><label>Website Development</label><br/>
             <input type='checkbox' name='check_list[]' value='Data Support' $checked2 ><label>Data Support</label><br/>
             <input type='checkbox' name='check_list[]' value='Online Marketing'$checked3 ><label>Online Marketing</label><br/>
