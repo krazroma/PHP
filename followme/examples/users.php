@@ -30,7 +30,7 @@ if(isset($_POST['user_id']) && isset($_POST['password']))
   //header('Location: users.php');
 }
 
-$sql3 = "SELECT COUNT(userid) FROM users";
+$sql3 = "SELECT COUNT(user_id) FROM fm_users";
 $result3 = $conn->query($sql3);
 echo $result3;
 
