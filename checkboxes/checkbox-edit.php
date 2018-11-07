@@ -1,5 +1,7 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
   <head>
+    <meta charset="utf-8">
     <title>Checkbox-edit</title>
     <link rel="stylesheet" href="css/checkbox.css" />
   </head>

@@ -33,47 +33,50 @@
               $check=array("Website Development","Data Support","Online Marketing","Business Development","Responsive Themes");
               if (in_array($check[0], $data))
               {
-              $checked1 ="checked";
+                $checked1 ="checked";
               }
               else
               {
-              $checked1 ="";
+                $checked1 ="";
               }
 
               if (in_array($check[1], $data))
               {
-              $checked2 ="checked";
+                $checked2 ="checked";
               }
               else
               {
-              $checked2 ="";
-              }
-              if (in_array($check[2], $data))
-              {
-              $checked3 ="checked";
-              }
-              else
-              {
-              $checked3 ="";
-              }
-              if (in_array($check[3], $data))
-              {
-              $checked4 ="checked";
-              }
-              else
-              {
-              $checked4 ="";
-              }
-              if (in_array($check[4], $data))
-              {
-              $checked5 ="checked";
-              }
-              else
-              {
-              $checked5 ="";
+                $checked2 ="";
               }
 
-              echo "<form action='checkbox-delete.php $uid = {$row ['user_id']}' method='POST'>
+              if (in_array($check[2], $data))
+              {
+                $checked3 ="checked";
+              }
+              else
+              {
+                $checked3 ="";
+              }
+
+              if (in_array($check[3], $data))
+              {
+                $checked4 ="checked";
+                }
+              else
+              {
+                $checked4 ="";
+              }
+
+              if (in_array($check[4], $data))
+              {
+                $checked5 ="checked";
+              }
+              else
+              {
+                $checked5 ="";
+              }
+
+              echo "<form action='checkbox-delete.php' $uid = {$row ['user_id']}' method='POST'>
 
               <label class="heading">Select the Services you want to insert:</label><br/><br/>
               <input type='checkbox' name='check_list[]' value='Website Development' $checked1 ><label>Website Development</label><br/>

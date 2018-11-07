@@ -1,7 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
   <head>
-  <title>Check Box Demo</title>
-  <link rel="stylesheet" href="css/checkbox.css">
+    <meta charset="utf-8">
+    <title>Check Box Demo</title>
+    <link rel="stylesheet" href="css/checkbox.css">
   </head>
   <body>
     <div class="container">
