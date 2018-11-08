@@ -13,13 +13,7 @@ while($row = $result->fetch_assoc())
   $allUsers[] = $row['user_id'];
 }
 
-$sql2 = "SELECT * FROM fm_follows WHERE user_id = '$MAIN_user_id'";
-$result2 = $conn->query($sql2);
-$folliwing_user_ids = array();
-while($row2 = $result2->fetch_assoc())
-{
-  $folliwing_user_ids[] = $row2['following_user_id'];
-}
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
@@ -46,6 +40,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     }
   }
 }
+
+$sql2 = "SELECT * FROM fm_follows WHERE user_id = '$MAIN_user_id'";
+$result2 = $conn->query($sql2);
+$folliwing_user_ids = array();
+while($row2 = $result2->fetch_assoc())
+{
+  $folliwing_user_ids[] = $row2['following_user_id'];
+}
+
 ?>
 
 <!doctype html>
