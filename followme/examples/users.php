@@ -2,6 +2,8 @@
 session_start();
 require('dbconnection.php');
 
+$MAIN_user_id = $_SESSION['user_id'];
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
   // $_POST[i] and decide if box was checked or unchecked
@@ -33,26 +35,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 // once users were selected or deselected we hit subbmit button
 
 // create a for loop to searh through the submitted data
-if(isset($_POST['user_id']) && isset($_POST['password']))
-{
-  //require('dbconnection.php');
-  //$userid = $_POST['userid'];
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-  // $sql = "UPDATE users set username = \"$username\" WHERE userid = $userid";
-  $sql = "UPDATE users SET username='" . $_POST['username'] . "' WHERE userid = " . $_POST['userid'];
-
-  $result = $conn->query($sql);
-  if($result)
-  {
-    $msg = "Updated Sussecfully";
-    echo "$msg";
-  }
-  else
-  {
-    $msg = "Error Updating";
-    echo "$msg";
-  }
+// if(isset($_POST['user_id']) && isset($_POST['password']))
+// {
+//   //require('dbconnection.php');
+//   //$userid = $_POST['userid'];
+//   $username = $_POST['username'];
+//   $password = $_POST['password'];
+//   // $sql = "UPDATE users set username = \"$username\" WHERE userid = $userid";
+//   $sql = "UPDATE users SET username='" . $_POST['username'] . "' WHERE userid = " . $_POST['userid'];
+//
+//   $result = $conn->query($sql);
+//   if($result)
+//   {
+//     $msg = "Updated Sussecfully";
+//     echo "$msg";
+//   }
+//   else
+//   {
+//     $msg = "Error Updating";
+//     echo "$msg";
+//   }
   //var_dump($result);
   //header('Location: users.php');
 }
@@ -65,23 +67,18 @@ while($row = $result->fetch_assoc())
   $allUsers[] = $row['user_id'];
 }
 
-
-
-$sql = "SELECT * FROM fm_users";
-$result = $conn->query($sql);
-
-$MAIN_user_id = $_SESSION['user_id'];
-
-//sql2 = "SELECT following_user_id FROM fm_follows WHERE user_id = " . $_SESSION['user_id'];
 $sql2 = "SELECT * FROM fm_follows WHERE user_id = '$MAIN_user_id'";
 $result2 = $conn->query($sql2);
-
-//$row2 = $result2->fetch_row();
 while($row2 = $result2->fetch_assoc())
 {
   $folliwing_user_ids[] = $row2['following_user_id'];
   //print_r( array_values( $folliwing_user_ids ));
 }
+//sql2 = "SELECT following_user_id FROM fm_follows WHERE user_id = " . $_SESSION['user_id'];
+
+
+//$row2 = $result2->fetch_row();
+
 ?>
 
 <!doctype html>
