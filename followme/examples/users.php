@@ -50,16 +50,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
         $detected=true;
         echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
-        $sql1 = "INSERT INTO fm_follows(user_id, following_user_id) VALUES($MAIN_user_id, $checked_value)";
-        $result1 = $conn->query($sql1);
+        $sqli = "INSERT INTO fm_follows(user_id, following_user_id) VALUES($MAIN_user_id, $checked_value)";
+        $resulti = $conn->query($sqli);
         break;
       }
     }
     // rest of code
     if ($detected==false)
     {
-        $sql4 ="DELETE FROM fm_follows WHERE user_id='$MAIN_user_id' AND following_user_id= '$value1'";
-        $result4 = $conn->query($sql4);
+        $sqld ="DELETE FROM fm_follows WHERE user_id='$MAIN_user_id' AND following_user_id= '$value1'";
+        $resultd = $conn->query($sqld);
     }
   }
 }
