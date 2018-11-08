@@ -7,6 +7,7 @@ $MAIN_user_id = $_SESSION['user_id'];
 $sql = "SELECT * FROM fm_users";
 $result = $conn->query($sql);
 $allUsers = array();
+
 while($row = $result->fetch_assoc())
 {
   $allUsers[] = $row['user_id'];
@@ -14,15 +15,14 @@ while($row = $result->fetch_assoc())
 
 $sql2 = "SELECT * FROM fm_follows WHERE user_id = '$MAIN_user_id'";
 $result2 = $conn->query($sql2);
+$folliwing_user_ids = array();
 while($row2 = $result2->fetch_assoc())
 {
   $folliwing_user_ids[] = $row2['following_user_id'];
-  //print_r( array_values( $folliwing_user_ids ));
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-  // $_POST[i] and decide if box was checked or unchecked
   foreach ($allUsers as $key => $allUser_value)
   {
     foreach ($_POST as $key => $checked_value)
@@ -143,7 +143,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         <div class="col-md-6 ml-auto mr-auto">
           <ul class="list-unstyled follows">
             <form action="" method="post" >
-              <?php while($row = $result->fetch_assoc())
+              <?php
+
+              $sql = "SELECT * FROM fm_users";
+              $result = $conn->query($sql);
+              while($row = $result->fetch_assoc())
                 {
               ?>
 
