@@ -38,29 +38,31 @@ while($row = $result->fetch_assoc())
   $allUsers[] = $row['user_id'];
 }
 
-// $_POST[i] and decide if box was checked or unchecked
-foreach ($allUsers as $key => $allUser_value)
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-  foreach ($_POST as $key => $checked_value)
+  // $_POST[i] and decide if box was checked or unchecked
+  foreach ($allUsers as $key => $allUser_value)
   {
-    $found=0;
-    if ($allUser_value == $checked_value )
+    foreach ($_POST as $key => $checked_value)
     {
-      $found=1;
-      echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
-      $sql1 = "INSERT INTO fm_follows(user_id, following_user_id) VALUES($MAIN_user_id, $checked_value)";
-      $result1 = $conn->query($sql1);
-      break;
+      $detected=false;
+      if ($allUser_value == $checked_value )
+      {
+        $detected=true;
+        echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
+        $sql1 = "INSERT INTO fm_follows(user_id, following_user_id) VALUES($MAIN_user_id, $checked_value)";
+        $result1 = $conn->query($sql1);
+        break;
+      }
+    }
+    // rest of code
+    if ($detected==false)
+    {
+        $sql4 ="DELETE FROM fm_follows WHERE user_id='$MAIN_user_id' AND following_user_id='$value1'";
+        $result4 = $conn->query($sql4);
     }
   }
-  // rest of code
-  if ($found==0)
-  {
-      $sql4 ="DELETE FROM fm_follows WHERE user_id='$MAIN_user_id' AND following_user_id='$value1'";
-      $result4 = $conn->query($sql4);
-  }
 }
-
 
 $sql = "SELECT * FROM fm_users";
 $result = $conn->query($sql);
