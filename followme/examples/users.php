@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       if ($allUser_value == $checked_value )
       {
         $detected=true;
-        echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
+        echo "HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
         $sqli = "INSERT INTO fm_follows(user_id, following_user_id) VALUES ($MAIN_user_id, $checked_value)";
         $resulti = $conn->query($sqli);
         break;
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     // rest of code
     if ($detected==false)
     {
-        $sqld ="DELETE FROM fm_follows WHERE user_id='$MAIN_user_id' AND following_user_id= '$value1'";
+        $sqld ="DELETE FROM fm_follows WHERE user_id='$MAIN_user_id' AND following_user_id= '$allUser_value'";
         $resultd = $conn->query($sqld);
     }
   }
@@ -140,7 +140,7 @@ while($row2 = $result2->fetch_assoc())
       <div class="row">
         <div class="col-md-6 ml-auto mr-auto">
           <ul class="list-unstyled follows">
-            <form action="#" method="post" >
+            <form action="" method="post" >
               <?php while($row = $result->fetch_assoc())
                 {
               ?>
