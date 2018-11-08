@@ -40,47 +40,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     // rest of code
     if ($detected==false)
     {
+        echo "NOT FOUND::: ".$allUser_value." <br />";
         $sqld ="DELETE FROM fm_follows WHERE user_id='$MAIN_user_id' AND following_user_id= '$allUser_value'";
         $resultd = $conn->query($sqld);
     }
   }
 }
-
-// add submit button on the buttom of the page so user can follow or unfollow someone
-
-// once users were selected or deselected we hit subbmit button
-
-// create a for loop to searh through the submitted data
-// if(isset($_POST['user_id']) && isset($_POST['password']))
-// {
-//   //require('dbconnection.php');
-//   //$userid = $_POST['userid'];
-//   $username = $_POST['username'];
-//   $password = $_POST['password'];
-//   // $sql = "UPDATE users set username = \"$username\" WHERE userid = $userid";
-//   $sql = "UPDATE users SET username='" . $_POST['username'] . "' WHERE userid = " . $_POST['userid'];
-//
-//   $result = $conn->query($sql);
-//   if($result)
-//   {
-//     $msg = "Updated Sussecfully";
-//     echo "$msg";
-//   }
-//   else
-//   {
-//     $msg = "Error Updating";
-//     echo "$msg";
-//   }
-  //var_dump($result);
-  //header('Location: users.php');
-//}
-
-
-//sql2 = "SELECT following_user_id FROM fm_follows WHERE user_id = " . $_SESSION['user_id'];
-
-
-//$row2 = $result2->fetch_row();
-
 ?>
 
 <!doctype html>
