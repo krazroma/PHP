@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       {
         $detected=true;
         echo" HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
-        $sqli = "INSERT INTO fm_follows(user_id, following_user_id) VALUES($MAIN_user_id, $checked_value)";
+        $sqli = "INSERT INTO fm_follows(user_id, following_user_id) VALUES ($MAIN_user_id, $checked_value)";
         $resulti = $conn->query($sqli);
         break;
       }
