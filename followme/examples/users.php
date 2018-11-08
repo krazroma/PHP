@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     // rest of code
     if ($detected==false)
     {
-        $sql4 ="DELETE FROM fm_follows WHERE user_id='$MAIN_user_id' AND following_user_id='$value1'";
+        $sql4 ="DELETE FROM fm_follows WHERE user_id='$MAIN_user_id' AND following_user_id= '$value1'";
         $result4 = $conn->query($sql4);
     }
   }
