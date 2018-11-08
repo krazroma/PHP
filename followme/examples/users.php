@@ -1,6 +1,33 @@
 <?php
 session_start();
 require('dbconnection.php');
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+  // $_POST[i] and decide if box was checked or unchecked
+  foreach ($allUsers as $key => $allUser_value)
+  {
+    foreach ($_POST as $key => $checked_value)
+    {
+      $detected=false;
+      if ($allUser_value == $checked_value )
+      {
+        $detected=true;
+        echo "HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
+        $sqli = "INSERT INTO fm_follows(user_id, following_user_id) VALUES ($MAIN_user_id, $checked_value)";
+        $resulti = $conn->query($sqli);
+        break;
+      }
+    }
+    // rest of code
+    if ($detected==false)
+    {
+        $sqld ="DELETE FROM fm_follows WHERE user_id='$MAIN_user_id' AND following_user_id= '$allUser_value'";
+        $resultd = $conn->query($sqld);
+    }
+  }
+}
+
 // add submit button on the buttom of the page so user can follow or unfollow someone
 
 // once users were selected or deselected we hit subbmit button
@@ -38,31 +65,7 @@ while($row = $result->fetch_assoc())
   $allUsers[] = $row['user_id'];
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-  // $_POST[i] and decide if box was checked or unchecked
-  foreach ($allUsers as $key => $allUser_value)
-  {
-    foreach ($_POST as $key => $checked_value)
-    {
-      $detected=false;
-      if ($allUser_value == $checked_value )
-      {
-        $detected=true;
-        echo "HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
-        $sqli = "INSERT INTO fm_follows(user_id, following_user_id) VALUES ($MAIN_user_id, $checked_value)";
-        $resulti = $conn->query($sqli);
-        break;
-      }
-    }
-    // rest of code
-    if ($detected==false)
-    {
-        $sqld ="DELETE FROM fm_follows WHERE user_id='$MAIN_user_id' AND following_user_id= '$allUser_value'";
-        $resultd = $conn->query($sqld);
-    }
-  }
-}
+
 
 $sql = "SELECT * FROM fm_users";
 $result = $conn->query($sql);
