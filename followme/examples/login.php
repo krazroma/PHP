@@ -63,7 +63,7 @@ session_start();
       } // closes while loop
 } // closes POST condition
 
-if (!isset($_SESSION['user_email'])){
+if (isset($_SESSION['user_email'])){
   header('Location: users.php');
 }
 
