@@ -38,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     // if not checked delete the users
     if ($detected==false)
     {
-        echo "NOT FOUND::: ".$allUser_value." <br />";
         $sqld ="DELETE FROM fm_follows WHERE user_id='$MAIN_user_id' AND following_user_id= '$allUser_value'";
         $resultd = $conn->query($sqld);
     }
@@ -54,10 +53,10 @@ while($row2 = $result2->fetch_assoc())
   $folliwing_user_ids[] = $row2['following_user_id'];
 }
 
-if ( isset( $_POST["Submit"] ) )
+if (isset( $_POST["Submit"]))
 {
   header( "Location: profile.php" );
-  exit;
+  //exit;
 }
 
 ?>
