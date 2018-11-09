@@ -1,37 +1,41 @@
 <?php
 session_start();
+// bring in database
 require('dbconnection.php');
 
 $MAIN_user_id = $_SESSION['user_id'];
 
+// select users to display
 $sql = "SELECT * FROM fm_users";
 $result = $conn->query($sql);
 $allUsers = array();
 
+// get all the users into the array
 while($row = $result->fetch_assoc())
 {
   $allUsers[] = $row['user_id'];
 }
 
-
-
+// loop through all the following users and compare to database
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-  foreach ($allUsers as $key => $allUser_value)
+  foreach ($allUsers as $key => $allUser_value) // looping through the all the users in user table
   {
-    foreach ($_POST as $key => $checked_value)
+    foreach ($_POST as $key => $checked_value) // Looping through all the following users from follows table
     {
+      // if checked put new users into the database
       $detected=false;
       if ($allUser_value == $checked_value )
       {
         $detected=true;
-        echo "HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
+        //echo "HELLO database USER: ".$allUser_value." :::: HELLO checked USER: ".$checked_value." <br />";
         $sqli = "INSERT INTO fm_follows(user_id, following_user_id) VALUES ($MAIN_user_id, $checked_value)";
         $resulti = $conn->query($sqli);
         break;
       }
     }
-    // rest of code
+
+    // if not checked delete the users
     if ($detected==false)
     {
         echo "NOT FOUND::: ".$allUser_value." <br />";
@@ -41,6 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   }
 }
 
+// sql statement to select following users from database
 $sql2 = "SELECT * FROM fm_follows WHERE user_id = '$MAIN_user_id'";
 $result2 = $conn->query($sql2);
 $folliwing_user_ids = array();
