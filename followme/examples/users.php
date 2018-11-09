@@ -99,6 +99,9 @@ while($row2 = $result2->fetch_assoc())
             <a href="login.php" class="nav-link">Login</a>
           </li>
           <li class="nav-item">
+            <a href="profile.php" class="nav-link">Profile</a>
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link"><?php echo $_SESSION['user_email']; ?></a>
           </li>
         </ul>
