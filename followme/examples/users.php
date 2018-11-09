@@ -54,6 +54,12 @@ while($row2 = $result2->fetch_assoc())
   $folliwing_user_ids[] = $row2['following_user_id'];
 }
 
+if ( isset( $_POST["Submit"] ) )
+{
+  header( "Location: profile.php" );
+  exit;
+}
+
 ?>
 
 <!doctype html>
