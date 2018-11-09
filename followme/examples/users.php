@@ -159,7 +159,7 @@ if (isset( $_POST["submit"]))
                 </li>
                 <hr />
               <?php } ?>
-              <input type="submit" value="Submit" button class="btn btn-danger btn-block btn-round">
+              <input type="submit" value="Submit" name="submit" button class="btn btn-danger btn-block btn-round">
             </form>
           </ul>
         </div>
