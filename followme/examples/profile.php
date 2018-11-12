@@ -19,6 +19,8 @@ session_start();
 // // modify fm_users to add description and then load into $_SESSION['description']
 // // done
 
+require('dbconnection.php');
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -47,141 +49,153 @@ session_start();
 
 </head>
 <body>
-  <nav class="navbar navbar-expand-md fixed-top navbar-transparent" color-on-scroll="150">
-    <div class="container">
+	<nav class="navbar navbar-expand-md fixed-top navbar-transparent" color-on-scroll="150">
+	  <div class="container">
 			<div class="navbar-translate">
-        <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+	      <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-bar"></span>
 					<span class="navbar-toggler-bar"></span>
 					<span class="navbar-toggler-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Follow me</a>
+	      </button>
+	      <a class="navbar-brand" href="#">Follow me</a>
 			</div>
 			<div class="collapse navbar-collapse" id="navbarToggler">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a href="login.php" class="nav-link">Login</a>
-          </li>
+	      <ul class="navbar-nav ml-auto">
+	        <li class="nav-item">
+	          <a href="login.php" class="nav-link">Login</a>
+	        </li>
 					<li class="nav-item">
-            <a href="login.php" class="nav-link">
+	          <a href="login.php" class="nav-link">
 							<?php
 								echo $_SESSION['user_email']; // user_email goes here
 							?>
 						</a>
-          </li>
-      	</ul>
-    	</div>
+	        </li>
+	    	</ul>
+	  	</div>
 		</div>
-    </nav>
+	  </nav>
 
     <div class="wrapper">
-        <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
-			<div class="filter"></div>
-		</div>
-        <div class="section profile-content">
-            <div class="container">
-                <div class="owner">
-                    <div class="avatar">
-                      <img src="<?php echo $_SESSION['image_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                    </div>
-                    <div class="name">
-                        <h4 class="title"><?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name'] ?><br /></h4>
-												<h6 class="description"><?php echo $_SESSION['title']; ?></h6>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 ml-auto mr-auto text-center">
-                        <p><?php echo $_SESSION['description']; ?></p>
-                        <br />
-                        <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</btn>
-                    </div>
-                </div>
-                <br/>
-                <div class="nav-tabs-navigation">
-                    <div class="nav-tabs-wrapper">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#follows" role="tab">Follows</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#following" role="tab">Following</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Tab panes -->
-                <div class="tab-content following">
-                    <div class="tab-pane active" id="follows" role="tabpanel">
-                        <div class="row">
-                            <div class="col-md-6 ml-auto mr-auto">
-                                <ul class="list-unstyled follows">
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-md-2 col-sm-2 ml-auto mr-auto">
-                                                <img src="../assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                            </div>
-                                            <div class="col-md-7 col-sm-4  ml-auto mr-auto">
-                                                <h6>Flume<br/><small>Musical Producer</small></h6>
-                                            </div>
-                                            <div class="col-md-3 col-sm-2  ml-auto mr-auto">
-												<div class="form-check">
-					                                <label class="form-check-label">
-					                                    <input class="form-check-input" type="checkbox" value="" checked>
-					                                    <span class="form-check-sign"></span>
-					                                </label>
-					                            </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <hr />
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-md-2 ml-auto mr-auto ">
-                                                <img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                            </div>
-                                            <div class="col-md-7 col-sm-4">
-                                                <h6>Banks<br /><small>Singer</small></h6>
-                                            </div>
-                                            <div class="col-md-3 col-sm-2">
-												<div class="form-check">
-					                                <label class="form-check-label">
-					                                    <input class="form-check-input" type="checkbox" value="">
-					                                    <span class="form-check-sign"></span>
-					                                </label>
-					                            </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane text-center" id="following" role="tabpanel">
-                        <h3 class="text-muted">Not following anyone yet :(</h3>
-                        <button class="btn btn-warning btn-round">Find artists</button>
-                    </div>
-                </div>
+      <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
+				<div class="filter"></div>
+			</div>
+      <div class="section profile-content">
+        <div class="container">
+          <div class="owner">
+            <div class="avatar">
+              <img src="<?php echo $_SESSION['image_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
             </div>
+            <div class="name">
+                <h4 class="title"><?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name'] ?><br /></h4>
+								<h6 class="description"><?php echo $_SESSION['title']; ?></h6>
+            </div>
+          </div>
+          <div class="row">
+	          <div class="col-md-6 ml-auto mr-auto text-center">
+	            <p><?php echo $_SESSION['description']; ?></p>
+	            <br />
+	            <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</btn>
+	          </div>
+          </div>
+          <br/>
+          <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+              <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                	<a class="nav-link active" data-toggle="tab" href="#follows" role="tab">Follows</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#following" role="tab">Following</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Tab panes -->
+          <div class="tab-content following">
+            <div class="tab-pane active" id="follows" role="tabpanel">
+              <div class="row">
+                <div class="col-md-6 ml-auto mr-auto">
+                  <ul class="list-unstyled follows">
+                    <li>
+                      <div class="row">
+                        <div class="col-md-2 col-sm-2 ml-auto mr-auto">
+                            <img src="../assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                        </div>
+                        <div class="col-md-7 col-sm-4  ml-auto mr-auto">
+                            <h6>Flume<br/><small>Musical Producer</small></h6>
+                        </div>
+                        <div class="col-md-3 col-sm-2  ml-auto mr-auto">
+													<div class="form-check">
+			                      <label class="form-check-label">
+			                          <input class="form-check-input" type="checkbox" value="" checked>
+			                          <span class="form-check-sign"></span>
+			                      </label>
+			                  	</div>
+                        </div>
+                      </div>
+                    </li>
+                    <hr />
+                    <li>
+                      <div class="row">
+                        <div class="col-md-2 ml-auto mr-auto ">
+                        	<img src="../assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                        </div>
+                        <div class="col-md-7 col-sm-4">
+                          <h6>Banks<br /><small>Singer</small></h6>
+                        </div>
+                        <div class="col-md-3 col-sm-2">
+													<div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox" value="">
+                              <span class="form-check-sign"></span>
+                            </label>
+                  				</div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+              <div class="tab-pane text-center" id="following" role="tabpanel">
+
+
+
+
+
+													<!-- put your code here for following users -->
+
+
+
+                  <h3 class="text-muted">Not following anyone yet :(</h3>
+
+
+
+                  <button class="btn btn-warning btn-round">Find artists</button>
+              </div>
+          </div>
         </div>
+      </div>
     </div>
 	<footer class="footer section-dark">
-        <div class="container">
-            <div class="row">
-                <nav class="footer-nav">
-                    <ul>
-                        <li><a href="https://www.creative-tim.com">Creative Tim</a></li>
-                        <li><a href="http://blog.creative-tim.com">Blog</a></li>
-                        <li><a href="https://www.creative-tim.com/license">Licenses</a></li>
-                    </ul>
-                </nav>
-                <div class="credits ml-auto">
-                    <span class="copyright">
-                        © <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-                    </span>
-                </div>
-            </div>
+	  <div class="container">
+      <div class="row">
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="https://www.creative-tim.com">Creative Tim</a></li>
+            <li><a href="http://blog.creative-tim.com">Blog</a></li>
+            <li><a href="https://www.creative-tim.com/license">Licenses</a></li>
+          </ul>
+        </nav>
+        <div class="credits ml-auto">
+	        <span class="copyright">
+            © <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+	        </span>
         </div>
-    </footer>
+      </div>
+	  </div>
+  </footer>
 </body>
 
 <!-- Core JS Files -->

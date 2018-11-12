@@ -3,6 +3,12 @@ session_start();
 // bring in database
 require('dbconnection.php');
 
+
+if (isset($_POST['logout']))
+{
+  unset($_SESSION['user_id']);
+}
+
 $MAIN_user_id = $_SESSION['user_id'];
 
 // select users to display
@@ -99,17 +105,22 @@ if (isset( $_POST["submit"]))
          <a class="navbar-brand" href="#">Follow Me</a>
       </div>
       <div class="collapse navbar-collapse" id="navbarToggler">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a href="login.php" class="nav-link">Login</a>
-          </li>
-          <li class="nav-item">
-            <a href="profile.php" class="nav-link">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link"><?php echo $_SESSION['user_email']; ?></a>
-          </li>
-        </ul>
+        <form action="" method="post">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="login.php" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item">
+              <a href="profile.php" class="nav-link">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link"><?php echo $_SESSION['user_email']; ?></a>
+            </li>
+            <li class="nav-item">
+              <input type="submit" name="logout" value="logout">
+            </li>
+          </ul>
+        </form>
       </div>
     </div>
   </nav>
@@ -123,7 +134,7 @@ if (isset( $_POST["submit"]))
       <div class="row">
         <div class="col-md-6 ml-auto mr-auto">
           <ul class="list-unstyled follows">
-            <form action="" method="post" >
+            <form action="" method="post">
               <?php
 
               $sql = "SELECT * FROM fm_users";
