@@ -117,8 +117,7 @@ if (isset( $_POST["submit"]))
               <a href="#" class="nav-link"><?php echo $_SESSION['user_email']; ?></a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Logout</a></a>
-              <input type="submit" value="logout">
+              <a href="#" class="nav-link" type="submit" name="logout" value="logout">Logout</a></a>
             </li>
           </ul>
         </form>
