@@ -4,9 +4,9 @@ session_start();
 require('dbconnection.php');
 
 
-if (isset($_POST['logout']))
+if (isset($_POST["logout"]))
 {
-  unset($_SESSION['user_id']);
+  unset($_SESSION['user_email']);
 }
 
 $MAIN_user_id = $_SESSION['user_id'];
