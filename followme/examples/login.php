@@ -2,6 +2,12 @@
 
 session_start();
 
+if (isset($_POST["logout"]))
+{
+  unset($_SESSION['user_email']);
+  //header("location:login.php");
+}
+
  if ($_SERVER['REQUEST_METHOD'] == 'POST')
  {
      $db_host = 'localhost'; // Database is installed on the PHPH server
@@ -66,6 +72,8 @@ session_start();
 if (isset($_SESSION['user_email'])){
   header('Location: users.php');
 }
+
+
 
  ?>
 
