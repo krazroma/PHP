@@ -7,7 +7,7 @@ require('dbconnection.php');
 if (isset($_POST["logout"]))
 {
   unset($_SESSION['user_email']);
-  //header("location:login.php");
+  header("location:login.php");
 }
 
 $MAIN_user_id = $_SESSION['user_id'];
@@ -118,7 +118,7 @@ if (isset( $_POST["submit"]))
               <a href="#" class="nav-link"><?php echo $_SESSION['user_email']; ?></a>
             </li>
             <li class="nav-item">
-              <a type="submit" name="logout" value="Logout" href="login.php" class="nav-link"></a>
+              <input type="submit" name="logout" value="logout">
             </li>
           </ul>
         </form>
