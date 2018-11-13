@@ -172,13 +172,6 @@ if (isset($_SESSION['user_email'])){
                                         <input type="password" name="user_password" class="form-control" placeholder="Password">
                                         <input type="submit" value="Login" button class="btn btn-danger btn-block btn-round">
                                      </form>
-
-                                     <?php
-                                     //var_dump($user_email);
-                                       echo "Logged in as: " . $_SESSION['user_email'];
-
-                                     ?>
-                                    </form>
                                     <div class="forgot">
                                         <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
                                     </div>
