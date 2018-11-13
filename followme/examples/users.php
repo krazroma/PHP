@@ -4,7 +4,7 @@ session_start();
 require('dbconnection.php');
 
 
-if (isset($_POST["logout"]))
+if (isset($_GET["logout"]))
 {
   unset($_SESSION['user_email']);
   header("location:login.php");
@@ -118,7 +118,8 @@ if (isset( $_POST["submit"]))
               <a href="#" class="nav-link"><?php echo $_SESSION['user_email']; ?></a>
             </li>
             <li class="nav-item">
-              <input type="submit" name="logout" value="logout">
+              <a href="&logout=true" class="nav-link">Logout</a>
+              <!-- <input type="submit" name="logout" value="logout"> -->
             </li>
           </ul>
         </form>
