@@ -119,7 +119,6 @@ if (isset( $_POST["submit"]))
             </li>
             <li class="nav-item">
               <a href="users.php?logout=true" class="nav-link">Logout</a>
-              <!-- <input type="submit" name="logout" value="logout"> -->
             </li>
           </ul>
         </form>
