@@ -161,7 +161,7 @@ while($row2 = $result2->fetch_assoc())
 									<ul class="list-unstyled follows">
 											<?php
 
-											$sql = "SELECT following_user_id FROM fm_follows WHERE user_id = '$MAIN_user_id'";
+											$sql = "SELECT * FROM fm_follows WHERE user_id = '$MAIN_user_id'";
 											$result = $conn->query($sql);
 											while($row = $result->fetch_assoc())
 												{
