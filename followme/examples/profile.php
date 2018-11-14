@@ -195,7 +195,7 @@ while($row2 = $result2->fetch_assoc())
 												<hr />
 											<?php } ?>
 											<!-- <input type="submit" value="Submit" name="submit" button class="btn btn-danger btn-block btn-round"> -->
-										</form>
+										<!-- </form> -->
 
 
 
