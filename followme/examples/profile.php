@@ -1,7 +1,7 @@
 <?php
-session_start();
-require('dbconnection.php');
-$MAIN_user_id = $_SESSION['user_id'];
+session_start(); // starts session
+require('dbconnection.php'); // brings db connection
+$MAIN_user_id = $_SESSION['user_id']; // session user id is stored in the variable
 
 ?>
 <!doctype html>
@@ -66,15 +66,19 @@ $MAIN_user_id = $_SESSION['user_id'];
         <div class="container">
           <div class="owner">
             <div class="avatar">
+							<!-- image comes from data base -->
               <img src="<?php echo $_SESSION['image_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
             </div>
             <div class="name">
+							<!-- prints first and last names of the user comes from database -->
                 <h4 class="title"><?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name'] ?><br /></h4>
+								<!-- prints title from database -->
 								<h6 class="description"><?php echo $_SESSION['title']; ?></h6>
             </div>
           </div>
           <div class="row">
 	          <div class="col-md-6 ml-auto mr-auto text-center">
+							<!-- prints description from database -->
 	            <p><?php echo $_SESSION['description']; ?></p>
 	            <br />
 	            <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</btn>
@@ -93,6 +97,7 @@ $MAIN_user_id = $_SESSION['user_id'];
               </ul>
             </div>
           </div>
+
           <!-- Tab panes -->
           <div class="tab-content following">
             <div class="tab-pane active" id="follows" role="tabpanel">
@@ -100,32 +105,37 @@ $MAIN_user_id = $_SESSION['user_id'];
 								<div class="col-md-6 ml-auto mr-auto">
 									<ul class="list-unstyled follows">
 										<?php
+										// sql statement to seclect users who are following the session user
 											$sql = "SELECT * FROM fm_users, fm_follows WHERE fm_users.user_id = fm_follows.user_id AND fm_follows.following_user_id = $MAIN_user_id";
+											// connect to database
 											$result = $conn->query($sql);
 											while($row = $result->fetch_assoc())
 												{
+													// set fetched data from the rows into the variables
 													$follow_user_id = $row['user_id'];
 													$follow_user_first_name = $row['first_name'];
 													$follow_user_last_name = $row['last_name'];
 													$follow_user_title = $row['title'];
 													$follow_user_image = $row['image_url'];
-													//generates an array of all users
-													$all_users[]=$row['user_id'];
+
+													// array of all users
+													$all_users[] = $row['user_id'];
 											?>
 												<li>
 													<div class="row">
 														<div class="col-md-2 col-sm-2 ml-auto mr-auto">
+															<!-- pulles image from database -->
 															<img src="<?php echo $follow_user_image ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
 														</div>
 														<div class="col-md-7 col-sm-4  ml-auto mr-auto">
+															<!-- prints following me user`s first and last names, id and title -->
 															<h6><?php echo ( $follow_user_first_name . " " . $follow_user_last_name . " " . 	$follow_user_id) ?><br/><small><?php echo $follow_user_title ?></small></h6>
 														</div>
 														<div class="col-md-3 col-sm-2  ml-auto mr-auto">
 															<div class="form-check">
 																<label class="form-check-label">
-
-																	<input class="form-check-input" type="checkbox" name="<?php echo
-																			$follow_user_id ?>" value="<?php echo $follow_user_id ?>" >
+																	<!-- prints following the session user user id`s -->
+																	<input class="form-check-input" type="checkbox" checked name="<?php echo $follow_user_id ?>" value="<?php echo $follow_user_id ?>" >
 																		<span class="form-check-sign"></span>
 																</label>
 															</div>
@@ -144,30 +154,36 @@ $MAIN_user_id = $_SESSION['user_id'];
 							<div class="col-md-6 ml-auto mr-auto">
 								<ul class="list-unstyled follows">
 									<?php
+									// sql statement pulls data about users the current session user is following
 										$sql = "SELECT * FROM fm_users, fm_follows WHERE fm_users.user_id = fm_follows.following_user_id AND fm_follows.user_id = $MAIN_user_id";
 										$result = $conn->query($sql);
 										while($row = $result->fetch_assoc())
 											{
+												// put rows into the variables
 												$follow_user_id = $row['following_user_id'];
 												$follow_user_first_name = $row['first_name'];
 												$follow_user_last_name = $row['last_name'];
 												$follow_user_title = $row['title'];
 												$follow_user_image = $row['image_url'];
-												//generates an array of all users
+
+												// array of all users
 												$all_users[]=$row['user_id'];
 										?>
 											<li>
 												<div class="row">
 													<div class="col-md-2 col-sm-2 ml-auto mr-auto">
+														<!-- pictures of users that current user is following -->
 														<img src="<?php echo $follow_user_image ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
 													</div>
 													<div class="col-md-7 col-sm-4  ml-auto mr-auto">
+														<!-- names, id`s, titles -->
 														<h6><?php echo ( $follow_user_first_name . " " . $follow_user_last_name . " " .	$follow_user_id) ?><br/><small><?php echo $follow_user_title ?></small></h6>
 													</div>
 													<div class="col-md-3 col-sm-2  ml-auto mr-auto">
 														<div class="form-check">
 															<label class="form-check-label">
-																<input class="form-check-input" type="checkbox" name="<?php echo $follow_user_id ?>" value="<?php echo $follow_user_id ?>" >
+																<!-- users id`s -->
+																<input class="form-check-input" type="checkbox" checked name="<?php echo $follow_user_id ?>" value="<?php echo $follow_user_id ?>" >
 																<span class="form-check-sign"></span>
 															</label>
 														</div>
@@ -181,26 +197,29 @@ $MAIN_user_id = $_SESSION['user_id'];
 							</div>
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
 
-					<footer class="footer section-dark">
-					  <div class="container">
-				      <div class="row">
-				        <nav class="footer-nav">
-				          <ul>
-				            <li><a href="https://www.creative-tim.com">Creative Tim</a></li>
-				            <li><a href="http://blog.creative-tim.com">Blog</a></li>
-				            <li><a href="https://www.creative-tim.com/license">Licenses</a></li>
-				          </ul>
-				        </nav>
-				        <div class="credits ml-auto">
-					        <span class="copyright">
-				            © <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-					        </span>
-				        </div>
-				      </div>
-					  </div>
-				  </footer>
-				</body>
+	<footer class="footer section-dark">
+	  <div class="container">
+      <div class="row">
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="https://www.creative-tim.com">Creative Tim</a></li>
+            <li><a href="http://blog.creative-tim.com">Blog</a></li>
+            <li><a href="https://www.creative-tim.com/license">Licenses</a></li>
+          </ul>
+        </nav>
+        <div class="credits ml-auto">
+	        <span class="copyright">
+            © <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+	        </span>
+        </div>
+      </div>
+	  </div>
+  </footer>
+</body>
 
 <!-- Core JS Files -->
 <script src="../assets/js/jquery-3.2.1.js" type="text/javascript"></script>
