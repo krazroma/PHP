@@ -104,7 +104,7 @@ $MAIN_user_id = $_SESSION['user_id'];
 											$result = $conn->query($sql);
 											while($row = $result->fetch_assoc())
 												{
-													$follow_user_id = $row['following_user_id'];
+													$follow_user_id = $row['user_id'];
 													$follow_user_first_name = $row['first_name'];
 													$follow_user_last_name = $row['last_name'];
 													$follow_user_title = $row['title'];
@@ -148,7 +148,7 @@ $MAIN_user_id = $_SESSION['user_id'];
 										$result = $conn->query($sql);
 										while($row = $result->fetch_assoc())
 											{
-												$follow_user_id = $row['user_id'];
+												$follow_user_id = $row['following_user_id'];
 												$follow_user_first_name = $row['first_name'];
 												$follow_user_last_name = $row['last_name'];
 												$follow_user_title = $row['title'];
@@ -162,15 +162,13 @@ $MAIN_user_id = $_SESSION['user_id'];
 														<img src="<?php echo $follow_user_image ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
 													</div>
 													<div class="col-md-7 col-sm-4  ml-auto mr-auto">
-														<h6><?php echo ( $follow_user_first_name . " " . $follow_user_last_name . " " . 	$follow_user_id) ?><br/><small><?php echo $follow_user_title ?></small></h6>
+														<h6><?php echo ( $follow_user_first_name . " " . $follow_user_last_name . " " .	$follow_user_id) ?><br/><small><?php echo $follow_user_title ?></small></h6>
 													</div>
 													<div class="col-md-3 col-sm-2  ml-auto mr-auto">
 														<div class="form-check">
 															<label class="form-check-label">
-
-																<input class="form-check-input" type="checkbox" name="<?php echo
-																		$follow_user_id ?>" value="<?php echo $follow_user_id ?>" >
-																	<span class="form-check-sign"></span>
+																<input class="form-check-input" type="checkbox" name="<?php echo $follow_user_id ?>" value="<?php echo $follow_user_id ?>" >
+																<span class="form-check-sign"></span>
 															</label>
 														</div>
 													</div>
