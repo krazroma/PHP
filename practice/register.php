@@ -5,9 +5,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   // grab POST data could be dangerous because of XSS (cross site inctiption) or SQL injection
   $username = $_POST['username'];
   // sanitaze the $username by remove tags
-  $username = filter_var($username, FILTER_SANITAZE_STRING);
+  $username = filter_var($username, FILTER_SANITIZE_STRING);
   // trim white space from beginning and the end of the $username
-  $username = trim($username);
+  //$username = trim($username);
   // remove slashes from $username, no / allowed
   //$username = stripslashes($username);
 
