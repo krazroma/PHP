@@ -114,7 +114,7 @@ require('dbconnection.php');
           <!-- Tab panes -->
           <div class="tab-content following">
             <div class="tab-pane active" id="follows" role="tabpanel">
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col-md-6 ml-auto mr-auto">
                   <ul class="list-unstyled follows">
                     <li>
@@ -156,7 +156,7 @@ require('dbconnection.php');
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> -->
             </div>
               <div class="tab-pane text-center" id="following" role="tabpanel">
 
