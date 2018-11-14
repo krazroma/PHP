@@ -11,11 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   // remove slashes from $username, no / allowed
   //$username = stripslashes($username);
 
-  $username = str_replace("/", "", $username);
-  $username = str_replace("\\", "", $username);
-  // remove white space from the middle of the string
-  //$username = str_replace(' ', '', $username); //first parameter is string to look, second is what to replace with
-  $username = preg_replace("/\s+/", "", $username); //removes tab is pressed
+  // $username = str_replace("/", "", $username);
+  // $username = str_replace("\\", "", $username);
+  // // remove white space from the middle of the string
+  // //$username = str_replace(' ', '', $username); //first parameter is string to look, second is what to replace with
+  // $username = preg_replace("/\s+/", "", $username); //removes tab is pressed
 
   // grab POST data password will be hashed so no need to sanitaze
   $password = $_POST['password'];
