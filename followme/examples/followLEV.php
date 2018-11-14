@@ -1,0 +1,209 @@
+<?php
+session_start();
+require('dbconnection.php');
+$main_user = $_SESSION['userid'];
+ ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Profile Page</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Bootstrap core CSS     -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/paper-kit.css?v=2.1.0" rel="stylesheet"/>
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="../assets/css/demo.css" rel="stylesheet" />
+
+    <!--     Fonts and icons     -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-md fixed-top navbar-transparent" color-on-scroll="150">
+  <div class="container">
+  <div class="navbar-translate">
+  <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-bar"></span>
+      <span class="navbar-toggler-bar"></span>
+      <span class="navbar-toggler-bar"></span>
+  </button>
+  <a class="navbar-brand" href="#">FOLLOW ME</a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarToggler">
+    <ul class="navbar-nav ml-auto">
+           <?php require('nav.php'); ?>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+<div class="wrapper">
+<div class="page-header page-header-xs" data-parallax="true" style="background-image: url('../assets/img/fabio-mangione.jpg');">
+<div class="filter"></div>
+</div>
+<div class="section profile-content">
+<div class="container">
+<div class="owner">
+<div class="avatar">
+  <img src="<?php echo $_SESSION['image'];?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+</div>
+<div class="name">
+  <h4 class="title"><?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname'] ?> <br /></h4>
+  <h6 class="description"><?php echo $_SESSION['title'];?></h6>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 ml-auto mr-auto text-center">
+<p><?php echo $_SESSION['descr']; ?> </p>
+  <br />
+  <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</btn>
+</div>
+</div>
+<br/>
+<div class="nav-tabs-navigation">
+<div class="nav-tabs-wrapper">
+  <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#follows" role="tab">Followers</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#following" role="tab">Following</a>
+      </li>
+  </ul>
+</div>
+</div>
+
+<!-- Tab panes -->
+<div class="tab-content following">
+
+<div class="tab-pane active" id="follows" role="tabpanel">
+  <div class="row">
+      <div class="col-md-6 ml-auto mr-auto">
+        <ul class="list-unstyled follows">
+          <?php
+          $sql="SELECT * FROM fm_users, fm_follow WHERE fm_users.userid = fm_follow.user_id AND fm_follow.follow_by = $main_user;";
+
+          $result = $conn->query($sql);
+          while ($row = $result->fetch_assoc()) {
+              $_user_id = $row['userid'];
+              $_user_firstname = $row['firstname'];
+              $_user_lastname = $row['lastname'];
+              $_user_title = $row['title'];
+              $_user_image = $row['image'];
+              //generates an array of all users
+              $all_user[]=$row['userid'];
+          ?>
+<li>
+<div class="row">
+  <div class="col-md-2 col-sm-2 ml-auto mr-auto">
+    <img src="<?php echo $_user_image ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+    </div>
+<div class="col-md-7 col-sm-4  ml-auto mr-auto">
+  <h6> <?php echo ( $_user_firstname . " " . $_user_lastname. " user id:  " . $_user_id) ?><br/>
+    <small><?php echo $_user_title ?></small></h6>
+</div>
+<div class="col-md-3 col-sm-2  ml-auto mr-auto">
+  <div class="form-check">
+    <label class="form-check-label">
+      <input class="form-check-input" name="<?php echo $_user_id ?>" type="checkbox" value="<?php echo $_user_id ?>" >
+      <span class="form-check-sign"></span>
+    </label>
+  </div>
+</div>
+</div>
+</li>
+<hr />
+<?php } ?>
+</div>
+</ul>
+</div>
+</div>
+<!-- begins the other following tab -->
+<div class="tab-pane text-center" id="following" role="tabpanel">
+    <div class="row">
+        <div class="col-md-6 ml-auto mr-auto">
+          <ul class="list-unstyled follows">
+            <?php
+            $sql="SELECT * FROM fm_users, fm_follow WHERE fm_users.userid = fm_follow.follow_by AND fm_follow.user_id = $main_user;";
+
+            $result = $conn->query($sql);
+            while ($row = $result->fetch_assoc()) {
+                $_user_id = $row['userid'];
+                $_user_firstname = $row['firstname'];
+                $_user_lastname = $row['lastname'];
+                $_user_title = $row['title'];
+                $_user_image = $row['image'];
+                //generates an array of all users
+                $all_user[]=$row['userid'];
+            ?>
+  <li>
+  <div class="row">
+    <div class="col-md-2 col-sm-2 ml-auto mr-auto">
+      <img src="<?php echo $_user_image ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+      </div>
+  <div class="col-md-7 col-sm-4  ml-auto mr-auto">
+    <h6> <?php echo ( $_user_firstname . " " . $_user_lastname. " user id:  " . $_user_id) ?><br/>
+      <small><?php echo $_user_title ?></small></h6>
+  </div>
+  <div class="col-md-3 col-sm-2  ml-auto mr-auto">
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" name="<?php echo $_user_id ?>" type="checkbox" value="<?php echo $_user_id ?>" >
+        <span class="form-check-sign"></span>
+      </label>
+    </div>
+  </div>
+  </div>
+  </li>
+  <hr />
+  <?php } ?>
+  </div>
+  </ul>
+</div>
+</div>
+</div>
+
+
+<footer class="footer section-dark">
+<div class="container">
+<div class="row">
+<nav class="footer-nav">
+<ul>
+<li><a href="https://www.creative-tim.com">Creative Tim</a></li>
+<li><a href="http://blog.creative-tim.com">Blog</a></li>
+<li><a href="https://www.creative-tim.com/license">Licenses</a></li>
+</ul>
+</nav>
+<div class="credits ml-auto">
+<span class="copyright">
+© <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+</span>
+</div>
+</div>
+</div>
+</footer>
+</body>
+
+<!-- Core JS Files -->
+<script src="../assets/js/jquery-3.2.1.js" type="text/javascript"></script>
+<script src="../assets/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
+<!-- <script src="../assets/js/tether.min.js" type="text/javascript"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+
+<!--  Paper Kit Initialization snd functons -->
+<script src="../assets/js/paper-kit.js?v=2.1.0"></script>
+
+</html>
