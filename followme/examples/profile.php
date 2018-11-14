@@ -1,25 +1,20 @@
 <?php
 session_start();
-
-// //var_dump($first_name, $last_name, $user_email, $user_password, $image_url, $description, $title);
-//
-// // Uses $_SESSION['email'] to display in navigation
-// //done
-//
-// //modify fm_users to include image_url load it to $_SESSION['image_url']
-// //done
-//
-//
-// // modify fm_users table to include first_name and last_name and put it in session variable $_SESSION['first_name'] and $_SESSION['last_name']
-// //done
-//
-// // modify fm_users to add title and then load it to $_SESSION['title']
-// //done
-//
-// // modify fm_users to add description and then load into $_SESSION['description']
-// // done
-
 require('dbconnection.php');
+
+
+
+
+$MAIN_user_id = $_SESSION['user_id'];
+
+// sql statement to select following users from database
+$sql2 = "SELECT * FROM fm_follows WHERE user_id = '$MAIN_user_id'";
+$result2 = $conn->query($sql2);
+$folliwing_user_ids = array();
+while($row2 = $result2->fetch_assoc())
+{
+  $folliwing_user_ids[] = $row2['following_user_id'];
+}
 
 ?>
 <!doctype html>
@@ -157,6 +152,55 @@ require('dbconnection.php');
                   </ul>
                 </div>
               </div> -->
+
+
+
+
+							<div class="row">
+								<div class="col-md-6 ml-auto mr-auto">
+									<ul class="list-unstyled follows">
+											<?php
+
+											$sql = "SELECT * FROM fm_follows WHERE user_id = '$MAIN_user_id'";
+											$result = $conn->query($sql);
+											while($row = $result->fetch_assoc())
+												{
+											?>
+
+												<li>
+													<div class="row">
+														<div class="col-md-2 col-sm-2 ml-auto mr-auto">
+															<img src="<?php echo $row['image_url']; ?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+														</div>
+														<div class="col-md-7 col-sm-4  ml-auto mr-auto">
+															<h6><?php echo $row['first_name']; echo " "; echo $row['last_name']; echo " "; echo $row['user_id'];?><br/><small><?php echo $row['title']; ?></small></h6>
+														</div>
+														<div class="col-md-3 col-sm-2  ml-auto mr-auto">
+															<div class="form-check">
+																<label class="form-check-label">
+
+																	<input class="form-check-input" type="checkbox" <?php
+																			$user_id = $row['user_id'];
+																			if(in_array("$user_id", $folliwing_user_ids))
+																			{
+																				echo "checked";
+																			}
+																	?> name="<?php echo $user_id ?>" value="<?php echo $user_id ?>">
+																		<span class="form-check-sign"></span>
+																</label>
+															</div>
+														</div>
+													</div>
+												</li>
+												<hr />
+											<?php } ?>
+											<!-- <input type="submit" value="Submit" name="submit" button class="btn btn-danger btn-block btn-round"> -->
+										</form>
+
+
+
+
+
             </div>
               <div class="tab-pane text-center" id="following" role="tabpanel">
 
@@ -169,9 +213,6 @@ require('dbconnection.php');
 
 
                   <!-- <h3 class="text-muted">Not following anyone yet :(</h3>
-
-
-
                   <button class="btn btn-warning btn-round">Find artists</button> -->
               </div>
           </div>
