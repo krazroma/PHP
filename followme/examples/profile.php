@@ -104,7 +104,7 @@ $MAIN_user_id = $_SESSION['user_id'];
 											$result = $conn->query($sql);
 											while($row = $result->fetch_assoc())
 												{
-													$follow_user_id = $row['user_id'];
+													$follow_user_id = $row['following_user_id'];
 													$follow_user_first_name = $row['first_name'];
 													$follow_user_last_name = $row['last_name'];
 													$follow_user_title = $row['title'];
