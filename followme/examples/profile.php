@@ -3,7 +3,79 @@ session_start(); // starts session
 require('dbconnection.php'); // brings db connection
 $MAIN_user_id = $_SESSION['user_id']; // session user id is stored in the variable
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+if (isset( $_POST["submit"]))
+{
+	if (isset($_FILES['upload']))
+	{
+	  // check to see if uploads folder file_exists
+	  //if(file_exists("uploads") === false)
+	  if(!file_exists("uploads"))
+	  {
+	    // if uploads folder does not exist create interface
+	    mkdir("./uploads");
+	  }
+
+	if(!file_exists("uploads/" . $_SESSION['username']))
+	{
+	  mkdir("uploads/" . $_SESSION["username"], 0777, true);
+	}
+
+	  $target_dir = "uploads/" . $_SESSION["username"] . "/";
+	  $target_file = $target_dir . basename($_FILES['upload']['name']);
+	  $uploadVerification = true;
+
+	// Lets check if the file already pcntl_wexitstatus
+	if(file_exists($target_file))
+	{
+	  $uploadVerification = false;
+	  $ret = "Sorry file already exists";
+	}
+
+	$file_type = $_FILES['upload']['type'];
+	switch ($file_type)
+	{
+	  case 'image/jpeg':
+	    $uploadVerification = true;
+	    break;
+
+	  case 'image/png':
+	    $uploadVerification = true;
+	    break;
+
+	  case 'image/gif':
+	    $uploadVerification = true;
+	    break;
+
+	  case 'application/pdf':
+	    $uploadVerification = true;
+	    break;
+
+	  default:
+	    $uploadVerification = false;
+	    $ret = "Sorry only jpg, png, gif, and pdf files are allowed";
+	    //break;
+	}
+
+
+
+	if($_FILES['upload']['size'] > 1000000)
+	{
+	  $uploadVerification = false;
+	  $ret = "Sorry file is too big";
+	}
+	// check is file already exists
+	  if ($uploadVerification)
+	  {
+	    move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
+	  }
+	}
+}
+
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -78,11 +150,16 @@ $MAIN_user_id = $_SESSION['user_id']; // session user id is stored in the variab
           </div>
           <div class="row">
 	          <div class="col-md-6 ml-auto mr-auto text-center">
+							<form action="" method="post" enctype="multipart/form-data">
 							<!-- prints description from database -->
 	            <p><?php echo $_SESSION['description']; ?></p>
 	            <br />
-	            <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</btn>
-	          </div>
+							  <input type="file" name="upload">
+							  <br />
+							  <input type="submit">
+	            <btn class="btn btn-outline-default btn-round" type="submit" value="Submit"><i class="fa fa-cog"></i>Settings</btn>
+							</form>
+						</div>
           </div>
           <br/>
           <div class="nav-tabs-navigation">
