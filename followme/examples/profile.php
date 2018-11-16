@@ -160,11 +160,13 @@ if (isset( $_POST["submit"]))
 								//////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 
-							  <!-- <input type="file" name="upload">
+
+
+            		<btn class="btn btn-outline-default btn-round" type="submit" value="Submit"><i class="fa fa-cog"></i>Settings</btn>
+								 <br />
+								<input type="file" name="upload">
 							  <br />
 							  <input type="submit">
-            		<btn class="btn btn-outline-default btn-round" type="submit" value="Submit"><i class="fa fa-cog"></i>Settings</btn> -->
-
 
 
 								<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
