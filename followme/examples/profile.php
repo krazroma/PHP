@@ -73,6 +73,8 @@ if (isset( $_POST["submit"]))
 	  }
 	}
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ?>
 
@@ -151,13 +153,22 @@ if (isset( $_POST["submit"]))
           <div class="row">
 	          <div class="col-md-6 ml-auto mr-auto text-center">
 							<form action="" method="post" enctype="multipart/form-data">
-							<!-- prints description from database -->
-	            <p><?php echo $_SESSION['description']; ?></p>
-	            <br />
-							  <input type="file" name="upload">
+								<!-- prints description from database -->
+		            <p><?php echo $_SESSION['description']; ?></p>
+		            <br />
+								<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+								//////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+							  <!-- <input type="file" name="upload">
 							  <br />
 							  <input type="submit">
-	            <btn class="btn btn-outline-default btn-round" type="submit" value="Submit"><i class="fa fa-cog"></i>Settings</btn>
+            		<btn class="btn btn-outline-default btn-round" type="submit" value="Submit"><i class="fa fa-cog"></i>Settings</btn> -->
+
+
+
+								<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+								//////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 							</form>
 						</div>
           </div>
