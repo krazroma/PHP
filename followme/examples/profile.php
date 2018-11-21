@@ -14,17 +14,6 @@ while ($row = $result_main->fetch_assoc())
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
 ?>
 
 <!doctype html>

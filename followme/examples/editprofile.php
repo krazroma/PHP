@@ -35,7 +35,7 @@ while ($row = $result_main->fetch_assoc())
 ////////////////////////////////////////////////////////////
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-        $target_dir = "../assets/img/faces/";
+        $target_dir = "images/";
         $target_file = $target_dir . basename($_FILES['upload']['name']);
         $uploadVerification=true;
         if (file_exists($target_file))
