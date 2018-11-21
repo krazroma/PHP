@@ -1,9 +1,12 @@
 <?php
 session_start();
-require('dbconnection.php');
+require('dbconnection.php'); // bring in database connection
 
+// bring everything where id is matching the session
 $sql_main="SELECT * FROM fm_users WHERE user_id = " . $_SESSION['user_id'];
 $result_main = $conn->query($sql_main);
+
+// set session variables from database
 while ($row = $result_main->fetch_assoc())
   {
     if ($_SESSION['user_id'] == $row['user_id'])
@@ -15,56 +18,69 @@ while ($row = $result_main->fetch_assoc())
     }
   }
 
+// if submitted something
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-  //$target_dir = "../assets/img/faces/";
+  // upload pictures to the following directory
   $target_dir = "../assets/img/faces/";
-  echo "$target_dir";
   $target_file = $target_dir . basename($_FILES['upload']['name']);
   $uploadVerification=true;
 
+  // if file is already there dont upload
   if (file_exists($target_file))
   {
     $uploadVerification=false;
     $errorMessage = "Sorry file already exists";
   }
 
+  // set file type
   $file_type = $_FILES['upload']['type'];
 
+  // check the extension for propper picture format
   switch ($file_type)
   {
-      case "image/jpeg":$uploadVerification = true; $img_type=".jpg";break;
-      case "image/png":$uploadVerification = true; $img_type=".png";break;
-      case "image/gif":$uploadVerification = true; $img_type=".gif";break;
+      case "image/jpeg":
+        $uploadVerification = true;
+        $img_type=".jpg";
+      break;
+      case "image/png":
+        $uploadVerification = true;
+        $img_type=".png";
+      break;
+      case "image/gif":
+        $uploadVerification = true;
+        $img_type=".gif";break;
       default: $uploadVerification = false;
       $errorMessage = "Sorry only jpg, png, and gif files are allowed!";
   }
-  echo $img_type;
+
   if (file_exists($target_file))
   {
     $uploadVerification=false;
     $errorMessage = "Sorry file already exists";
   }
 
+  // check file size
   if ($_FILES['upload']['size'] > 10000000)
   {
     $uploadVerification=false;
     $errorMessage = "Sorry file is too big";
   }
 
-  // $uploadVerification=true;//force
+  // file type
   $target_file = $target_dir . $_SESSION['userid'] . $img_type;
 
+  // upload picture and update database
   if ($uploadVerification)
   {
     move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
-  //  echo $_SESSION['user_id'];
     $sql2 ="UPDATE fm_users SET image_url='$target_file' WHERE user_id = " . $_SESSION['user_id'];
     $result2 = $conn->query($sql2);
   }
 
-  $sql_u ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
-  $result_update = $conn->query($sql_u);
+  // // 
+  // $sql3 ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
+  // $result_update = $conn->query($sql3);
 
   header('Location: profile.php');
 }
