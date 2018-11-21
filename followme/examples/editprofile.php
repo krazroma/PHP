@@ -52,7 +52,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $errorMessage = "Sorry file is too big";
   }
 
-  $uploadVerification=true;//force
+  // $uploadVerification=true;//force
   $target_file = $target_dir . $_SESSION['userid'] . $img_type;
 
   if ($uploadVerification)

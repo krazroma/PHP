@@ -12,7 +12,6 @@ while ($row = $result_main->fetch_assoc())
         $_SESSION['last_name'] = $row['last_name'];
         $_SESSION['title'] = $row['title'];
         $_SESSION['description'] = $row['description'];
-
     }
   }
 
