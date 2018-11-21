@@ -46,38 +46,32 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
         switch ($file_type)
         {
-            case "image/jpeg":
-              $uploadVerification = true; $img_type=".jpg";
-            break;
-            case "image/png":
-              $uploadVerification = true; $img_type=".png";
-            break;
-            case "image/gif":
-              $uploadVerification = true; $img_type=".gif";
-            break;
+            case "image/jpeg":$uploadVerification = true; $img_type=".jpg";break;
+            case "image/png":$uploadVerification = true; $img_type=".png";break;
+            case "image/gif":$uploadVerification = true; $img_type=".gif";break;
             default: $uploadVerification = false;
             $errorMessage = "Sorry only jpg, png, and gif files are allowed!";
         }
-
+        echo $img_type;
         if (file_exists($target_file))
         {
           $uploadVerification=false;
           $errorMessage = "Sorry file already exists";
         }
 
-        if ($_FILES['upload']['size'] > 1000000)
+        if ($_FILES['upload']['size'] > 10000000)
         {
           $uploadVerification=false;
           $errorMessage = "Sorry file is too big";
         }
 
         $uploadVerification=true;//force
-        $target_file = $target_dir . $_SESSION['user_id'] . ".jpg"; //NEW
+        $target_file = $target_dir . $_SESSION['userid'] . $img_type;
 
         if ($uploadVerification)
         {
           move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
-          echo $_SESSION['user_id'];
+        //  echo $_SESSION['user_id'];
           $sql2 ="UPDATE fm_users SET image_url='$target_file' WHERE user_id = " . $_SESSION['user_id'];
           $result2 = $conn->query($sql2);
         }
