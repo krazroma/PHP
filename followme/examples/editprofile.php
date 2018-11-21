@@ -73,10 +73,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
         if ($_FILES['upload']['size'] > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
 
-        $target_file = $target_dir . $_SESSION['userid'] . $img_type; //NEW
+        $target_file = $target_dir . $_SESSION['user_id'] . $img_type; //NEW
         if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
 
-            $sql2 ="UPDATE fm_users SET image='$target_file' WHERE userid = " . $_SESSION['userid'];
+            $sql2 ="UPDATE fm_users SET image='$target_file' WHERE userid = " . $_SESSION['user_id'];
             $result2 = $conn->query($sql2);
         }
 
