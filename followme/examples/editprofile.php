@@ -31,7 +31,7 @@ while ($row = $result_main->fetch_assoc())
         // header('Location: profile.php');
     }
   }
-var_dump($_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['title'], $_SESSION['description'], $_SESSION['user_id']);
+// var_dump($_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['title'], $_SESSION['description'], $_SESSION['user_id']);
 print_r($_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['title'], $_SESSION['description'], $_SESSION['user_id']);
 ////////////////////////////////////////////////////////////
 if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -80,6 +80,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         {
           move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
           echo "$_SESSION['user_id']";
+          echo "go home you are done here";
           $sql2 ="UPDATE fm_users SET image_url='$target_file' WHERE user_id = " . $_SESSION['user_id'];
           $result2 = $conn->query($sql2);
         }
@@ -87,7 +88,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         $sql_u ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
         $result_update = $conn->query($sql_u);
 
-        header('Location: profile.php');
+        //header('Location: profile.php');
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
