@@ -15,19 +15,6 @@ while ($row = $result_main->fetch_assoc())
 
     }
   }
-echo  $_SESSION['user_id'];
-echo "<br />";
-echo  $_SESSION['first_name'];
-echo "<br />";
-echo  $_SESSION['last_name'];
-echo "<br />";
-echo  $_SESSION['title'];
-echo "<br />";
-echo  $_SESSION['description'];
-echo "<br />";
-echo  $_SESSION['image_url'];
-echo "<br />";
-
 
 $sql_main="SELECT * FROM fm_users WHERE user_id = " . $_SESSION['user_id'];
 $result_main = $conn->query($sql_main);
