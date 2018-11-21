@@ -64,7 +64,7 @@ if (isset( $_POST["submit"]))
 	if($_FILES['upload']['size'] > 1000000)
 	{
 	  $uploadVerification = false;
-	  $ret = "Sorry file is too big";
+	  $ret = "Sorry `file` is too big";
 	}
 	// check is file already exists
 	  if ($uploadVerification)
@@ -89,7 +89,7 @@ if (isset( $_POST["submit"]))
 	<title>Profile page</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="width=device-width" />
 
 	<!-- Bootstrap core CSS     -->
 	<link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
