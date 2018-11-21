@@ -42,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         if (file_exists($target_file))
         {
           $uploadVerification=false;
-          $ret = "Sorry file already exists";
+          $errorMessage = "Sorry file already exists";
         }
 
         $file_type = $_FILES['upload']['type'];
@@ -59,18 +59,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
               $uploadVerification = true; $img_type=".gif";
             break;
             default: $uploadVerification = false;
-            $ret = "Sorry only jpg, png, and gif files are allowed!";
+            $errorMessage = "Sorry only jpg, png, and gif files are allowed!";
         }
 
         if (file_exists($target_file))
         {
           $uploadVerification=false;
-          $ret = "Sorry file already exists";
+          $errorMessage = "Sorry file already exists";
         }
 
         if ($_FILES['upload']['size'] > 1000000)
         {
-          $uploadVerification=false; $ret = "Sorry file is too big";
+          $uploadVerification=false; $errorMessage = "Sorry file is too big";
         }
 
         $target_file = $target_dir . $_SESSION['user_id'] . $img_type; //NEW
@@ -191,7 +191,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
                 <label>Upload A New Profile Picture:</label>
                 <input type="file" name="upload">
-                <label><?php if($ret){echo $ret;}  ?></label>
+                <label><?php if($errorMessage){echo $errorMessage;}  ?></label>
 
 
                 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
