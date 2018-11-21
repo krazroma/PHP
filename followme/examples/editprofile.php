@@ -28,14 +28,6 @@ echo "<br />";
 echo  $_SESSION['image_url'];
 echo "<br />";
 
-
-
-
-
-
-//var_dump($_SESSION);
-//print_r($_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['title'], $_SESSION['description']);
-////////////////////////////////////////////////////////////
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
         //$target_dir = "../assets/img/faces/";
@@ -43,6 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         echo "$target_dir";
         $target_file = $target_dir . basename($_FILES['upload']['name']);
         $uploadVerification=true;
+
         if (file_exists($target_file))
         {
           $uploadVerification=false;
@@ -78,7 +71,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
           $errorMessage = "Sorry file is too big";
         }
 
+        $uploadVerification=true;//force
         $target_file = $target_dir . $_SESSION['user_id'] . $img_type; //NEW
+
         if ($uploadVerification)
         {
           move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
