@@ -22,7 +22,7 @@ $sql_main="SELECT * FROM fm_users WHERE user_id = " . $_SESSION['user_id'];
 $result_main = $conn->query($sql_main);
 while ($row = $result_main->fetch_assoc())
   {
-    if (($_SESSION['user_id'] == $row['user_id']))
+    if ($_SESSION['user_id'] == $row['user_id'])
     {
         $_SESSION['first_name'] = $row['first_name'];
         $_SESSION['last_name'] = $row['last_name'];
