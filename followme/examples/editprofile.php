@@ -79,7 +79,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         if ($uploadVerification)
         {
           move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
-          echo $_SESSION['user_id'];
+          echo "$_SESSION['user_id']";
           $sql2 ="UPDATE fm_users SET image_url='$target_file' WHERE user_id = " . $_SESSION['user_id'];
           $result2 = $conn->query($sql2);
         }
