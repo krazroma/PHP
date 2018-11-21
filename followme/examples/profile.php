@@ -17,6 +17,8 @@ while ($row = $result_main->fetch_assoc())
     }
   }
 
+  var_dump($_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['title'], $_SESSION['description'], $_SESSION['user_id']);
+  print_r($_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['title'], $_SESSION['description'], $_SESSION['user_id']);
 
 $sql_main="SELECT * FROM fm_users WHERE user_id = " . $_SESSION['user_id'];
 $result_main = $conn->query($sql_main);
