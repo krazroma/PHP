@@ -31,7 +31,8 @@ while ($row = $result_main->fetch_assoc())
         // header('Location: profile.php');
     }
   }
-
+var_dump($_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['title'], $_SESSION['description']);
+print_r($_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['title'], $_SESSION['description']);
 ////////////////////////////////////////////////////////////
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
