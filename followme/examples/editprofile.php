@@ -147,7 +147,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 							<div class="col-md-8 ml-auto mr-auto">
 								<h2 class="text-center">Edit Profile</h2>
 
-								<form class="contact-form" action="" method="post">
+								<form class="contact-form" action="" method="post" enctype="multipart/form-data">
 								<div class="row">
 
 									<div class="col-md-6">
