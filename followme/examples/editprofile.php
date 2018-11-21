@@ -78,10 +78,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $result2 = $conn->query($sql2);
   }
 
-  // // 
-  // $sql3 ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
-  // $result_update = $conn->query($sql3);
-
   header('Location: profile.php');
 }
 
