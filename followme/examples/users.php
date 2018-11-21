@@ -118,7 +118,7 @@ if (isset( $_POST["submit"]))
               <a href="#" class="nav-link"><?php echo $_SESSION['user_email']; ?></a>
             </li>
             <li class="nav-item">
-              <a href="editprofile.php" class="nav-link">Profile</a>
+              <a href="editprofile.php" class="nav-link">Edit Profile</a>
             </li>
             <li class="nav-item">
               <a href="users.php?logout=true" class="nav-link">Logout</a>
