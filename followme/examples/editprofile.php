@@ -76,11 +76,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         $target_file = $target_dir . $_SESSION['user_id'] . $img_type; //NEW
         if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
 
-            $sql2 ="UPDATE fm_users SET image='$target_file' WHERE userid = " . $_SESSION['user_id'];
+            $sql2 ="UPDATE fm_users SET image='$target_file' WHERE user_id = " . $_SESSION['user_id'];
             $result2 = $conn->query($sql2);
         }
 
-        $sql_u ="UPDATE fm_users SET firstname='".$_POST['first_name']."', last_name='".$_POST['last_name']."',title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
+        $sql_u ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
         $result_update = $conn->query($sql_u);
 
         header('Location: profile.php');
