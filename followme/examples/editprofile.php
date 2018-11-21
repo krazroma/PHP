@@ -143,6 +143,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 								<div class="row">
 									<div class="col-md-4 ml-auto mr-auto text-center">
 										<button class="btn btn-danger btn-lg btn-fill" type="submit">Update</button>
+                    <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+
+
+
+                    <btn class="btn btn-outline-default btn-round" type="submit" value="Submit"><i class="fa fa-cog"></i>Settings</btn>
+                     <br />
+                    <input type="file" name="upload">
+                    <br />
+                    <input type="submit">
+
+
+                    <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 									</div>
 								</div>
 								</form>
