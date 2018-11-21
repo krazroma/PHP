@@ -173,16 +173,7 @@ if (isset( $_POST["submit"]))
 
 								<p><b>Note:</b> The element will not take up any space when the display property set to "none".</p>
 
-								<script>
-								function myFunction() {
-								    var x = document.getElementById("myDIV");
-								    if (x.style.display === "none") {
-								        x.style.display = "block";
-								    } else {
-								        x.style.display = "none";
-								    }
-								}
-								</script>
+
 
 
             		<btn class="btn btn-outline-default btn-round" type="submit" value="Submit"><i class="fa fa-cog"></i>Settings</btn>
@@ -341,7 +332,16 @@ if (isset( $_POST["submit"]))
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
 
-
+<script>
+function myFunction() {
+		var x = document.getElementById("myDIV");
+		if (x.style.display === "none") {
+				x.style.display = "block";
+		} else {
+				x.style.display = "none";
+		}
+}
+</script>
 <!--  Paper Kit Initialization snd functons -->
 <script src="../assets/js/paper-kit.js?v=2.1.0"></script>
 
