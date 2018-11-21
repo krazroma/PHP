@@ -28,7 +28,7 @@ while ($row = $result_main->fetch_assoc())
         $_SESSION['last_name'] = $row['last_name'];
         $_SESSION['title'] = $row['title'];
         $_SESSION['description'] = $row['description'];
-        // header('Location: profile.php');
+        header('Location: profile.php');
     }
   }
 //var_dump($_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['title'], $_SESSION['description'], $_SESSION['user_id']);
@@ -38,6 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
         //$target_dir = "../assets/img/faces/";
         $target_dir = "../assets/img/faces/" . $_SESSION["user_name"] . "/";
+        echo "$target_dir";
         $target_file = $target_dir . basename($_FILES['upload']['name']);
         $uploadVerification=true;
         if (file_exists($target_file))
