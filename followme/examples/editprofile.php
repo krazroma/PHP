@@ -31,7 +31,7 @@ echo "<br />";
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
         //$target_dir = "../assets/img/faces/";
-        $target_dir = "../assets/img/faces/" . $_SESSION["user_name"] . "/";
+        $target_dir = "../assets/img/faces/";
         echo "$target_dir";
         $target_file = $target_dir . basename($_FILES['upload']['name']);
         $uploadVerification=true;
