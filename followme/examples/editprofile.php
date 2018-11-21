@@ -28,17 +28,16 @@ while ($row = $result_main->fetch_assoc())
         $_SESSION['last_name'] = $row['last_name'];
         $_SESSION['title'] = $row['title'];
         $_SESSION['description'] = $row['description'];
-        //header('Location: profile.php');
+        // header('Location: profile.php');
     }
   }
-//var_dump($_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['title'], $_SESSION['description'], $_SESSION['user_id']);
-//print_r($_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['title'], $_SESSION['description'], $_SESSION['user_id']);
+var_dump($_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['title'], $_SESSION['description'], $_SESSION['user_id']);
+print_r($_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['title'], $_SESSION['description'], $_SESSION['user_id']);
 ////////////////////////////////////////////////////////////
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
         //$target_dir = "../assets/img/faces/";
         $target_dir = "../assets/img/faces/" . $_SESSION["user_name"] . "/";
-        echo "$target_dir";
         $target_file = $target_dir . basename($_FILES['upload']['name']);
         $uploadVerification=true;
         if (file_exists($target_file))
@@ -80,8 +79,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         if ($uploadVerification)
         {
           move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
-          echo "$_SESSION['user_id']";
-          echo "go home you are done here";
+          echo $_SESSION['user_id'];
           $sql2 ="UPDATE fm_users SET image_url='$target_file' WHERE user_id = " . $_SESSION['user_id'];
           $result2 = $conn->query($sql2);
         }
