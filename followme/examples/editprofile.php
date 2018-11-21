@@ -1,6 +1,5 @@
 <?php
 // strt session if it is not running
-
 session_start();
 
 // setting up the Database connection
@@ -15,22 +14,22 @@ if ($conn->connect_error)
 }
 
 
-$sql ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',
-title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
-$result = $conn->query($sql);
+// $sql ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',
+// title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
+// $result = $conn->query($sql);
 
 $sql_main="SELECT * FROM fm_users WHERE user_id = " . $_SESSION['user_id'];
 $result_main = $conn->query($sql_main);
 while ($row = $result_main->fetch_assoc())
   {
     if (($_SESSION['user_id'] == $row['user_id']))
-        {
-            $_SESSION['first_name'] = $row['first_name'];
-            $_SESSION['last_name'] = $row['last_name'];
-            $_SESSION['title'] = $row['title'];
-            $_SESSION['description'] = $row['description'];
-            // header('Location: profile.php');
-        }
+    {
+        $_SESSION['first_name'] = $row['first_name'];
+        $_SESSION['last_name'] = $row['last_name'];
+        $_SESSION['title'] = $row['title'];
+        $_SESSION['description'] = $row['description'];
+        // header('Location: profile.php');
+    }
   }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -45,35 +44,45 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
         switch ($file_type)
         {
-            case "image/jpeg":$uploadVerification = true; $img_type=".jpg";    break;
-            case "image/png":    $uploadVerification = true;    $img_type=".png"; break;
-            case "image/gif":    $uploadVerification = true;    $img_type=".gif"; break;
+            case "image/jpeg":
+              $uploadVerification = true; $img_type=".jpg";
+            break;
+            case "image/png":
+              $uploadVerification = true; $img_type=".png";
+            break;
+            case "image/gif":
+              $uploadVerification = true; $img_type=".gif";
+            break;
             default: $uploadVerification = false;
             $ret = "Sorry only jpg, png, and gif files are allowed!";
         }
 
-        if (file_exists($target_file)) {  $uploadVerification=false;  $ret = "Sorry file already exists";}
+        if (file_exists($target_file))
+        {
+          $uploadVerification=false;
+          $ret = "Sorry file already exists";
+        }
 
-        if ($_FILES['upload']['size'] > 1000000){ $uploadVerification=false; $ret = "Sorry file is too big"; }
+        if ($_FILES['upload']['size'] > 1000000)
+        {
+          $uploadVerification=false; $ret = "Sorry file is too big";
+        }
 
         $target_file = $target_dir . $_SESSION['user_id'] . $img_type; //NEW
-        if ($uploadVerification){move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
-
-            $sql2 ="UPDATE fm_users SET image_url='$target_file' WHERE user_id = " . $_SESSION['user_id'];
-            $result2 = $conn->query($sql2);
+        if ($uploadVerification)
+        {
+          move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
+          $sql2 ="UPDATE fm_users SET image_url='$target_file' WHERE user_id = " . $_SESSION['user_id'];
+          $result2 = $conn->query($sql2);
         }
 
         $sql_u ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
         $result_update = $conn->query($sql_u);
 
         header('Location: profile.php');
-}// ends if post server access
+}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
 
 ?>
 <!doctype html>
