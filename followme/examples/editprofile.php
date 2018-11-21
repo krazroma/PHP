@@ -72,7 +72,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         }
 
         $uploadVerification=true;//force
-        $target_file = $target_dir . $_SESSION['user_id'] . $img_type; //NEW
+        $target_file = $target_dir . $_SESSION['user_id'] . "$img_type"; //NEW
 
         if ($uploadVerification)
         {
