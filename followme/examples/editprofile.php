@@ -4,50 +4,23 @@
 session_start();
 require('dbconnection.php');
 
-// if (isset($_POST))
-if($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-  // $db_host = 'localhost'; // Database is installed on the PHPH server
-  // $db_user = 'roman'; // name to log in to MySQL
-  // $db_password = 'southhills#'; // password to login to MySQL
-  // $db_name = 'roman'; // name of the database within MySQL
-  // $conn = new mysqli($db_host, $db_user, $db_password, $db_name);
-  // if ($conn->connect_error)
-  // {
-  //   die("Connection Failed: " . $conn->connect_error);
-  // }
+$sql ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',
+title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
+$result = $conn->query($sql);
 
-
-  $sql ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',
-  title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
-  $result = $conn->query($sql);
-
-  $sql_main="SELECT * FROM fm_users WHERE user_id = " . $_SESSION['user_id'];
-  $result_main = $conn->query($sql_main);
-  while ($row = $result_main->fetch_assoc())
-    {
-      if (($_SESSION['user_id'] == $row['user_id']))
-          {
-              $_SESSION['first_name'] = $row['first_name'];
-              $_SESSION['last_name'] = $row['last_name'];
-              $_SESSION['title'] = $row['title'];
-              $_SESSION['description'] = $row['description'];
-              // header('Location: profile.php');
-          }
-    }
+$sql_main="SELECT * FROM fm_users WHERE user_id = " . $_SESSION['user_id'];
+$result_main = $conn->query($sql_main);
+while ($row = $result_main->fetch_assoc())
+  {
+    if (($_SESSION['user_id'] == $row['user_id']))
+        {
+            $_SESSION['first_name'] = $row['first_name'];
+            $_SESSION['last_name'] = $row['last_name'];
+            $_SESSION['title'] = $row['title'];
+            $_SESSION['description'] = $row['description'];
+            // header('Location: profile.php');
+        }
   }
-
-// add name attributes to form elements
-// set default values for each form element from $_SESSION
-// Update subbmited values to Database
-// Update submitted values to $_SESSION
-
-
-// update session variables with new values
-
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
