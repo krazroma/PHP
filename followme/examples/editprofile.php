@@ -28,7 +28,7 @@ while ($row = $result_main->fetch_assoc())
         $_SESSION['last_name'] = $row['last_name'];
         $_SESSION['title'] = $row['title'];
         $_SESSION['description'] = $row['description'];
-        header('Location: profile.php');
+        //header('Location: profile.php');
     }
   }
 //var_dump($_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['title'], $_SESSION['description'], $_SESSION['user_id']);
@@ -89,7 +89,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         $sql_u ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
         $result_update = $conn->query($sql_u);
 
-        //header('Location: profile.php');
+        header('Location: profile.php');
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
