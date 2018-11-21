@@ -2,7 +2,28 @@
 session_start(); // starts session
 require('dbconnection.php'); // brings db connection
 $MAIN_user_id = $_SESSION['user_id']; // session user id is stored in the variable
-$_SESSION['image_url'] = $row['image_url'];
+
+$sql_main="SELECT * FROM fm_users WHERE user_id = " . $_SESSION['user_id'];
+$result_main = $conn->query($sql_main);
+while ($row = $result_main->fetch_assoc())
+  {
+    if (($_SESSION['user_id'] == $row['user_id']))
+    {
+  			$_SESSION['image_url'] = $row['image_url'];
+        // header('Location: profile.php');
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
 
