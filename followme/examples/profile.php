@@ -121,6 +121,12 @@ if (isset( $_POST["submit"]))
 	          <a href="login.php" class="nav-link">Login</a>
 	        </li>
 					<li class="nav-item">
+						<a href="editprofile.php" class="nav-link">Edit Profile</a>
+					</li>
+					<li class="nav-item">
+						<a href="users.php?logout=true" class="nav-link">Logout</a>
+					</li>
+					<li class="nav-item">
 	          <a href="login.php" class="nav-link">
 							<?php
 								echo $_SESSION['user_email']; // user_email goes here
