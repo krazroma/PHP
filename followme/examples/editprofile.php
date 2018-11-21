@@ -36,7 +36,8 @@ print_r($_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['title'], $_S
 ////////////////////////////////////////////////////////////
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-        $target_dir = "images/";
+        //$target_dir = "../assets/img/faces/";
+        $target_dir = "../assets/img/faces/" . $_SESSION["user_name"] . "/";
         $target_file = $target_dir . basename($_FILES['upload']['name']);
         $uploadVerification=true;
         if (file_exists($target_file))
@@ -70,13 +71,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
         if ($_FILES['upload']['size'] > 1000000)
         {
-          $uploadVerification=false; $errorMessage = "Sorry file is too big";
+          $uploadVerification=false;
+          $errorMessage = "Sorry file is too big";
         }
 
         $target_file = $target_dir . $_SESSION['user_id'] . $img_type; //NEW
         if ($uploadVerification)
         {
           move_uploaded_file($_FILES['upload']['tmp_name'], $target_file);
+          echo $_SESSION['user_id'];
           $sql2 ="UPDATE fm_users SET image_url='$target_file' WHERE user_id = " . $_SESSION['user_id'];
           $result2 = $conn->query($sql2);
         }
