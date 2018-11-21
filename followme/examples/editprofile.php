@@ -22,10 +22,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
   $result = $conn->query($sql);
 
-  $sql="SELECT * FROM fm_users WHERE user_id = " . $_SESSION['user_id'];
-  $result = $conn->query($sql);
-
-    while ($row = $result->fetch_assoc())
+  $sql_main="SELECT * FROM fm_users WHERE user_id = " . $_SESSION['user_id'];
+  $result_main = $conn->query($sql_main);
+  while ($row = $result_main->fetch_assoc())
     {
       if (($_SESSION['user_id'] == $row['user_id']))
           {
