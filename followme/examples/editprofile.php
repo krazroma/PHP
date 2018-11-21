@@ -36,7 +36,7 @@ while ($row = $result_main->fetch_assoc())
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-        $target_dir = "images/";
+        $target_dir = "../assets/img/faces/";
         $target_file = $target_dir . basename($_FILES['upload']['name']);
         $uploadVerification=true;
         if (file_exists($target_file))
@@ -81,8 +81,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
           $result2 = $conn->query($sql2);
         }
 
-        // $sql_u ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
-        // $result_update = $conn->query($sql_u);
+        $sql_u ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
+        $result_update = $conn->query($sql_u);
 
         header('Location: profile.php');
 }

@@ -2,7 +2,7 @@
 session_start(); // starts session
 require('dbconnection.php'); // brings db connection
 $MAIN_user_id = $_SESSION['user_id']; // session user id is stored in the variable
-
+$_SESSION['image_url'] = $row['image_url'];
 
 ?>
 
