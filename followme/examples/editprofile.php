@@ -2,7 +2,7 @@
 // strt session if it is not running
 
 session_start();
-<?php
+
 // setting up the Database connection
 $db_host = 'localhost'; // Database is installed on the PHPH server
 $db_user = 'roman'; // name to log in to MySQL
@@ -13,7 +13,7 @@ if ($conn->connect_error)
 {
   die("Connection Failed: " . $conn->connect_error);
 }
-?>
+
 
 $sql ="UPDATE fm_users SET first_name='".$_POST['first_name']."', last_name='".$_POST['last_name']."',
 title='".$_POST['title']."', description='".$_POST['description']."' WHERE user_id = " . $_SESSION['user_id'];
